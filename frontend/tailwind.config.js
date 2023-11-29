@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+      colors: { banana: "#FBE6CC"
+
       },
     },
   },
