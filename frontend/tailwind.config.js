@@ -6,8 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      colors: { banana: "#FBE6CC"
-
+      colors: {
+        greeny: "#b4d429",
+        buttoncolor: "#356cfc",
+        menubg: "#FBE6CC",
+        fontmenu: "#130e0c",
       },
     },
   },

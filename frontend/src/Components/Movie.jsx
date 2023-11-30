@@ -5,7 +5,7 @@ import NavTop from './Navtop';
 
 
 
-function Home() {
+function Category() {
     const [isOpen, setClose] = useState(false);
     const toggleNavLeft = () => {
       setClose(!isOpen);
@@ -25,13 +25,12 @@ function Home() {
         </div>
         <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
         <NavTop />
-        <section className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-between ${isOpen ? 'bg-white/0.5' : ''}`}>
-          <div className='w-[55%] bg-black h-full rounded-3xl'>Bla</div>
-          <div className='w-[35%] bg-white h-full rounded-3xl mr-[5%]'>Bla</div>
+        <section className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-center ${isOpen ? 'bg-white/0.5' : ''}`}>
+          Category
         </section>
       </div>
        )
      }
      
 
-export default Home
+export default Category
