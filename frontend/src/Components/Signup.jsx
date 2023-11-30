@@ -11,7 +11,7 @@ function Login() {
 
   return (
     <div className="h-[100vh] px-3 sm:px-10 flex items-center">
-      <div className="w-1/2 sm:w-1/3 lg:1/2 px-6 bg-gray-500 bg-opacity-20 backdrop-blur-sm text-white py-4 rounded-lg">
+      <div className="glass w-1/2 sm:w-1/3 lg:1/2 px-6 bg-gray-500 bg-opacity-20 backdrop-blur-sm text-white py-4 rounded-lg">
         <div className="w-full flex justify-center text-[#b4d429] text-xl mb:2 md:mb-5">
           Sign In
         </div>
@@ -63,7 +63,7 @@ function Login() {
           <button
   type="button"
   onClick={togglePasswordVisibility}
-  className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
+  className="absolute top-1/2 right-2 transform -translate-y-1/2 "
 >
   {showPassword ? (
     <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
