@@ -51,15 +51,11 @@ class MovieController {
           )
       );
 
-      this.displayMovies(movies, genreData.genres);
+      return { movies, genres: genreData.genres };
     } catch (error) {
       console.error("Error:", error);
+      return { error: "Failed to fetch data" };
     }
-  }
-
-  displayMovies(movies, genres) {
-    console.log(movies);
-    console.log(genres);
   }
 }
 
