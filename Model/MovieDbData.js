@@ -16,6 +16,14 @@ class Movie {
     this.posterPath = poster_path;
     this.genreIds = genre_ids;
   }
+
+  // getGenreNames() {
+  //   // Récupérer les noms des genres à partir des IDs
+  //   return this.genreIds.map((genreId) => {
+  //     const genre = this.genresList.find((g) => g.id === genreId);
+  //     return genre ? genre.name : "";
+  //   });
+  // }
 }
 
 class Genre {

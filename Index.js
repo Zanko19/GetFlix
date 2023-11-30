@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const MovieRoutes = require("./Routes/MovieRoutes");
 const path = require("path");
+const { TokenKey } = require("./Model/AccesMovieDb");
 const MovieController = require("./Controller/MovieDbApi");
-const TokenKey = require("./Model/AccesMovieDb");
 
 app.use(express.static(path.join(__dirname, "Views")));
 app.use("/movies", MovieRoutes);

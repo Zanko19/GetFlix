@@ -1,7 +1,9 @@
 const fetch = require("node-fetch");
+const { Movie } = require("../Model/MovieDbData");
+
 class MovieController {
-  constructor(apiKey) {
-    this.apiKey = apiKey;
+  constructor(TokenKey) {
+    this.TokenKey = TokenKey;
   }
 
   async fetchData(movieName) {
@@ -17,14 +19,14 @@ class MovieController {
           method: "GET",
           headers: {
             accept: "application/json",
-            Authorization: `Bearer ${this.apiKey}`,
+            Authorization: `Bearer ${this.TokenKey}`,
           },
         }),
         fetch(searchUrl, {
           method: "GET",
           headers: {
             accept: "application/json",
-            Authorization: `Bearer ${this.apiKey}`,
+            Authorization: `Bearer ${this.TokenKey}`,
           },
         }),
       ]);
