@@ -6,11 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      colors: { banana: "#FBE6CC"
-
+      colors: {
+        banana: "#FBE6CC",
+      },
+      animation: {
+        shine: "shine 1s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
       },
     },
   },
   plugins: [],
-}
-
+};

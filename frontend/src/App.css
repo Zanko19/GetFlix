@@ -16,3 +16,17 @@ backdrop-filter: blur(1.7px);
 -webkit-backdrop-filter: blur(1.7px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 }
+.fancy {
+  padding:12px 12px 12px 0;
+  box-shadow:0 0 0px 0px var(--c,#0000);
+  background:linear-gradient(#b4d429 0 0) left/0 100% no-repeat;
+  clip-path: polygon(-10px 0,var(--x,-10px) 0,var(--x,-10px) -15px,calc(10px + var(--x,-10px)) -15px,calc(10px + var(--x,-10px)) 0,100% 0,100% 100%,calc(10px + var(--x,-10px)) 100%,calc(10px + var(--x,-10px)) calc(100% + 15px),var(--x,-10px) calc(100% + 15px),var(--x,-10px) 100%,-10px 100%);
+ transition: 0.7s linear,box-shadow 0.2s 0.3s; 
+}
+.fancy:hover {
+ --c:#b4d429;
+ color:#fff;
+ --x:calc(100% - 10px);
+ background-size: 100% 100%;
+ transition: 0.7s,clip-path linear 0.4s 0.2s, background-size linear 0.4s 0.2s, color linear 0.4s 0.2s; 
+}

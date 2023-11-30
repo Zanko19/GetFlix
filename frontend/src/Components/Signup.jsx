@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -53,28 +54,23 @@ function Login() {
           </label>
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="email"
               className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
               placeholder="XXXXXXX"
               required
             />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
-            >
-              {showPassword ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 text-[#b4d429]">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 text-[#b4d429]">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2 12s3 5.5 6 9 6-9 6-9" />
-                </svg>
-              )}
-            </button>
+          <button
+  type="button"
+  onClick={togglePasswordVisibility}
+  className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
+>
+  {showPassword ? (
+    <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
+  ) : (
+    <FaEye className="h-5 w-5 text-[#b4d429]" />
+  )}
+</button>
           </div>
         </div>
         <div className="mb-6">
@@ -84,6 +80,7 @@ function Login() {
           >
             Confirm your password
           </label>
+          <div className="relative">
           <input
             type="password"
             onClick={togglePasswordVisibility}
@@ -92,6 +89,19 @@ function Login() {
             placeholder="XXXXXXX"
             required
           />
+            <button
+  type="button"
+  onClick={togglePasswordVisibility}
+  className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
+>
+  {showPassword ? (
+    <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
+  ) : (
+    <FaEye className="h-5 w-5 text-[#b4d429]" />
+  )}
+</button>
+</div>
+
         </div>
         <div className="flex flex-row justify-between">
           <div className="text-[#b4d429] text-sm md:text-md">
@@ -101,9 +111,12 @@ function Login() {
             <a href="../login">Login here</a>
           </div>
         </div>
-        <div className="w-1/2 sm:w-2/3 mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-sm md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] hover:bg-[#71801a]">
-          <a href="#">Become a member</a>
-        </div>
+        <a href="#">
+          {" "}
+          <div className="fancy w-1/2 sm:w-2/3 mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] hover:bg-[#71801a] border border-[#b4d429] hover:scale-110 group-hover:animate-shine focus:ring">
+            Become a member
+          </div>
+        </a>
       </div>
     </div>
   );
