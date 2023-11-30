@@ -1,80 +1,108 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function Sign() {
+function Login() {
+  useEffect(() => {
+    const para = document.createElement("div");
+    para.className =
+      "flex flex-wrap gap-0.5 h-2/3 w-2/3 items-center justify-center relative";
+    let el =
+      '<div class="transition-colors duration-[1.5s] hover:duration-[0s] border-[#b4d429] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#b4d429]"></div>';
+    for (var k = 1; k <= 1000; k++) {
+      el +=
+        '<div class="transition-colors duration-[1.5s] hover:duration-[0s] border-[#b4d429] h-[calc(5vw-2px)] w-[calc(5vw-2px)] md:h-[calc(4vw-2px)] md:w-[calc(4vw-2px)] lg:h-[calc(3vw-4px)] lg:w-[calc(3vw-4px)] bg-gray-900 hover:bg-[#b4d429]"></div>';
+    }
+
+    para.innerHTML = el;
+    document.getElementById("myDIV").appendChild(para);
+  }, []);
+
   return (
-    <div>
-      <h1 className="bg-dark text-xl text-white">Sign Up Page</h1>
 
-      <div className="bg-grey-lighter min-h-screen flex flex-col">
-        <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 relative">
-          <div className='glass px-6 py-8 rounded shadow-md text-dark w-full'>
-            <h1 className="mb-8 text-3xl text-center text-white">Sign up</h1>
-            <input
-              type="text"
-              className="glass block border border-grey-light w-full p-3 rounded mb-4"
-              name="fullname"
-              placeholder="Full Name"
-            />
-
-            <input
-              type="text"
-              className="glass block border border-grey-light w-full p-3 rounded mb-4"
-              name="email"
-              placeholder="Email"
-            />
-
-            <input
-              type="password"
-              className="glass block border border-grey-light w-full p-3 rounded mb-4"
-              name="password"
-              placeholder="Password"
-            />
-            <input
-              type="password"
-              className="glass block border border-grey-light w-full p-3 rounded mb-4"
-              name="confirm_password"
-              placeholder="Confirm Password"
-            />
-
-            <button
-              type="submit"
-              className="glass bg-lime-100 block border border-grey-light w-full p-3 rounded mb-4"
-            >
-              Create Account
-            </button>
-
-            <div className="text-center text-sm text-grey-dark mt-4">
-              By signing up, you agree to the
-              <a
-                className="no-underline border-b border-grey-dark text-grey-dark"
-                href="#"
-              >
-                <p class="underline">Terms of Service</p>
-              </a>{" "}
-              and
-              <a
-                className="no-underline border-b border-grey-dark text-grey-dark"
-                href="#"
-              >
-                <p class="underline">Privacy Policy</p>
-              </a>
+      <div className="before:animate-pulse before:bg-gradient-to-b before:from-gray-900 overflow-hidden before:via-[#00FF00] before:to-gray-900 before:absolute ">
+        <div className="w-1/2" id="myDIV">
+          <div className="w-[100vw] h-[100vh] px-3 sm:px-5 flex items-center justify-left absolute">
+            <div className="w-1/2 sm:w-1/3 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-10 py-4 rounded-lg">
+              <div className="w-full flex justify-center text-[#b4d429] text-xl mb:2 md:mb-5">
+                Sign In
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-xs font-medium text-[#b4d429]"
+                >
+                  Full name
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="bg-[#153635] border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Sarah Willis"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-xs font-medium text-[#b4d429]"
+                >
+                  Your Email
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="bg-[#153635] border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="sarahwillis@hotmail.com"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-xs font-medium text-[#b4d429]"
+                >
+                  Your password
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="bg-[#153635] border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="XXXXXXX"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="password"
+                  className="block mb-2 text-xs font-medium text-[#b4d429]"
+                >
+                  Confirm your password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="bg-[#153635] border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="XXXXXXX"
+                  required
+                />
+              </div>
+              <div className="flex flex-row justify-between">
+                <div className="text-[#b4d429] text-sm md:text-md">
+                  <a href="">Forgot Password?</a>
+                </div>
+                <div className="text-[#b4d429] text-sm md:text-md">
+                  <a href="../login">Login here</a>
+                </div>
+              </div>
+              <div className="w-1/2 sm:w-2/3 mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-sm md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429]">
+                <a href="#">Become a member</a>
+              </div>
             </div>
-          </div>
-          <div className="text-white mt-6">
-            <p>Already have an account?</p>
-            <a
-              className="no-underline border-b border-blue text-white"
-              href="../login/"
-            >
-              <p class="text-center underline">Log in
-            </p></a>
-            
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
 
-export default Sign;
+export default Login;
