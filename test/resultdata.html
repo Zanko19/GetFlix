@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Results</title>
+  </head>
+  <body>
+    <div id="resultPage">
+      <h1>Popular Movies</h1>
+      <ul id="movieList"></ul>
+    </div>
+
+    <script>
+      const url =
+        "https://api.themoviedb.org/3/movie/550?api_key=717c65444a1b44b426f908cdbbd4c091";
+
+      function displayMovies(movies) {
+        const resultPage = document.getElementById("resultPage");
+        const movieList = document.getElementById("movieList");
+
+        movieList.innerHTML = "";
+
+        movies.forEach((movie) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = movie.title;
+          movieList.appendChild(listItem);
+        });
+      }
+
+      function getMovies() {
+        fetch(url)
+          .then((res) => res.json())
+          .then((json) => displayMovies(json.results))
+          .catch((err) => console.error("Error:" + err));
+      }
+
+      document.addEventListener("DOMContentLoaded", getMovies);
+    </script>
+  </body>
+</html>
