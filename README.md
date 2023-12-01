@@ -13,5 +13,6 @@
 
 ## Run the server :
 
+- "npm install"
 - "npm run dev" for see controller and backend functions
 - u can see resultdata.html on views for see images and videos
