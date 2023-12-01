@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/search/:movieName", async (req, res) => {
   const movieName = req.params.movieName;
 
-  const searchData = await movieController.fetchData(movieName);
+  const searchData = await MovieController.fetchData(movieName);
 
   if (searchData.error) {
     return res.status(500).json({ error: searchData.error });
