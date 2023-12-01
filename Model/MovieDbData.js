@@ -6,7 +6,8 @@ class Movie {
     overview,
     vote_average,
     poster_path,
-    genre_ids
+    genre_ids,
+    videoData
   ) {
     this.id = id;
     this.title = title;
@@ -15,15 +16,16 @@ class Movie {
     this.voteAverage = vote_average;
     this.posterPath = poster_path;
     this.genreIds = genre_ids;
+    this.videoData = videoData;
   }
 
-  // getGenreNames() {
-  //   // Récupérer les noms des genres à partir des IDs
-  //   return this.genreIds.map((genreId) => {
-  //     const genre = this.genresList.find((g) => g.id === genreId);
-  //     return genre ? genre.name : "";
-  //   });
-  // }
+  get videoKey() {
+    return this.videoData ? this.videoData.videoKey : null;
+  }
+
+  get hasVideo() {
+    return this.videoData && this.videoData.videoKey;
+  }
 }
 
 class Genre {
@@ -37,5 +39,3 @@ module.exports = {
   Movie,
   Genre,
 };
-// window.Movie = Movie;
-// window.Genre = Genre;

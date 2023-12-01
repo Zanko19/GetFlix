@@ -113,8 +113,41 @@
               movieContainer.appendChild(posterElement);
               movieContainer.appendChild(categoriesElement);
 
-              // Append the movie container to the result container
-              resultContainer.appendChild(movieContainer);
+              const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`;
+              fetch(videoUrl, {
+                method: "GET",
+                headers: {
+                  accept: "application/json",
+                  Authorization:
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDM0MDVjZTkwYWQ3YWJiY2M2NmVjZGQ4MzQzODAyMCIsInN1YiI6IjY1Njg0NjQzOWFmZmMwMDBlYmNmMzU4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m4dPEXx0u6ZzRO0DzSsS5h-9bl8n5RvrpRdhvtNhCjI",
+                },
+              })
+                .then((res) => res.json())
+                .then((videoData) => {
+                  // Check if there are videos available
+                  if (videoData.results && videoData.results.length > 0) {
+                    const videoKey = videoData.results[0].key;
+
+                    // Create an iframe element for the video player
+                    const videoPlayerElement = document.createElement("iframe");
+                    videoPlayerElement.width = "560";
+                    videoPlayerElement.height = "315";
+                    videoPlayerElement.src = `https://www.youtube.com/embed/${videoKey}`;
+                    videoPlayerElement.allowfullscreen = true;
+
+                    movieContainer.appendChild(videoPlayerElement);
+                  } else {
+                    const noVideoElement = document.createElement("p");
+                    noVideoElement.textContent = "No video available";
+                    movieContainer.appendChild(noVideoElement);
+                  }
+
+                  // Append the movie container to the result container
+                  resultContainer.appendChild(movieContainer);
+                })
+                .catch((error) => {
+                  console.error("Error fetching video data:", error);
+                });
             });
           } else {
             resultContainer.textContent = "No movies found.";

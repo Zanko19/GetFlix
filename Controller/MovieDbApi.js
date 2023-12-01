@@ -6,6 +6,32 @@ class MovieController {
     this.TokenKey = TokenKey;
   }
 
+  async fetchVideoData(movieId) {
+    const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`;
+    try {
+      const response = await fetch(videoUrl, {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${this.TokenKey}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch video data");
+      }
+
+      const videoData = await response.json();
+
+      return videoData.results.length > 0
+        ? { videoKey: videoData.results[0].key }
+        : { error: "No video available" };
+    } catch (error) {
+      console.error("Error fetching video data:", error);
+      return { error: "Failed to fetch video data" };
+    }
+  }
+
   async fetchData(movieName) {
     const genreUrl =
       "https://api.themoviedb.org/3/genre/movie/list?language=en";
@@ -40,17 +66,21 @@ class MovieController {
         searchResponse.json(),
       ]);
 
-      const movies = searchData.results.map(
-        (movieData) =>
-          new Movie(
+      const movies = await Promise.all(
+        searchData.results.map(async (movieData) => {
+          const videoData = await this.fetchVideoData(movieData.id);
+
+          return new Movie(
             movieData.id,
             movieData.title,
             movieData.release_date,
             movieData.overview,
             movieData.vote_average,
             movieData.poster_path,
-            movieData.genre_ids
-          )
+            movieData.genre_ids,
+            videoData
+          );
+        })
       );
 
       return { movies, genres: genreData.genres };
@@ -62,5 +92,3 @@ class MovieController {
 }
 
 module.exports = MovieController;
-
-// window.MovieController = MovieController;
