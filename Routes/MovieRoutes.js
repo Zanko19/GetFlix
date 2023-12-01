@@ -3,16 +3,14 @@ const MovieController = require("../Controller/MovieDbFilter.js");
 
 const router = express.Router();
 
-router.get("/search/top/:movieName", async (req, res) => {
-  const movieName = req.params.movieName;
+router.get("/movies/top", async (req, res) => {
+  const topMoviesData = await MovieController.fetchTopMovies();
 
-  const searchData = await MovieController.fetchData(movieName);
-
-  if (searchData.error) {
-    return res.status(500).json({ error: searchData.error });
+  if (topMoviesData.error) {
+    return res.status(500).json({ error: topMoviesData.error });
   }
 
-  res.json(searchData);
+  res.json(topMoviesData);
 });
 
 module.exports = router;
