@@ -1,9 +1,9 @@
 const express = require("express");
-const MovieController = require("../Controller/MovieDbApi.js");
+const MovieController = require("../Controller/MovieDbFilter.js");
 
 const router = express.Router();
 
-router.get("/search/:movieName", async (req, res) => {
+router.get("/search/top/:movieName", async (req, res) => {
   const movieName = req.params.movieName;
 
   const searchData = await MovieController.fetchData(movieName);
