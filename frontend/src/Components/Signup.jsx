@@ -3,11 +3,18 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const togglePasswordVisibility = (field) => {
+    if (field === 'password') {
+      setShowPassword(!showPassword);
+    } else if (field === 'confirmPassword') {
+      setShowConfirmPassword(!showConfirmPassword);
+    }
   };
+  
 
   return (
     <div className="h-[100vh] px-3 sm:px-10 flex items-center">
@@ -62,7 +69,7 @@ function Login() {
             />
           <button
   type="button"
-  onClick={togglePasswordVisibility}
+  onClick={() => togglePasswordVisibility('password')}
   className="absolute top-1/2 right-2 transform -translate-y-1/2 "
 >
   {showPassword ? (
@@ -71,6 +78,7 @@ function Login() {
     <FaEye className="h-5 w-5 text-[#b4d429]" />
   )}
 </button>
+
           </div>
         </div>
         <div className="mb-6">
@@ -82,24 +90,25 @@ function Login() {
           </label>
           <div className="relative">
           <input
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             onClick={togglePasswordVisibility}
-            id="password"
+            id="confirmPassword"
             className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
             placeholder="XXXXXXX"
             required
           />
             <button
   type="button"
-  onClick={togglePasswordVisibility}
+  onClick={() => togglePasswordVisibility('confirmPassword')}
   className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
 >
-  {showPassword ? (
+  {showConfirmPassword ? (
     <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
   ) : (
     <FaEye className="h-5 w-5 text-[#b4d429]" />
   )}
 </button>
+
 </div>
 
         </div>
