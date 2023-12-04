@@ -1,12 +1,11 @@
 *{
   overflow: hidden;
 }
-
 body{
  background-image: radial-gradient(circle at bottom left, 
  rgb(19, 2, 19) 0%,       
   rgb(13, 20, 33) 50%,      
-  rgb(18, 26, 22) 100%     
+  rgb(18, 26, 22) 100%    
 );
 width: 100vw;
 height: 100vh;

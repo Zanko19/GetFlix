@@ -12,7 +12,11 @@ export default {
         menubg: "#FBE6CC",
         fontmenu: "#130e0c",
       },
+      fontFamily: {
+        sans: ['Gilroy-Medium', 'sans-serif'],
+      },
     },
+    
   },
   plugins: [],
 }
