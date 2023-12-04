@@ -80,6 +80,7 @@ class MovieController {
             movieData.vote_average,
             movieData.poster_path,
             movieData.genre_ids,
+            movieData.backdrop_path,
             videoData
           );
           movies.push(movie);

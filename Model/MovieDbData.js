@@ -7,6 +7,7 @@ class Movie {
     vote_average,
     poster_path,
     genre_ids,
+    backdrop_path,
     videoData
   ) {
     this.id = id;
@@ -16,6 +17,7 @@ class Movie {
     this.voteAverage = vote_average;
     this.posterPath = poster_path;
     this.genreIds = genre_ids;
+    this.backdropPath = backdrop_path;
     this.videoData = videoData;
   }
 

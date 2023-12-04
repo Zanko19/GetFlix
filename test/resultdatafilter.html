@@ -69,6 +69,10 @@
             posterElement.src = `https://image.tmdb.org/t/p/w500${movie.posterPath}`;
             posterElement.alt = `${movie.title} Poster`;
 
+            const backdropElement = document.createElement("img");
+            backdropElement.src = `https://image.tmdb.org/t/p/w500${movie.backdropPath}`;
+            backdropElement.alt = `${movie.title} Backdrop`;
+
             const videoContainer = document.createElement("div");
 
             if (movie.videoData.videoKey) {
@@ -94,6 +98,7 @@
             movieContainer.appendChild(voteAverageElement);
             movieContainer.appendChild(genresElement); // Added genres
             movieContainer.appendChild(posterElement);
+            movieContainer.appendChild(backdropElement);
             movieContainer.appendChild(videoContainer);
 
             // Append the movie container to the preview container
