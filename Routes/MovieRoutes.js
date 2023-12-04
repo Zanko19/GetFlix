@@ -2,6 +2,9 @@ const express = require("express");
 const MovieController = require("../Controller/MovieDbFilter.js");
 
 const router = express.Router();
+// const { register } = require("../Middleware/Auth.js");
+
+// router.route("/register").post(register);
 
 router.get("/movies/top", async (req, res) => {
   const topMoviesData = await MovieController.fetchTopMovies();

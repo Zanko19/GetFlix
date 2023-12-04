@@ -6,12 +6,14 @@ const path = require("path");
 const { TokenKey } = require("./Model/AccesMovieDb");
 const MovieController = require("./Controller/MovieDbFilter");
 
+// app.use("/api/auth", require("./Middleware/Auth"));
+
 app.use(cors());
 app.use(express.static(path.join(__dirname, "Views")));
 app.use("/movies", MovieRoutes);
 
 const movieController = new MovieController(TokenKey);
-
+const PORT = process.env.PORT || 8080;
 //////////////////////////////////////////////////////////////////////////ALL MOVIE API
 // // Endpoint pour rechercher des films par nom
 // app.get("/movies/search", async (req, res) => {
@@ -46,6 +48,6 @@ app.get("/movies/top", async (req, res) => {
   res.json(topMoviesData);
 });
 
-app.listen(8080, () => {
-  console.log("Serveur à l'écoute sur le port 8080");
+app.listen(PORT, () => {
+  console.log("Serveur à l'écoute sur le port ${PORT}");
 });
