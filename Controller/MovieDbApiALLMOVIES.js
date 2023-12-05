@@ -82,7 +82,7 @@ class MovieController {
           );
         })
       );
-
+      console.log(movies);
       return { movies, genres: genreData.genres };
     } catch (error) {
       console.error("Error:", error);
