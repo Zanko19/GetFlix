@@ -5,6 +5,7 @@ const MovieRoutes = require("./Routes/MovieRoutes");
 const path = require("path");
 const { TokenKey } = require("./Model/AccesMovieDb");
 const MovieController = require("./Controller/MovieDbFilter");
+require("dotenv").config({ path: "./.env"});
 
 // app.use("/api/auth", require("./Middleware/Auth"));
 
@@ -48,6 +49,14 @@ app.get("/movies/top", async (req, res) => {
   res.json(topMoviesData);
 });
 
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to Mongoose'))
+  .catch((err) => console.log(err));
+
 app.listen(PORT, () => {
-  console.log("Serveur à l'écoute sur le port ${PORT}");
+  console.log(`Serveur à l'écoute sur le port ${PORT}`);
 });
