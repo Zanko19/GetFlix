@@ -2,8 +2,17 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function Login() {
   return (
-    <div className="h-[100vh] px-3 sm:px-1 flex items-center justify-center absolute">
-      <div className="glass w-1/2 sm:w-2/3 lg:2/3 px-6 bg-gray-500 bg-opacity-20 bg-clip-padding backdrop-filter backdrop-blur-sm text-white z-50 py-4 rounded-lg">
+    <div className="flex">
+    
+      <div className="w-1/2">
+        <img
+          src="chemin/vers/votre/image.jpg" 
+          alt="Description de l'image"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    <div className="glass h-[100vh] px-3 sm:px-1 flex items-center justify-center absolute">
+      <div className="glass w-1/2 sm:w-2/3 lg:2/3 px-6 text-white z-50 py-4 rounded-lg">
         <div className="w-full flex justify-center text-[#b4d429] text-xl mb:2 md:mb-5">
           Log in
         </div>
@@ -52,6 +61,7 @@ function Login() {
           <a href="#">Login</a>
         </div>
       </div>
+    </div>
     </div>
   );
 }

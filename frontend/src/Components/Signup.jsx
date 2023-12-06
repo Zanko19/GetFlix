@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -8,17 +8,26 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = (field) => {
-    if (field === 'password') {
+    if (field === "password") {
       setShowPassword(!showPassword);
-    } else if (field === 'confirmPassword') {
+    } else if (field === "confirmPassword") {
       setShowConfirmPassword(!showConfirmPassword);
     }
   };
-  
 
   return (
-    <div className="h-[100vh] px-3 sm:px-10 flex items-center">
-      <div className="glass w-1/2 sm:w-1/3 lg:1/2 px-6 bg-gray-500 bg-opacity-20 backdrop-blur-sm text-white py-4 rounded-lg">
+    <div className="flex">
+     
+      <div className="w-1/2">
+        <img
+          src=""
+          alt="Description de l'image"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+    <div className=" glass w-1/2 h-[100vh] px-3 sm:px-10 flex items-center">
+      <div className="glass w-2/3 flex-auto px-6 bg-gray-500 bg-opacity-20 backdrop-blur-sm text-white py-4 rounded-lg">
         <div className="w-full flex justify-center text-[#b4d429] text-xl mb:2 md:mb-5">
           Sign In
         </div>
@@ -67,18 +76,17 @@ function Login() {
               placeholder="XXXXXXX"
               required
             />
-          <button
-  type="button"
-  onClick={() => togglePasswordVisibility('password')}
-  className="absolute top-1/2 right-2 transform -translate-y-1/2 "
->
-  {showPassword ? (
-    <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
-  ) : (
-    <FaEye className="h-5 w-5 text-[#b4d429]" />
-  )}
-</button>
-
+            <button
+              type="button"
+              onClick={() => togglePasswordVisibility("password")}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 "
+            >
+              {showPassword ? (
+                <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
+              ) : (
+                <FaEye className="h-5 w-5 text-[#b4d429]" />
+              )}
+            </button>
           </div>
         </div>
         <div className="mb-6">
@@ -89,28 +97,26 @@ function Login() {
             Confirm your password
           </label>
           <div className="relative">
-          <input
-            type={showConfirmPassword ? "text" : "password"}
-            onClick={togglePasswordVisibility}
-            id="confirmPassword"
-            className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
-            placeholder="XXXXXXX"
-            required
-          />
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              onClick={togglePasswordVisibility}
+              id="confirmPassword"
+              className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
+              placeholder="XXXXXXX"
+              required
+            />
             <button
-  type="button"
-  onClick={() => togglePasswordVisibility('confirmPassword')}
-  className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
->
-  {showConfirmPassword ? (
-    <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
-  ) : (
-    <FaEye className="h-5 w-5 text-[#b4d429]" />
-  )}
-</button>
-
-</div>
-
+              type="button"
+              onClick={() => togglePasswordVisibility("confirmPassword")}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer"
+            >
+              {showConfirmPassword ? (
+                <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
+              ) : (
+                <FaEye className="h-5 w-5 text-[#b4d429]" />
+              )}
+            </button>
+          </div>
         </div>
         <div className="flex flex-row justify-between">
           <div className="text-[#b4d429] text-sm md:text-md">
@@ -127,6 +133,7 @@ function Login() {
           </div>
         </a>
       </div>
+    </div>
     </div>
   );
 }
