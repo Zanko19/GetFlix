@@ -2,7 +2,7 @@
 
 ## Description
 
-Bienvenue dans ma branche Signup où je suis entrain de créer la page d'enrigstrement de l'user, ainsi que la page de login quand cet utilisateur aura déjà créer son compte. J'essaye de respecter le dribble qu'on a choisi (style et couleurs). Pas encore fini mais en cours
+Bienvenue dans ma branche Signup où je suis entrain de créer la page d'enrigstrement de l'user, ainsi que la page de login quand cet utilisateur aura déjà créer son compte. J'essaye de respecter le dribble qu'on a choisi (style et couleurs). Pas encore fini mais en cours, le but étant de scinder l'écran en 2 afin de mettre une image dans l'autre moitié.
 
 ## Aperçu :camera:
 
