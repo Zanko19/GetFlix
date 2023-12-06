@@ -1,10 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+require("dotenv").config({ path: "./.env"});
 const MovieRoutes = require("./Routes/MovieRoutes");
 const path = require("path");
 const { TokenKey } = require("./Model/AccesMovieDb");
 const MovieController = require("./Controller/MovieDbFilter");
+const mongodb = require("./Config/database.js");
+require("./Config/database.js")
+
 
 // app.use("/api/auth", require("./Middleware/Auth"));
 
@@ -46,5 +50,5 @@ app.get("/movies/top", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Serveur à l'écoute sur le port ${PORT}");
+  console.log(`Serveur à l'écoute sur le port ${PORT}`);
 });
