@@ -8,7 +8,7 @@ import Login from "./Login";
 import Admin from "./Admin";
 import Home from "./Landingpage";
 import "../App.css";
-import monImage from "../img/movie.jpeg";
+import screen from "./img/screen.jpeg"
 
 function App() {
   return (
