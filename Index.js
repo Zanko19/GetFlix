@@ -11,6 +11,7 @@ const MovieController = require("./Controller/MovieDbFilter");
 app.use(cors());
 app.use(express.static(path.join(__dirname, "Views")));
 app.use("/movies", MovieRoutes);
+// app.use("/users", MovieRoutes);
 
 const movieController = new MovieController(TokenKey);
 const PORT = process.env.PORT || 8080;
@@ -35,16 +36,12 @@ const PORT = process.env.PORT || 8080;
 
 // Endpoint pour obtenir les 30 films les plus populaires
 app.get("/movies/top", async (req, res) => {
-  // Obtenez les 30 films les plus populaires
   const topMoviesData = await movieController.fetchTopMovies();
 
-  // Vérifiez si une erreur s'est produite
   if (topMoviesData.error) {
-    // Retournez une réponse d'erreur
     return res.status(500).json({ error: topMoviesData.error });
   }
 
-  // Renvoyez les résultats des 30 films les plus populaires
   res.json(topMoviesData);
 });
 

@@ -1,8 +1,12 @@
-// const Mongoose = require("mongoose");
-// const User = Mongoose.model("user", UserSchema);
+// const mongoose = require("mongoose");
 
-// const UserSchema = new Mongoose.Schema({
+// const userSchema = new mongoose.Schema({
 //   username: {
+//     type: String,
+//     unique: true,
+//     required: true,
+//   },
+//   email: {
 //     type: String,
 //     unique: true,
 //     required: true,
@@ -17,6 +21,14 @@
 //     default: "Basic",
 //     required: true,
 //   },
+//   icons: [
+//     {
+//    //mettre des url pour les images icon en front
+//       type: String,
+//     },
+//   ],
 // });
+
+// const User = mongoose.model("user", userSchema);
 
 // module.exports = User;
