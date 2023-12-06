@@ -8,9 +8,8 @@ export default {
     extend: {
       colors: {
         greeny: "#b4d429",
-        buttoncolor: "#356cfc",
-        menubg: "#FBE6CC",
         fontmenu: "#130e0c",
+        purple: "#976f93",
       },
       fontFamily: {
         sans: ['Gilroy-Medium', 'sans-serif'],

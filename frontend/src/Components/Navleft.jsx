@@ -8,12 +8,12 @@ import { BsArrowRightSquareFill } from "react-icons/bs";
 import { FaVideo } from "react-icons/fa";function Navleft({ isOpen, toggleNavLeft }) {
   return (
     <section
-      className={`w-[65vw] md:w-[50vw] z-0 glass lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-10 overflow-hidden lg:mr-5 transition-transform duration-300 ${
+      className={`w-[100vw] h-[100vh] overflow-hidden glass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-50 overflow-hidden lg:mr-5 transition-transform duration-300 ${
         isOpen ? "transform translate-x-0" : "transform -translate-x-full"
       } lg:translate-x-0`}
     >
-      <aside className="h-screen mt-10 flex flex-col lg:items-start items-center lg:ml-10 justify-start">
-        <div className="h-[50px] text-white">Logo</div>
+      <aside className="h-screen mt-5 flex flex-col lg:items-start items-center lg:ml-10 justify-start">
+        <div className="h-[50px] text-white flex items-center">Logo</div>
         <MdClose
           className="flex lg:hidden text-white absolute top-10 mt-3 right-4 cursor-pointer"
           onClick={toggleNavLeft}

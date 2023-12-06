@@ -25,7 +25,7 @@ function Profil() {
         </div>
         <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
         <NavTop />
-        <section className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-center ${isOpen ? 'bg-white/0.5' : ''}`}>
+        <section className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw]  h-[85vh] ${isOpen ? 'bg-white/0.5' : ''}`}>
           Profil
         </section>
       </div>
