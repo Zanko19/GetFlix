@@ -24,7 +24,7 @@ function Login() {
           alt="screen"
           className="w-2/3 hidden lg:flex h-full object-cover rounded-l-3xl xs:rounded-l-3xl"
         />
-        <div className="w-1/3 h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none ">
+        <div className="w-1/3 h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] ">
           <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
             Sign In
           </div>
