@@ -11,6 +11,8 @@ import "../App.css";
 import Profil from "./Profil";
 import Favorites from "./Favorites";
 import Category from "./Movie";
+import screen from "./img/screen.jpeg"
+
 function App() {
   return (
     <Router>

@@ -1,10 +1,12 @@
 import React from 'react';
-import movieData from '../model.json';
+import movieData from '../boss.json';
 
 function Cards() {
   const cards = movieData.movies;
 
   const handleHover = (index) => {
+    // Implement your logic to handle hover animation here
+    // You can update the state or apply styles based on the index
     console.log(`Hovering over card with index ${index}`);
   };
 
@@ -13,7 +15,7 @@ function Cards() {
       {cards.map((movie, index) => (
         <div
           key={movie.id}
-          className={`bg-black h-[80%] w-[45%] self-center lg:mr-0 lg:h-[80%] lg:w-[22%] rounded-3xl flex flex-col lg:flex lg:origin-bottom-right lg:hover:rotate-[10deg] lg:hover:-translate-y-[25px] z-${40 - index * 10} transition duration-300 mb-4 ${index >= 2 ? 'hidden lg:flex' : ''}`}
+          className={`bg-black h-[80%] w-[45%] lg:mr-0 lg:h-[80%] lg:w-[22%] rounded-3xl flex flex-col lg:flex lg:origin-bottom-right lg:hover:rotate-[10deg] lg:hover:-translate-y-[25px] z-${40 - index * 1} transition duration-150 mb-4 ${index >= 2 ? 'hidden lg:flex' : ''}`}
           onMouseEnter={() => handleHover(index)}
         >
           <img

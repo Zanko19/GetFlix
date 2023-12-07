@@ -13,10 +13,18 @@ export default {
       },
       fontFamily: {
         sans: ['Gilroy-Medium', 'sans-serif'],
+        banana: "#FBE6CC",
+      },
+      animation: {
+        shine: "shine 1s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
       },
     },
     
   },
   plugins: [],
-}
-
+};

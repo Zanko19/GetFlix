@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa6';
-import movieData from '../model.json';
+import movieData from '../boss.json';
 
 function Hero() {
   // Get the first movie from the data
