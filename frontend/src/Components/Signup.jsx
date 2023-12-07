@@ -17,12 +17,12 @@ function Login() {
   };
 
   return (
-    <div className="glass w-[95%] h-[100vh] flex flex-row items-center justify-center rounded-3xl px-8">
-      <div className="w-[80%] h-[80%] px-3 sm:px-10 flex flex-row items-center m-8">
+    <div className="glass w-[100%] h-[100vh] flex flex-auto items-center justify-center rounded-3xl px-20">
+      <div className="w-[80%] h-[80%] px-3 sm:px-10 flex flex-row items-center">
         <div className="w-[80%] h-[100%] flex flex-row">
           <img
             src={screen}
-            alt="Description de l'image"
+            alt="screen"
             className="w-full h-full object-cover"
           />
         </div>
