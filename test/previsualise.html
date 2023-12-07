@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Preview</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .movie {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+
+      h2 {
+        margin-bottom: 5px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .genres {
+        margin-top: 5px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Fetch the JSON data from the file
+      fetch("model.json")
+        .then((response) => response.json())
+        .then((movieData) => {
+          // Display movies
+          movieData.movies.forEach(function (movie) {
+            var movieElement = document.createElement("div");
+            movieElement.className = "movie";
+
+            // Movie title
+            var titleElement = document.createElement("h2");
+            titleElement.textContent = movie.title;
+            movieElement.appendChild(titleElement);
+
+            // Release date
+            var releaseDateElement = document.createElement("p");
+            releaseDateElement.textContent =
+              "Release Date: " + movie.releaseDate;
+            movieElement.appendChild(releaseDateElement);
+
+            // Overview
+            var overviewElement = document.createElement("p");
+            overviewElement.textContent = movie.overview;
+            movieElement.appendChild(overviewElement);
+
+            // Vote average
+            var voteAverageElement = document.createElement("p");
+            voteAverageElement.textContent =
+              "Vote Average: " + movie.voteAverage;
+            movieElement.appendChild(voteAverageElement);
+
+            // Genres
+            var genres = movie.genreIds.map(function (genreId) {
+              return movieData.genres.find(function (genre) {
+                return genre.id === genreId;
+              }).name;
+            });
+            var genresElement = document.createElement("p");
+            genresElement.className = "genres";
+            genresElement.textContent = "Genres: " + genres.join(", ");
+            movieElement.appendChild(genresElement);
+
+            // Poster image
+            var posterElement = document.createElement("img");
+            posterElement.src = movie.posterPath;
+            movieElement.appendChild(posterElement);
+
+            // Video trailer
+            var videoElement = document.createElement("iframe");
+            videoElement.src = movie.videoData.videoKey;
+            videoElement.width = "560";
+            videoElement.height = "315";
+            videoElement.allowFullscreen = true;
+            movieElement.appendChild(videoElement);
+
+            document.body.appendChild(movieElement);
+          });
+        })
+        .catch((error) => console.error("Error fetching JSON:", error));
+    </script>
+  </body>
+</html>

@@ -94,6 +94,10 @@
               posterElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
               posterElement.alt = `${movie.title} Poster`;
 
+              const backdropElement = document.createElement("img");
+              backdropElement.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+              backdropElement.alt = `${movie.title} Backdrop`;
+
               // Extract genre names based on genre IDs
               const genreNames = movie.genre_ids.map((genreId) => {
                 const genre = genres.find((genre) => genre.id === genreId);
@@ -112,6 +116,7 @@
               movieContainer.appendChild(voteAverageElement);
               movieContainer.appendChild(posterElement);
               movieContainer.appendChild(categoriesElement);
+              movieContainer.appendChild(backdropElement);
 
               const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`;
               fetch(videoUrl, {
