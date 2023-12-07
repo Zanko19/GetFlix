@@ -13,13 +13,12 @@ router.get("/signup-page", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    const { username, email, password, role, icon } = req.body;
+    const { username, email, password, icon } = req.body;
 
     const result = await UserController.signup({
       username,
       email,
       password,
-      role,
       icon,
     });
 

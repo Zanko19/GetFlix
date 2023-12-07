@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 class UserController {
   async signup(userData) {
     try {
-      const { username, email, password, role, icon } = userData;
+      const { username, email, password, icon } = userData;
 
       // Check if password is provided
       if (!password) {
@@ -17,7 +17,6 @@ class UserController {
         username,
         email,
         password: hashedPassword,
-        role,
         icon,
       });
 
@@ -56,12 +55,11 @@ class UserController {
       console.log("Request headers:", req.headers);
       console.log("Request body:", req.body);
 
-      const { username, email, password, role, icon } = req.body;
+      const { username, email, password, icon } = req.body;
       const result = await this.signup({
         username,
         email,
         password,
-        role,
         icon,
       });
 
