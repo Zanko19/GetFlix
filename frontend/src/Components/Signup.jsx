@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import screen from "./img/screen.jpeg";
+import screen from "./img/Sign1.jpg";
 
 function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);

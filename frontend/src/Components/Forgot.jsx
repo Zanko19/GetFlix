@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import screen from "./img/screen.jpeg";
+import screen from "./img/password.jpeg";
 
 function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
