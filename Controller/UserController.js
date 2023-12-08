@@ -2,11 +2,11 @@ const User = require("../Model/user");
 const bcrypt = require("bcrypt");
 
 class UserController {
+  //--------------------------------------------------------------------------sign up
   async signup(userData) {
     try {
       const { username, email, password, icon } = userData;
 
-      // Check if password is provided
       if (!password) {
         throw { status: 400, message: "Password is required" };
       }
@@ -32,7 +32,7 @@ class UserController {
       }
     }
   }
-
+  //--------------------------------------------------------------------------get user
   async getUser(req, res) {
     try {
       const userId = req.params.userId;
@@ -49,7 +49,7 @@ class UserController {
       res.status(500).json({ error: "Error fetching the user" });
     }
   }
-
+  //--------------------------------------------------------------------------create user
   async createUser(req, res) {
     try {
       console.log("Request headers:", req.headers);
@@ -67,6 +67,40 @@ class UserController {
     } catch (error) {
       console.error(error);
       res.status(error.status || 500).json({ error: error.message });
+    }
+  }
+
+  //--------------------------------------------------------------------------forgot password
+
+  async updatePassword(userId, newPassword) {
+    try {
+      // Check if password is provided
+      if (!newPassword) {
+        throw { status: 400, message: "New password is required" };
+      }
+
+      // Hash the new password
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+      // Update the user's password in MongoDB
+      const updatedUser = await User.findByIdAndUpdate(
+        userId,
+        { password: hashedPassword },
+        { new: true }
+      );
+
+      if (!updatedUser) {
+        throw { status: 404, message: "User not found" };
+      }
+
+      console.log("Password updated successfully");
+      return updatedUser;
+    } catch (error) {
+      console.error("Error updating password:", error);
+      throw {
+        status: error.status || 500,
+        message: error.message || "Error updating password",
+      };
     }
   }
 }
