@@ -135,7 +135,7 @@ function Login() {
 
           <div className="flex flex-row justify-between">
             <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
-              <a href="">Forgot Password?</a>
+              <a href="../signup">Sign in</a>
             </div>
             <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
               <a href="../login">Login here</a>
@@ -144,7 +144,7 @@ function Login() {
 
           <a href="#">
             <div className="fancy w-1/2 sm:w-full mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine focus:ring">
-              Become a member
+              Reset Password
             </div>
           </a>
         </div>

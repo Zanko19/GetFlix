@@ -117,7 +117,7 @@ function Login() {
 
           <div className="flex flex-row justify-between">
             <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
-              <a href="">Forgot Password?</a>
+              <a href="../forgot">Forgot Password?</a>
             </div>
             <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
               <a href="../login">Login here</a>
