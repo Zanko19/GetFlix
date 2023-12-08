@@ -11,13 +11,13 @@ function Login() {
   };
   return (
     <div className="w-[100%] h-[100vh]  flex items-center justify-center overflow-hidden">
-      <div className="w-[80%] h-[80%] flex flex-row items-center  rounded-3xl">
+      <div className="w-[80%] h-[80%] flex flex-row items-center justify-center rounded-3xl">
         <img
           src={screen}
           alt="screen"
           className="w-2/3 hidden lg:flex h-full object-cover rounded-l-3xl xs:rounded-l-3xl"
         />
-      <div className="w-1/3 xl:h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none sm:h-auto md:h-full  ">
+      <div className="w-full md:w-[80%] lg:w-1/3 h-full px-6 flex flex-col justify-center lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] ">
         <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
           Log in
         </div>
