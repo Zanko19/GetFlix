@@ -17,66 +17,66 @@ function Login() {
   };
 
   return (
-    <div className=" w-[100%] h-[100vh] flex  items-center justify-center ">
-      <div className="w-[80%] h-[80%] flex flex-row items-center  rounded-3xl">
-          <img
-            src={screen}
-            alt="screen"
-            className="w-2/3 h-full object-cover rounded-l-3xl"
-          />
-        <div className=" w-1/3 h-full flex-auto px-6 bg-gray-500 text-white py-4 rounded-r-3xl">
-          <div className="w-full flex justify-center text-[#b4d429] text-xl mb:2 md:mb-5">
+    <div className="w-[100%] h-[100vh]  flex items-center justify-center overflow-hidden">
+      <div className="w-[80%] h-[80%] flex flex-row items-center justify-center rounded-3xl">
+        <img
+          src={screen}
+          alt="screen"
+          className="w-2/3 hidden lg:flex h-full object-cover rounded-l-3xl xs:rounded-l-3xl"
+        />
+        <div className="w-1/3 h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] md:h-full">
+          <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
             Sign In
           </div>
           <div className="mb-6">
             <label
-              htmlFor="email"
-              className="block mb-2 text-xs font-medium text-[#b4d429]"
+              htmlFor="fullName"
+              className="block mb-2 text-xs font-medium text-white"
             >
-              Full name
+              Full Name
             </label>
             <input
-              type="name"
-              id="email1"
-              className="border border-gray-300 focus:ring bg-[#153635]  text-white text-xs rounded-lg  block w-full p-1.5 md:p-2.5"
+              type="text"
+              id="fullName"
+              className="lglass focus:ring ring-green-100 border border-gray-300 text-white text-xs rounded-lg block w-full p-1.5 md:p-2.5"
               placeholder="Sarah Willis"
               required
             />
           </div>
           <div className="mb-6">
             <label
-              htmlFor="password"
-              className="block mb-2 text-xs font-medium text-[#b4d429]"
+              htmlFor="email"
+              className="block mb-2 text-xs font-medium text-white"
             >
               Your Email
             </label>
             <input
               type="email"
-              id="password1"
-              className="bg-[#153635] border text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              id="email"
+              className="lglass border border-gray-300 text-white text-xs rounded-lg focus:ring ring-green-100 block w-full p-1.5 md:p-2.5"
               placeholder="sarahwillis@hotmail.com"
               required
             />
           </div>
           <div className="mb-6">
             <label
-              htmlFor="email"
-              className="block mb-2 text-xs font-medium text-[#b4d429]"
+              htmlFor="password"
+              className="block mb-2 text-xs font-medium text-white"
             >
-              Your password
+              Your Password
             </label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                id="email"
-                className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
+                id="password"
+                className="lglass border border-gray-300 text-white text-xs rounded-lg focus:ring ring-green-100 block w-full p-1.5 md:p-2.5"
                 placeholder="XXXXXXX"
                 required
               />
               <button
                 type="button"
                 onClick={() => togglePasswordVisibility("password")}
-                className="absolute top-1/2 right-2 transform -translate-y-1/2 "
+                className="absolute top-1/2 right-2 transform -translate-y-1/2"
               >
                 {showPassword ? (
                   <FaEyeSlash className="h-5 w-5 text-[#b4d429]" />
@@ -88,17 +88,16 @@ function Login() {
           </div>
           <div className="mb-6">
             <label
-              htmlFor="password"
-              className="block mb-2 text-xs font-medium text-[#b4d429]"
+              htmlFor="confirmPassword"
+              className="block mb-2 text-xs font-medium text-white"
             >
-              Confirm your password
+              Confirm Your Password
             </label>
             <div className="relative">
               <input
                 type={showConfirmPassword ? "text" : "password"}
-                onClick={togglePasswordVisibility}
                 id="confirmPassword"
-                className="bg-[#153635] border border-gray-300 text-white text-xs rounded-lg focus:ring block w-full p-1.5 md:p-2.5"
+                className="lglass border border-gray-300 text-white text-xs rounded-lg focus:ring ring-green-100 block w-full p-1.5 md:p-2.5"
                 placeholder="XXXXXXX"
                 required
               />
@@ -115,17 +114,18 @@ function Login() {
               </button>
             </div>
           </div>
+
           <div className="flex flex-row justify-between">
-            <div className="text-[#b4d429] text-sm md:text-md">
+            <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
               <a href="">Forgot Password?</a>
             </div>
-            <div className="text-[#b4d429] text-sm md:text-md">
+            <div className="text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
               <a href="../login">Login here</a>
             </div>
           </div>
           <a href="#">
             {" "}
-            <div className="fancy w-1/2 sm:w-2/3 mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] hover:bg-[#71801a] border border-[#b4d429] hover:scale-110 group-hover:animate-shine focus:ring">
+            <div className="fancy w-1/2 sm:w-full mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine focus:ring">
               Become a member
             </div>
           </a>
