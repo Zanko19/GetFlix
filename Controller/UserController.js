@@ -1,11 +1,13 @@
 const User = require("../Model/user");
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 class UserController {
   //--------------------------------------------------------------------------sign up
   async signup(userData) {
     try {
-      const { username, email, password, icon } = userData;
+      const { username, email, password, role, icon } = userData;
 
       if (!password) {
         throw { status: 400, message: "Password is required" };
@@ -17,6 +19,7 @@ class UserController {
         username,
         email,
         password: hashedPassword,
+        role,
         icon,
       });
 
@@ -52,14 +55,12 @@ class UserController {
   //--------------------------------------------------------------------------create user
   async createUser(req, res) {
     try {
-      console.log("Request headers:", req.headers);
-      console.log("Request body:", req.body);
-
-      const { username, email, password, icon } = req.body;
+      const { username, email, password, role, icon } = req.body;
       const result = await this.signup({
         username,
         email,
         password,
+        role,
         icon,
       });
 
@@ -72,34 +73,65 @@ class UserController {
 
   //--------------------------------------------------------------------------forgot password
 
-  async updatePassword(userId, newPassword) {
+  async generateResetToken(userId) {
     try {
-      // Check if password is provided
-      if (!newPassword) {
-        throw { status: 400, message: "New password is required" };
+      const resetToken = crypto.randomBytes(20).toString("hex");
+      await User.findByIdAndUpdate(userId, { resetToken });
+      return resetToken;
+    } catch (error) {
+      console.error("Error generating reset token:", error);
+      throw {
+        status: error.status || 500,
+        message: error.message || "Error generating reset token",
+      };
+    }
+  }
+
+  async sendResetEmail(email, resetToken) {
+    try {
+      // Configure your nodemailer transporter (setup required)
+      const transporter = nodemailer.createTransport({
+        // your email configuration
+      });
+
+      // Send email
+      await transporter.sendMail({
+        to: email,
+        subject: "Password Reset",
+        html: `<p>Click <a href="http://yourwebsite.com/reset-password/${resetToken}">here</a> to reset your password.</p>`,
+      });
+    } catch (error) {
+      console.error("Error sending reset email:", error);
+      throw {
+        status: error.status || 500,
+        message: error.message || "Error sending reset email",
+      };
+    }
+  }
+
+  async updatePasswordByResetToken(resetToken, newPassword) {
+    try {
+      const user = await User.findOne({ resetToken });
+
+      if (!user) {
+        throw { status: 404, message: "Invalid or expired reset token" };
       }
 
       // Hash the new password
       const hashedPassword = await bcrypt.hash(newPassword, 10);
 
-      // Update the user's password in MongoDB
-      const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        { password: hashedPassword },
-        { new: true }
-      );
-
-      if (!updatedUser) {
-        throw { status: 404, message: "User not found" };
-      }
+      // Update the user's password and reset token in MongoDB
+      user.password = hashedPassword;
+      user.resetToken = null; // Clear the reset token
+      await user.save();
 
       console.log("Password updated successfully");
-      return updatedUser;
+      return user;
     } catch (error) {
-      console.error("Error updating password:", error);
+      console.error("Error updating password by reset token:", error);
       throw {
         status: error.status || 500,
-        message: error.message || "Error updating password",
+        message: error.message || "Error updating password by reset token",
       };
     }
   }

@@ -1,9 +1,45 @@
-// Exemple d'un middleware d'authentification (authMiddleware.js)
-const authMiddleware = (req, res, next) => {
-  // Vérifier l'authentification ici
-  // Si l'utilisateur est authentifié, continuez
-  // Sinon, redirigez ou renvoyez une erreur
-  next();
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const jwtSecret = process.env.JWT_SECRET || "default-secret-key";
+
+exports.adminAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, jwtSecret, (err, decodedToken) => {
+      if (err) {
+        return res.status(401).json({ message: "Not authorized" });
+      } else {
+        if (decodedToken.role !== "admin") {
+          return res.status(401).json({ message: "Not authorized" });
+        } else {
+          next();
+        }
+      }
+    });
+  } else {
+    return res
+      .status(401)
+      .json({ message: "Not authorized, token not available" });
+  }
 };
 
-module.exports = authMiddleware;
+exports.userAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, jwtSecret, (err, decodedToken) => {
+      if (err) {
+        return res.status(401).json({ message: "Not authorized" });
+      } else {
+        if (decodedToken.role !== "Basic") {
+          return res.status(401).json({ message: "Not authorized" });
+        } else {
+          next();
+        }
+      }
+    });
+  } else {
+    return res
+      .status(401)
+      .json({ message: "Not authorized, token not available" });
+  }
+};

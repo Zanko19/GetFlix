@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 mongoose.set("strictQuery", true);
 
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URL, {});
+    const localDB = process.env.MONGODB_URL;
+    await mongoose.connect(localDB, {});
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
-    throw error; // Rethrow the error to indicate a failed connection
+    throw error;
   }
 };
 

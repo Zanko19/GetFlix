@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     required: true,
   },
+  role: {
+    type: String,
+    default: "Basic",
+    required: true,
+  },
   icon: [
     {
       //mettre des url pour les images icon en front
