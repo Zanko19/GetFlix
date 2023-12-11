@@ -17,7 +17,7 @@ function Login() {
           alt="screen"
           className="w-2/3 hidden lg:flex h-full object-cover rounded-l-3xl xs:rounded-l-3xl"
         />
-      <div className="w-full md:w-[80%] lg:w-1/3 h-full px-6 flex flex-col justify-center lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] ">
+      <div className="w-1/3 h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] md:h-full">
         <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
           Log in
         </div>
@@ -65,7 +65,7 @@ function Login() {
         </div>
         <div className="flex flex-row justify-between">
   <div className="text-[#b4d429] text-sm hover:scale-105 hover:text-white mb-10">
-    <a href="">Forgot Password?</a>
+    <a href="../forgot">Forgot Password?</a>
   </div>
   <div className="text-white text-sm md:text-md mt-10">
     Don't have an account ?{" "}
@@ -77,7 +77,7 @@ function Login() {
 
 <a href="#">
             {" "}
-            <div className="fancy w-1/2 sm:w-full mt-2 md:mt-4 w-60 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine focus:ring">
+            <div className="fancy w-1/2 mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine">
              Login
             </div>
           </a>
