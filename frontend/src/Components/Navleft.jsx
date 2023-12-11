@@ -12,7 +12,7 @@ import { FaVideo } from "react-icons/fa";function Navleft({ isOpen, toggleNavLef
         isOpen ? "transform translate-x-0" : "transform -translate-x-full"
       } lg:translate-x-0`}
     >
-      <aside className="h-screen mt-5 flex flex-col lg:items-start items-center lg:ml-10 justify-start">
+      <aside className="h-screen mt-10 flex flex-col lg:items-start items-center lg:ml-10 justify-start">
         <div className="h-[50px] text-white flex items-center">Logo</div>
         <MdClose
           className="flex lg:hidden text-white absolute top-10 mt-3 right-4 cursor-pointer"

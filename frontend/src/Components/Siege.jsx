@@ -1,13 +1,24 @@
 import React from 'react'
 import { GiSofa } from "react-icons/gi";
-
+import movieData from '../boss.json';
+import { FaCalendar } from "react-icons/fa";
 
 function Siege() {
+    const firstMovie = movieData.movies[0];
   return (
-    <section className='w-[90%] h-[65vh] lg:w-[35%] lg:h-[65%] glass rounded-3xl lg:mr-[5%] flex flex-col rounded-3xl z-0'>
+    <section className='w-[90%] h-[70vh] lg:w-[35%] lg:h-[80%] lg:mt-[5%] glass rounded-3xl lg:mr-[8%] flex flex-col rounded-3xl z-0 mb-10'>
            
-        <section className='h-[30%] w-full flex flex-row rounded-t-3xl z-0 overflow-hidden '>
-            <h2 className='m-5'>Movie Title</h2>
+        <section className='h-[30%] w-full lg:px-5 flex flex-row rounded-t-3xl z-0 overflow-hidden justify-around mt-5'>
+            <h5 className='text-xl lg:text-2xl text-white/[0.8] w-[60%] lg:w-full'>{firstMovie.title}</h5>
+           <div className='flex flex-row h-[35px]'>
+            <div className='w-[30px] h-[35px] bg-greeny flex items-center justify-center rounded-lg mr-2'>
+            <FaCalendar className=' text-[16px] text-black/[0.9]'/>
+            </div>
+            <div className='flex flex-col text-xs text-white items-center justify-between'>
+                <p className='text-sm'>20:30</p>
+                <small className='text-white/[0.8]'>20 Dec</small>
+            </div>
+            </div>
         </section>
    
         <section className='h-[70%] w-full rounded-b-3xl  z-0 relative flex flex-col items-center justify-center'>

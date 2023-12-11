@@ -13,7 +13,7 @@ function Home() {
       setClose(!isOpen);
     };
     return (
-        <div className='containermain w-screen h-120vh lg:h-screen flex flex-col items-center my-5 lg:mb-5 lg:mt-5'>
+        <div className='containermain w-screen h-[160vh] lg:h-screen flex flex-col lg:flex-row items-center my-5 lg:mb-5 lg:mt-5'>
         <div className='flex h-[10vh] w-screen flex-row-reverse w-screen relative items-center md:justify-between justify-around'>
           <FaBars
             className={`mr-5 text-white flex lg:hidden cursor-pointer transition-opacity duration-300 ${isOpen ? 'invisible opacity-0' : ''}`}
@@ -27,13 +27,13 @@ function Home() {
         </div>
         <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
         <NavTop />
-        <section className={` h-[120vh] lg:mt-0 mt-[3vh] overflow-visible lg:absolute lg:left-[20vw] lg:bottom-0 w-[100vw] lg:w-[80vw]  lg:h-[90%] text-white text-3xl flex flex-col lg:flex-row items-center lg:items-start lg:justify-between ${isOpen ? ' bg-white/0.5' : ''}`}>
-          <div className='w-[90%] h-[100vh] lg:w-[55%] lg:h-full lg:ml-1 flex flex-col lg:justify-between'>
+        <section className={`lg:absolute h-[100vh] w-full lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:h-[85vh] text-white text-3xl flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-between ${isOpen ? 'bg-white/0.5' : ''}`}>
+          <div className='w-[90%] h-[80vh] lg:w-[55%] lg:h-full lg:ml-1 flex flex-col lg:justify-between'>
             <Hero />
             <Cards />
           </div>
-          < Siege/>
         </section>
+        < Siege />
       </div>
        )
      }

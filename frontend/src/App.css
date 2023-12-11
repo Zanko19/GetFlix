@@ -22,6 +22,16 @@ overflow:hidden;
   -webkit-backdrop-filter: blur( 6.5px );
   border: 1px solid rgba( 255, 255, 255, 0.05 );
 }
+.trailer {
+  position: absolute;
+  top: -100vh;
+  animation: slide 2s forwards;
+}
+
+
+@keyframes slide {
+  100% { top: 0; }
+}
 
 @media only screen and (max-width: 1024px) {
   body{
