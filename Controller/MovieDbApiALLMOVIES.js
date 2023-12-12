@@ -70,6 +70,24 @@ class MovieController {
         searchData.results.map(async (movieData) => {
           const videoData = await this.fetchVideoData(movieData.id);
 
+          // Fetch additional movie details
+          const movieDetailsResponse = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieData.id}?language=en-US`,
+            {
+              method: "GET",
+              headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${this.TokenKey}`,
+              },
+            }
+          );
+
+          if (!movieDetailsResponse.ok) {
+            throw new Error("Failed to fetch movie details");
+          }
+
+          const movieDetailsData = await movieDetailsResponse.json();
+
           return new Movie(
             movieData.id,
             movieData.title,
@@ -78,7 +96,14 @@ class MovieController {
             movieData.vote_average,
             movieData.poster_path,
             movieData.genre_ids,
-            videoData
+            videoData,
+            movieDetailsData.runtime,
+            // Placeholder data, replace with actual data from API response
+            ["AU", "US"],
+            [
+              { logoPath: "path-to-logo", name: "Production Company 1" },
+              { logoPath: "path-to-logo", name: "Production Company 2" },
+            ]
           );
         })
       );

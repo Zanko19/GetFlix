@@ -8,7 +8,10 @@ class Movie {
     poster_path,
     genre_ids,
     backdrop_path,
-    videoData
+    videoData,
+    runtime,
+    productionCountries,
+    productionCompanies
   ) {
     this.id = id;
     this.title = title;
@@ -19,6 +22,9 @@ class Movie {
     this.genreIds = genre_ids;
     this.backdropPath = backdrop_path;
     this.videoData = videoData;
+    this.runtime = runtime;
+    this.productionCountries = productionCountries;
+    this.productionCompanies = productionCompanies;
   }
 
   get videoKey() {

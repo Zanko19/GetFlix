@@ -36,33 +36,45 @@ class MovieController {
     const discoverUrl = `https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&page=1&vote_average.gte=7&api_key=${this.TokenKey}`;
 
     try {
-      const [response, genreResponse] = await Promise.all([
-        fetch(discoverUrl, {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${this.TokenKey}`,
-          },
-        }),
-        //----------------------------------------------------------------------------> FETCH GENRE
-        fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${this.TokenKey}`,
-          },
-        }),
-      ]);
+      const [response, genreResponse, movieDetailsResponse] = await Promise.all(
+        [
+          //fetch movies
+          fetch(discoverUrl, {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${this.TokenKey}`,
+            },
+          }),
+          //fetch movie genre
+          fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${this.TokenKey}`,
+            },
+          }),
+          // Fetching movie details
+          fetch("https://api.themoviedb.org/3/movie/1075794?language=en-US", {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${this.TokenKey}`,
+            },
+          }),
+        ]
+      );
 
-      if (!response.ok || !genreResponse.ok) {
+      if (!response.ok || !genreResponse.ok || !movieDetailsResponse.ok) {
         throw new Error("Failed to fetch data");
       }
 
-      const [discoverData, genreData] = await Promise.all([
+      const [discoverData, genreData, movieDetailsData] = await Promise.all([
         response.json(),
         genreResponse.json(),
+        movieDetailsResponse.json(),
       ]);
-      //----------------------------------------------------------------------------> RETURN MODEL SLICE 30
+
       const movies = [];
       for (const movieData of discoverData.results.slice(0, 30)) {
         const videoData = await this.fetchVideoData(movieData.id);
@@ -72,6 +84,19 @@ class MovieController {
           !videoData.error &&
           (await this.isYouTubeVideoAvailable(videoData.videoKey))
         ) {
+          // Extracting additional details
+          const runtime = movieDetailsData.runtime;
+          const productionCountries = movieDetailsData.production_countries.map(
+            (country) => country.iso_3166_1
+          );
+          const productionCompanies = movieDetailsData.production_companies.map(
+            (company) => ({
+              logoPath: company.logo_path,
+              name: company.name,
+            })
+          );
+
+          // Creating the Movie object
           const movie = new Movie(
             movieData.id,
             movieData.title,
@@ -81,7 +106,10 @@ class MovieController {
             movieData.poster_path,
             movieData.genre_ids,
             movieData.backdrop_path,
-            videoData
+            videoData,
+            runtime,
+            productionCountries,
+            productionCompanies
           );
           movies.push(movie);
         }

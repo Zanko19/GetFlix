@@ -58,6 +58,22 @@
             const voteAverageElement = document.createElement("p");
             voteAverageElement.textContent = `Vote Average: ${movie.voteAverage}`;
 
+            const runtimeElement = document.createElement("p");
+            runtimeElement.textContent = `Runtime: ${movie.runtime} minutes`;
+
+            const productionCountriesElement = document.createElement("p");
+            productionCountriesElement.textContent = `Production Countries: ${movie.productionCountries.join(
+              ", "
+            )}`;
+
+            const productionCompaniesElement = document.createElement("p");
+            const productionCompanies = movie.productionCompanies.map(
+              (company) => `${company.name} (${company.logoPath})`
+            );
+            productionCompaniesElement.textContent = `Production Companies: ${productionCompanies.join(
+              ", "
+            )}`;
+
             const genresElement = document.createElement("p");
             const genreNames = movie.genreIds.map((genreId) => {
               const genre = genres.find((g) => g.id === genreId);
@@ -88,15 +104,15 @@
               videoContainer.appendChild(noVideoElement);
             }
 
-            // Append the video container to the movie container
-            movieContainer.appendChild(videoContainer);
-
             // Append elements to the movie container
             movieContainer.appendChild(titleElement);
             movieContainer.appendChild(releaseDateElement);
             movieContainer.appendChild(overviewElement);
             movieContainer.appendChild(voteAverageElement);
-            movieContainer.appendChild(genresElement); // Added genres
+            movieContainer.appendChild(runtimeElement); // Added runtime
+            movieContainer.appendChild(productionCountriesElement); // Added production countries
+            movieContainer.appendChild(productionCompaniesElement); // Added production companies
+            movieContainer.appendChild(genresElement);
             movieContainer.appendChild(posterElement);
             movieContainer.appendChild(backdropElement);
             movieContainer.appendChild(videoContainer);
