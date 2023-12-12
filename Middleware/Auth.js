@@ -2,8 +2,10 @@ const User = require("../Model/user");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
+//---------------------------------------------------------ADMIN LOG
 const jwtSecret = process.env.JWT_SECRET || "default-secret-key";
 
+//---------------------------------------------------------SIGNUP
 exports.register = async (req, res, next) => {
   const { username, password } = req.body;
   if (password.length < 6) {
@@ -57,6 +59,7 @@ exports.register = async (req, res, next) => {
   });
 };
 
+//---------------------------------------------------------LOGIN
 exports.login = async (req, res, next) => {
   const { username, password } = req.body;
   // Check if username and password is provided
@@ -113,6 +116,7 @@ exports.login = async (req, res, next) => {
   });
 };
 
+//---------------------------------------------------------------DELETE USER
 exports.deleteUser = async (req, res, next) => {
   const { id } = req.body;
   await User.findById(id)
@@ -127,6 +131,7 @@ exports.deleteUser = async (req, res, next) => {
     );
 };
 
+//---------------------------------------------------------ROLE FUNCTION
 exports.update = async (req, res, next) => {
   const { role, id } = req.body;
   // First - Verifying if role and id is present

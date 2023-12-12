@@ -5,19 +5,19 @@ const UserController = new (require("../Controller/UserController"))();
 const { register, login, update, deleteUser } = require("../Middleware/Auth");
 const { adminAuth, userAuth } = require("../Middleware/authMiddleware");
 
+//-----------------------------------------------------------------------------Users Routes
 router.get("/", (req, res) => UserController.getUser(req, res));
 router.post("/", (req, res) => UserController.createUser(req, res));
 router.post("/register", register);
 router.route("/login").post(login);
 router.route("/update").put(adminAuth, update);
+
+//-----------------------------------------------------------------------------Admin Routes
 router.route("/deleteUser").delete(adminAuth, deleteUser);
 
+//-----------------------------------------------------------------------------SIGNUP PAGE
 router.get("/signup-page", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/singup.html"));
-});
-
-router.get("/reset-password", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/reset-password.html"));
 });
 
 router.post("/signup", async (req, res) => {
@@ -37,6 +37,10 @@ router.post("/signup", async (req, res) => {
     console.error(error);
     res.status(error.status || 500).json({ error: error.message });
   }
+});
+//-----------------------------------------------------------------------------FORGOT PASSWORD
+router.get("/reset-password", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/reset-password.html"));
 });
 
 router.post("/update-password/:userId", async (req, res) => {

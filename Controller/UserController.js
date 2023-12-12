@@ -87,6 +87,7 @@ class UserController {
     }
   }
 
+  //--------------------------------------------------------------------------send email config
   async sendResetEmail(email, resetToken) {
     try {
       // Configure your nodemailer transporter (setup required)

@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+//---------------------------------------------------------ADMIN LOG
 const jwtSecret = process.env.JWT_SECRET || "default-secret-key";
 
+//---------------------------------------------------------ADMIN
 exports.adminAuth = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
@@ -22,7 +24,7 @@ exports.adminAuth = (req, res, next) => {
       .json({ message: "Not authorized, token not available" });
   }
 };
-
+//---------------------------------------------------------USER
 exports.userAuth = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
