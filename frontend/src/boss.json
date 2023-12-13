@@ -1,17 +1,83 @@
 {
   "movies": [
     {
-      "id": 898120,
+      "id": 459003,
       "title": "Mavka: The Forest Song",
       "releaseDate": "2023-03-02",
-      "overview": "Forest soul Mavka faces an impossible choice between her heart and her…",
-      "voteAverage": 7.3,
+      "overview": "Forest soul Mavka faces an impossible choice between her heart and her duty as guardian to the Heart of the Forest, when she falls in love with the talented young human musician Lukas.",
+      "voteAverage": 7.316,
       "posterPath": "https://image.tmdb.org/t/p/w500/eeJjd9JU2Mdj9d7nWRFLWlrcExi.jpg",
-      "genreIds": [16, 35, 10751],
-      "backdropPath": "https://www.themoviedb.org/t/p/original/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
+      "genreIds": [16, 12, 10751, 14],
+      "backdropPath": "https://www.themoviedb.org/t/p/w500/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
       "videoData": {
         "videoKey": "https://www.youtube.com/embed/WZ1je_JJTv8"
-      }
+      },
+      "runtime": 99,
+      "productionCountries": ["UA", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/lxEXqPBVaruHI6VtuVzwMLZnfHb.png",
+          "name": "Animagrad Animation Studio"
+        },
+        {
+          "logoPath": null,
+          "name": "3Beep"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/o5qeK1nhECoVkuIxMO4T6yBYqwX.png",
+          "name": "FILM.UA Group"
+        }
+      ]
+    },
+    {
+      "id": 466420,
+      "title": "Killers of the Flower Moon",
+      "releaseDate": "2023-10-18",
+      "overview": "When oil is discovered in 1920s Oklahoma under Osage Nation land, the Osage people are murdered one by one—until the FBI steps in to unravel the mystery.",
+      "voteAverage": 6.7,
+      "posterPath": "https://image.tmdb.org/t/p/w500/dB6Krk806zeqd0YNp2ngQ9zXteH.jpg",
+      "genreIds": [80, 18, 36],
+      "backdropPath": "https://image.tmdb.org/t/p/w500/1X7vow16X7CnCoexXh4H4F2yDJv.jpg",
+      "videoData": {
+        "videoKey": "https://www.youtube.com/embed/pQzcjBXGnEU"
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
+    },
+    {
+      "id": 901362,
+      "title": "Trolls Band Together",
+      "releaseDate": "2023-10-12",
+      "overview": "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
+      "voteAverage": 7.2,
+      "posterPath": "https://image.tmdb.org/t/p/w500/sEaLO9s7CIN3fjz8R3Qksum44en.jpg",
+      "genreIds": [16, 10751, 10402, 14, 35],
+      "backdropPath": "https://image.tmdb.org/t/p/w500/k1KrbaCMACQiq7EA0Yhw3bdzMv7.jpg",
+      "videoData": {
+        "videoKey": "https://www.youtube.com/embed/wm0t8yvDTjE"
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     },
     {
       "id": 1075794,
@@ -21,23 +87,47 @@
       "voteAverage": 7.6,
       "posterPath": "https://image.tmdb.org/t/p/w500/pD6sL4vntUOXHmuvJPPZAgvyfd9.jpg",
       "genreIds": [16, 35, 10751],
-      "backdropPath": "https://www.themoviedb.org/t/p/original/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
+      "backdropPath": "https://image.tmdb.org/t/p/w500/9PqD3wSIjntyJDBzMNuxuKHwpUD.jpg",
       "videoData": {
         "videoKey": "https://www.youtube.com/embed/FAno-D3PAq8"
-      }
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     },
     {
-      "id": 901362,
-      "title": "Trolls Band Together",
-      "releaseDate": "2023-10-12",
-      "overview": "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
+      "id": 787699,
+      "title": "Wonka",
+      "releaseDate": "2023-12-06",
+      "overview": "Willy Wonka – chock-full of ideas and determined to change the world one delectable bite at a time – is proof that the best things in life begin with a dream, and if you’re lucky enough to meet Willy Wonka, anything is possible.",
       "voteAverage": 7.2,
-      "posterPath": "https://image.tmdb.org/t/p/w500/qV4fdXXUm5xNlEJ2jw7af3XxuQB.jpg",
-      "genreIds": [16, 10751, 10402, 14, 35],
-      "backdropPath": "https://image.tmdb.org/t/p/w500/xgGGinKRL8xeRkaAR9RMbtyk60y.jpg",
+      "posterPath": "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg",
+      "genreIds": [35, 10751, 14],
+      "backdropPath": "https://image.tmdb.org/t/p/w500/yOm993lsJyPmBodlYjgpPwBjXP9.jpg",
       "videoData": {
-        "videoKey": "https://www.youtube.com/embed/wm0t8yvDTjE"
-      }
+        "videoKey": "https://www.youtube.com/embed/vCcGYxy6PNA"
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     },
     {
       "id": 872585,
@@ -50,7 +140,19 @@
       "backdropPath": "https://image.tmdb.org/t/p/w500/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
       "videoData": {
         "videoKey": "https://www.youtube.com/embed/UdFeVo0cODs"
-      }
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     },
     {
       "id": 670292,
@@ -63,57 +165,35 @@
       "backdropPath": "https://image.tmdb.org/t/p/w500/kjQBrc00fB2RjHZB3PGR4w9ibpz.jpg",
       "videoData": {
         "videoKey": "https://www.youtube.com/embed/nFybJlICaR8"
-      }
+      },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "https://image.tmdb.org/t/p/w500/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     }
   ],
   "genres": [
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    }
+    { "id": 16, "name": "Animation" },
+    { "id": 35, "name": "Comedy" },
+    { "id": 10751, "name": "Family" },
+    { "id": 10402, "name": "Music" },
+    { "id": 14, "name": "Fantasy" },
+    { "id": 18, "name": "Drama" },
+    { "id": 36, "name": "History" },
+    { "id": 27, "name": "Horror" },
+    { "id": 9648, "name": "Mystery" },
+    { "id": 878, "name": "Science Fiction" },
+    { "id": 28, "name": "Action" },
+    { "id": 53, "name": "Thriller" }
   ]
 }
+
+
