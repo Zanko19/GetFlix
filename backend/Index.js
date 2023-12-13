@@ -48,6 +48,7 @@ const PORT = process.env.PORT || 8080;
 
 // Top Movies Endpoint
 app.get("/movies/top", async (req, res) => {
+  console.log("salut la mif");
   try {
     const topMoviesData = await movieController.fetchTopMovies();
 
