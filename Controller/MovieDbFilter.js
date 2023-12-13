@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { Movie } = require("../Model/MovieDbData");
+const { Movie, MovieToDB } = require("../Model/MovieDbData");
 
 class MovieController {
   constructor(TokenKey) {
