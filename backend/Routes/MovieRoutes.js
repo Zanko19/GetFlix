@@ -8,8 +8,8 @@ const router = express.Router();
 // router.route("/register").post(register);
 
 router.get("/movies/top", async (req, res) => {
-  //const movieController = new MovieController();
   console.log("request received for movies/top");
+  const movieController = new MovieController();
   const topMoviesData = await MovieController.fetchTopMovies();
 
   if (topMoviesData.error) {
@@ -17,6 +17,18 @@ router.get("/movies/top", async (req, res) => {
   }
 
   res.json(topMoviesData);
+});
+
+router.get("/movies/deploy", async (req, res) => {
+  console.log("Request received for /movies/deploy");
+
+  // Vous pouvez également ajouter d'autres informations de la requête si nécessaire
+  console.log("Request method:", req.method);
+  console.log("Request query parameters:", req.query);
+  console.log("Request headers:", req.headers);
+
+  // Simulez une réponse en renvoyant un message JSON
+  res.json({ message: "Request received successfully" });
 });
 
 //route get movies from MongoDB to send to frontend
