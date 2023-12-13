@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.get("/movies/top", async (req, res) => {
   //const movieController = new MovieController();
+  console.log("request received for movies/top");
   const topMoviesData = await MovieController.fetchTopMovies();
 
   if (topMoviesData.error) {
