@@ -8,7 +8,8 @@ const router = express.Router();
 // router.route("/register").post(register);
 
 router.get("/movies/top", async (req, res) => {
-  const topMoviesData = await MovieController.fetchTopMovies();
+  const movieController = new MovieController();
+  const topMoviesData = await movieController.fetchTopMovies();
 
   if (topMoviesData.error) {
     return res.status(500).json({ error: topMoviesData.error });
@@ -16,6 +17,8 @@ router.get("/movies/top", async (req, res) => {
 
   res.json(topMoviesData);
 });
+
+//route get movies from MongoDB to send to frontend
 
 // router.post("/Signin", async (req, res) => {
 //   try {

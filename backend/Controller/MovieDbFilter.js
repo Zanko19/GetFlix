@@ -170,4 +170,14 @@ class MovieController {
   }
 }
 
+exports.getMovies = async (req, res) => {
+  try {
+    const movies = await MovieModel.find();
+    res.json(movies);
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    res.status(500).send('Server error');
+  }
+};
+
 module.exports = MovieController;
