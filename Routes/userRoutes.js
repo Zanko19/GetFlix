@@ -4,6 +4,7 @@ const path = require("path");
 const UserController = new (require("../Controller/UserController"))();
 const { register, login, update, deleteUser } = require("../Middleware/Auth");
 const { adminAuth, userAuth } = require("../Middleware/authMiddleware");
+// const foodRoutes = require("../Routes/Foodroutes");
 
 //-----------------------------------------------------------------------------Users Routes
 router.get("/", (req, res) => UserController.getUser(req, res));
@@ -38,6 +39,10 @@ router.post("/signup", async (req, res) => {
     res.status(error.status || 500).json({ error: error.message });
   }
 });
+
+//----------------------------------------------------------------------------- foodRoutes
+// router.use("/food", foodRoutes);
+
 //-----------------------------------------------------------------------------FORGOT PASSWORD
 router.get("/reset-password", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/reset-password.html"));
