@@ -23,6 +23,6 @@
     "node-fetch": "^2.7.0",
     "node-themoviedb": "^0.2.8",
     "nodemailer": "^6.9.7",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.2"
   }
 }

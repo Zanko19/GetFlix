@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 class Movie {
   constructor(
     id,
@@ -43,7 +45,7 @@ class Genre {
   }
 }
 
-const MovieSchema = new mongoose.Schema({
+/*const MovieSchema = new mongoose.Schema({
   id: Number,
   title: String,
   releaseDate: String,
@@ -69,10 +71,10 @@ const MovieSchema = new mongoose.Schema({
 
 
 
-const MovieToDB = mongoose.model('Movie', MovieSchema);
+const MovieToDB = mongoose.model('Movie', MovieSchema);*/
 
 module.exports = {
   Movie,
   Genre,
-  MovieToDB,
+  //MovieToDB,
 };

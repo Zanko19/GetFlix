@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { Movie, MovieToDB } = require("../Model/MovieDbData");
+const { Movie, /*MovieToDB*/ } = require("../Model/MovieDbData");
 
 class MovieController {
   constructor(TokenKey) {
@@ -114,6 +114,25 @@ class MovieController {
           movies.push(movie);
         }
       }
+
+      /*for (const movie of movies) {
+        const movieInstance = new MovieToDB({
+          id: movie.id,
+          title: movie.title,
+          releaseDate: movie.releaseDate,
+          overview: movie.overview,
+          voteAverage: movie.voteAverage,
+          posterPath: movie.posterPath,
+          genreIds: movie.genreIds,
+          backdropPath: movie.backdropPath,
+          videoData: movie.videoData,
+          runtime: movie.runtime,
+          productionCountries: movie.productionCountries,
+          productionCompanies: movie.productionCompanies,
+        });
+  
+        await moviesCollection.insertOne(movieInstance);
+      }*/
 
       return { movies, genres: genreData.genres };
     } catch (error) {
