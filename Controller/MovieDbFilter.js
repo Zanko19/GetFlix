@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { Movie, /*MovieToDB*/ } = require("../Model/MovieDbData");
+const { Movie, MovieToDB } = require("../Model/MovieDbData");
 
 class MovieController {
   constructor(TokenKey) {
@@ -65,6 +65,8 @@ class MovieController {
         response.json(),
         genreResponse.json(),
       ]);
+
+      //await GenreToDB.insertMany(genreData.genres);
 
       const movies = [];
       for (const movieData of discoverData.results.slice(0, 30)) {
@@ -140,7 +142,7 @@ class MovieController {
           productionCompanies: movie.productionCompanies,
         });
   
-        await moviesCollection.insertOne(movieInstance);
+        await movieInstance.save();
       }*/
 
       return { movies, genres: genreData.genres };
