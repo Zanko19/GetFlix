@@ -1,5 +1,5 @@
 const express = require("express");
-const MovieController = require("../Controller/MovieController");
+const MovieController = require("../Controller/MovieDbFilter");
 // const userController = require("../controllers/UserController");
 
 const router = express.Router();
@@ -8,8 +8,8 @@ const router = express.Router();
 // router.route("/register").post(register);
 
 router.get("/movies/top", async (req, res) => {
-  const movieController = new MovieController();
-  const topMoviesData = await movieController.fetchTopMovies();
+  //const movieController = new MovieController();
+  const topMoviesData = await MovieController.fetchTopMovies();
 
   if (topMoviesData.error) {
     return res.status(500).json({ error: topMoviesData.error });
