@@ -90,12 +90,11 @@ class UserController {
   //--------------------------------------------------------------------------send email config
   async sendResetEmail(email, resetToken) {
     try {
-      // Configure your nodemailer transporter (setup required)
       const transporter = nodemailer.createTransport({
-        service: "gmail", // Example for Gmail. You can use other services or your SMTP server
+        service: "gmail",
         auth: {
-          user: "bemovie331@gmail.com", // Your email address
-          pass: "bemovie1234", // Your email password
+          user: "bemovie331@gmail.com",
+          pass: "bemovie1234",
         },
       });
 
@@ -103,7 +102,7 @@ class UserController {
       await transporter.sendMail({
         to: email,
         subject: "Password Reset",
-        html: `<p>Click <a href="http://http://localhost:8080/users/reset-password/${resetToken}">here</a> to reset your password.</p>`,
+        html: `<p>Click <a href="http://localhost:8080/users/reset-password/${resetToken}">here</a> to reset your password.</p>`,
       });
     } catch (error) {
       console.error("Error sending reset email:", error);
