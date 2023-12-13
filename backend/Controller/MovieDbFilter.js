@@ -66,6 +66,7 @@ class MovieController {
         genreResponse.json(),
       ]);
 
+      //console.log("salut");
       //await GenreToDB.insertMany(genreData.genres);
 
       const movies = [];
