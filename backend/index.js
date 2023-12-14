@@ -27,7 +27,7 @@ connectToDatabase();
 app.use("/movies", MovieRoutes);
 app.use("/users", UserRoutes);
 
-const movieController = new MovieController(TokenKey);
+//const movieController = new MovieController(TokenKey);
 const userController = new UserController();
 const PORT = process.env.PORT || 8080;
 
