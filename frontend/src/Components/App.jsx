@@ -11,22 +11,24 @@ import "../App.css";
 import Profil from "./Profil";
 import Favorites from "./Favorites";
 import Category from "./Movie";
-import screen from "./img/screen.jpeg"
+import screen from "./img/screen.jpeg";
+import Payments from "./Payment";
 
 function App() {
   return (
     <Router>
-        <Routes>
-          <Route path="/profile" element={<Profil/>} />
-          <Route path="/category" element={<Category/>} />
-          <Route path="/favorites" element={<Favorites/>} />
-          <Route path="/signup" element={<Sign />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgot" element={<Password />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/movie" element={<Movie />} />
-          <Route path="/admin" element={<Admin />} />
-        </Routes>
+      <Routes>
+        <Route path="/profile" element={<Profil />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/signup" element={<Sign />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot" element={<Password />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/movie" element={<Movie />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/payments" element={<Payments />} />
+      </Routes>
     </Router>
   );
 }
