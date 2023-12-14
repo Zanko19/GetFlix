@@ -29,25 +29,10 @@ app.use("/users", UserRoutes);
 
 const movieController = new MovieController(TokenKey);
 const userController = new UserController();
-const PORT = process.env.PORT || 443;
-
-// Create an instance of UserController
-
-// Movie Search Endpoint
-// app.get("/movies/search", async (req, res) => {
-//   const movieName = req.query.movieName;
-
-//   const searchData = await movieController.fetchData(movieName);
-
-//   if (searchData.error) {
-//     return res.status(500).json({ error: searchData.error });
-//   }
-
-//   res.json(searchData);
-// });
+const PORT = process.env.PORT || 8080;
 
 // Top Movies Endpoint
-app.get("/movies/top", async (req, res) => {
+/*app.get("/movies/top", async (req, res) => {
   console.log("salut la mif");
   try {
     const topMoviesData = await movieController.fetchTopMovies();
@@ -61,7 +46,7 @@ app.get("/movies/top", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
-});
+});*/
 
 const server = app.listen(PORT, () =>
   console.log(`Server Connected to port ${PORT}`)

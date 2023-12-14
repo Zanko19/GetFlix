@@ -1,16 +1,13 @@
 const express = require("express");
+const { TokenKey } = require("../Model/AccesMovieDb");
 const MovieController = require("../Controller/MovieDbFilter");
-// const userController = require("../controllers/UserController");
 
 const router = express.Router();
-// const { register } = require("../Middleware/Auth.js");
 
-// router.route("/register").post(register);
-
-router.get("/movies/top", async (req, res) => {
-  console.log("request received for movies/top");
-  const movieController = new MovieController();
-  const topMoviesData = await MovieController.fetchTopMovies();
+router.get("/top", async (req, res) => {
+  
+  const movieController = new MovieController(TokenKey);
+  const topMoviesData = await movieController.fetchTopMovies();
 
   if (topMoviesData.error) {
     return res.status(500).json({ error: topMoviesData.error });
@@ -19,7 +16,7 @@ router.get("/movies/top", async (req, res) => {
   res.json(topMoviesData);
 });
 
-router.get("/movies/deploy", async (req, res) => {
+router.get("/deploy", async (req, res) => {
   console.log("Request received for /movies/deploy");
 
   // Vous pouvez également ajouter d'autres informations de la requête si nécessaire
@@ -32,21 +29,5 @@ router.get("/movies/deploy", async (req, res) => {
 });
 
 //route get movies from MongoDB to send to frontend
-
-// router.post("/Signin", async (req, res) => {
-//   try {
-//     // Récupérer les données de l'utilisateur à partir du corps de la requête
-//     const { username, email, password, role, icon } = req.body;
-
-//     // Créer un utilisateur avec les données récupérées
-//     const result = await userController.Signin({ username, email, password, role, icon });
-
-//     // Envoyer une réponse JSON au client
-//     res.json({ message: "Utilisateur créé avec succès", user: result });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Erreur lors de la création de l'utilisateur" });
-//   }
-// });
 
 module.exports = router;
