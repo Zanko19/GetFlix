@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import { MdClose } from "react-icons/md";
 function TrailerPlayer({ videoKey, onClose }) {
-  const trailerUrl = `${videoKey}?autoplay=1`;
+  const trailerUrl = `https://www.youtube.com/embed/${videoKey}?autoplay=1`;
   const trailerRef = useRef(null);
 
   const handleClickOutside = (event) => {

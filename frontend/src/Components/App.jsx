@@ -9,7 +9,7 @@ import Admin from './Admin';
 import Home from './Landingpage';
 import '../App.css';
 import Profil from './Profil';
-import Favorites from './Favorites';
+import Ticket from './Ticket';
 import Category from './Movie';
 import screen from './img/screen.jpeg';
 
@@ -19,13 +19,14 @@ function App() {
       <Routes>
         <Route path="/profile" element={<Profil />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/ticket/:movieId" element={<Ticket />} />
         <Route path="/signup" element={<Sign />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot" element={<Password />} />
         <Route path="/" element={<Home />} />
         <Route path="/movie/:movieId" element={<Movie />} />
         <Route path="/admin" element={<Admin />} />
+        
       </Routes>
     </Router>
   );

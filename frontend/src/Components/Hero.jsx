@@ -10,13 +10,13 @@ function Hero() {
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
   };
-
+  const baseUrl = 'https://image.tmdb.org/t/p/original'
   return (
     <>
       <div
         className='h-[40vh] bg-cover lg:h-[45%] lg:w-[90%] rounded-3xl flex items-end mt-0'
         style={{
-          backgroundImage: `url(${modifyBackdropPath(firstMovie.backdropPath)})`, // Use modifyBackdropPath here
+          backgroundImage: `url(${baseUrl}${modifyBackdropPath(firstMovie.backdropPath)})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center bottom',
         }}

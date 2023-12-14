@@ -5,9 +5,10 @@ import NavTop from './Navtop';
 import Hero from './Hero';
 import Cards from './Cards';
 import Siege from './Siege';
-
+import movieData from '../boss.json'
 
 function Home() {
+  const firstMovie = movieData.movies[0];
     const [isOpen, setClose] = useState(false);
     const toggleNavLeft = () => {
       setClose(!isOpen);
@@ -33,7 +34,7 @@ function Home() {
             <Cards />
           </div>
         </section>
-        < Siege />
+        <Siege movieId={String(firstMovie.id)} />
       </div>
        )
      }

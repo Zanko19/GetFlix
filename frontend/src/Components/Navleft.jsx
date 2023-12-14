@@ -10,7 +10,7 @@ import cinemania from "../SVG/cinemania.svg";
 function Navleft({ isOpen, toggleNavLeft }) {
   return (
     <section
-      className={`w-[100vw] h-[100vh] overflow-hidden mglass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-50 overflow-hidden lg:mr-5 transition-transform duration-300 ${
+      className={`w-[100vw] h-screen overflow-hidden mglass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-50 overflow-hidden lg:mr-5 transition-transform duration-300 ${
         isOpen ? "transform translate-x-0" : "transform -translate-x-full"
       } lg:translate-x-0`}
     >
@@ -22,7 +22,7 @@ function Navleft({ isOpen, toggleNavLeft }) {
         />
         <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10"></div>
         <nav className="h-[50%] flex flex-col">
-          <ul className="list-none h-[60%] p-0 text-white flex flex-col items-center justify-evenly text-lg">
+          <ul className="list-none h-[35%] p-0 text-white flex flex-col items-center justify-between text-lg mt-10">
           <NavLink to="/" className={({ isActive }) => (isActive ? "bg-greeny rounded-xl text-black" : "")}>
           <li className="w-48 h-10 flex pl-7">
             <div className="flex flex-row items-center">
@@ -31,10 +31,6 @@ function Navleft({ isOpen, toggleNavLeft }) {
             <NavLink to="/category" className={({ isActive }) => (isActive ? "bg-greeny rounded-xl text-black" : "")}>
             <li className="w-48 h-10 flex pl-7">
            <div className="flex flex-row items-center"> <FaVideo className="mr-3"/> Movies</div>
-            </li></NavLink>
-            <NavLink to="/favorites" className={({ isActive }) => (isActive ? "bg-greeny rounded-xl text-black" : "")}>
-            <li className="w-48 h-10 flex pl-7">
-            <div className="flex flex-row items-center"> <BsBookmarkDashFill className="mr-3"/> Favorites</div>
             </li></NavLink>
             <NavLink to="/profile" className={({ isActive }) => (isActive ? "bg-greeny rounded-xl text-black" : "")}>
             <li className="w-48 h-10 flex pl-7">

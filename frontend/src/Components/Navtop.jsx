@@ -30,7 +30,7 @@ function NavTop() {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
-
+  const baseUrl = 'https://image.tmdb.org/t/p/original'
   return (
     <div className='hidden  lg:flex w-[80vw] h-[10vh] text-white flex flex-row justify-between items-center fixed top-0 right-0 z-50 '>
       <input
@@ -43,15 +43,15 @@ function NavTop() {
         placeholder="Search"
       />
       {searchQuery && showList && (
-        <div ref={listRef} className='sm:hidden lg:flex flex-col right w-[50%] text-center absolute top-[8vh] px-5'>
+        <div ref={listRef} className='sm:hidden h-[90vh] lg:flex flex-col right w-[48%] text-center absolute top-[8vh] ml-5 scroll-smooth overflow-y-auto scrollbar-thin scrollbar-thumb-greeny/70 scrollbar-track-greeny/25 scrollbar-thumb-rounded-3xl'>
           {filteredData.map((movie) => (
             <Link
               key={movie.id}
               to={`/movie/${movie.id}`}
-              className='flex flex-row items-center bg-black/[0.9]'
+              className='flex flex-row items-center bg-black/[0.9] '
               onClick={() => setShowList(false)}
             >
-              <img src={movie.posterPath} className='w-[50px] mr-2' alt="" />
+             <img src={`${baseUrl}${movie.posterPath}`} className='w-[50px] mr-2' alt="" />
               <p>{movie.title}</p>
             </Link>
           ))}

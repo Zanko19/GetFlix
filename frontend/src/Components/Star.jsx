@@ -9,9 +9,9 @@ const AverageVote = ({ voteAverage, largeStyle }) => {
 
     for (let i = 0; i < 5; i++) {
       if (i < rating) {
-        stars.push(<FaStar key={i} className={largeStyle ? 'text-3xl text-greeny' : 'text-greeny'} />);
+        stars.push(<FaStar key={i} className={largeStyle ? 'text-sm text-greeny' : 'text-greeny'} />);
       } else {
-        stars.push(<FaStar key={i} className={largeStyle ? 'text-3xl text-gray-300' : 'text-gray-300'} />);
+        stars.push(<FaStar key={i} className={largeStyle ? 'text-sm text-gray-300' : 'text-gray-300'} />);
       }
     }
 
@@ -19,7 +19,7 @@ const AverageVote = ({ voteAverage, largeStyle }) => {
   };
 
   return (
-    <div className={`flex items-center ${largeStyle ? 'mx-3 mt-1 text-lg' : 'mx-3 mt-1 text-sm'}`}>
+    <div className={`flex items-center ${largeStyle ? 'mx-0 mt-1 text-sm' : 'mx-3 mt-1 text-sm'}`}>
       <div className='flex space-x-1'>{getStarRating()}</div>
     </div>
   );
