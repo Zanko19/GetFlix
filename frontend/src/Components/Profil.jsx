@@ -13,7 +13,7 @@ function Profile() {
   };
 
   const [profileInfo, setProfileInfo] = useState({
-    fullName: "Blablabla",
+    fullName: "Blablablablu",
     emailAddress: "blablabla@example.com",
     phoneNumber: "+32474025647",
     address: "123 rue Saint Antoine",
@@ -51,7 +51,7 @@ function Profile() {
       </div>
       <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
       <NavTop />
-     
+
       <section
         className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-center ${
           isOpen ? "bg-white/0.5" : ""
@@ -64,53 +64,65 @@ function Profile() {
           <div className="items-center justify-center text-center mt-2">
             {isEditing ? (
               <form>
-              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
-                  <input
-                    type="text"
-                    value={profileInfo.fullName}
-                    onChange={(e) => updateProfileInfo("fullName", e.target.value)}
-                    className="border rounded p-1 text-gray-300"
-                  />
-                </dd>
-              </div>
-              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
-                  <input
-                    type="email"
-                    value={profileInfo.emailAddress}
-                    onChange={(e) => updateProfileInfo("emailAddress", e.target.value)}
-                    className="border rounded p-1 text-gray-300"
-                  />
-                </dd>
-              </div>
-              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Phone number</dt>
-                <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
-                  <input
-                    type="tel"
-                    value={profileInfo.phoneNumber}
-                    onChange={(e) => updateProfileInfo("phoneNumber", e.target.value)}
-                    className="border rounded p-1 text-gray-300"
-                  />
-                </dd>
-              </div>
-              <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">Address</dt>
-                <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
-                  <input
-                    type="text"
-                    value={profileInfo.address}
-                    onChange={(e) => updateProfileInfo("address", e.target.value)}
-                    className="border rounded p-1 text-gray-300"
-                  />
-                </dd>
-              </div>
-            </form>
-            
-            
+                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Full name
+                  </dt>
+                  <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
+                    <input
+                      type="text"
+                      value={profileInfo.fullName}
+                      onChange={(e) =>
+                        updateProfileInfo("fullName", e.target.value)
+                      }
+                      className="border rounded p-1 text-gray-300"
+                    />
+                  </dd>
+                </div>
+                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Email address
+                  </dt>
+                  <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
+                    <input
+                      type="email"
+                      value={profileInfo.emailAddress}
+                      onChange={(e) =>
+                        updateProfileInfo("emailAddress", e.target.value)
+                      }
+                      className="border rounded p-1 text-gray-300"
+                    />
+                  </dd>
+                </div>
+                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Phone number
+                  </dt>
+                  <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
+                    <input
+                      type="tel"
+                      value={profileInfo.phoneNumber}
+                      onChange={(e) =>
+                        updateProfileInfo("phoneNumber", e.target.value)
+                      }
+                      className="border rounded p-1 text-gray-300"
+                    />
+                  </dd>
+                </div>
+                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">Address</dt>
+                  <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
+                    <input
+                      type="text"
+                      value={profileInfo.address}
+                      onChange={(e) =>
+                        updateProfileInfo("address", e.target.value)
+                      }
+                      className="border rounded p-1 text-gray-300"
+                    />
+                  </dd>
+                </div>
+              </form>
             ) : (
               <dl className="sm:w-fit lg:w-fit">
                 <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
