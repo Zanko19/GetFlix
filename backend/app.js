@@ -1,4 +1,5 @@
 const express = require("express");
+app.use(express.static('public'));
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ path: "./.env" });
@@ -63,4 +64,4 @@ app.use((req, res) => {
   res.status(404).json({ error: "Not Found" });
 });
 
-export default app;
+module.export = app;
