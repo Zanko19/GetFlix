@@ -49,9 +49,9 @@ const PORT = process.env.PORT || 8080;
   }
 });*/
 
-/*const server = app.listen(PORT, () =>
+const server = app.listen(PORT, () =>
   console.log(`Server Connected to port ${PORT}`)
-);*/
+);
 
 // Handling Error
 process.on("unhandledRejection", (err) => {
