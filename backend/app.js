@@ -64,4 +64,4 @@ app.use((req, res) => {
   res.status(404).json({ error: "Not Found wesh caca" });
 });
 
-module.export = app;
+module.exports = app;
