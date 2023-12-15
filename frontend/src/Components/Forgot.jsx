@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import screen from "./img/password1.jpg";
+import screen from "../img/password1.jpg";
 
 function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -144,7 +144,7 @@ function Login() {
 
           <a href="#">
             <div className="fancy w-1/2 mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine">
-          Reset Password
+              Reset Password
             </div>
           </a>
         </div>

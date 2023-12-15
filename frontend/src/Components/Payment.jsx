@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import movieData from "../boss.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import YourSvg from "../Components/img/TICKETS_CINEMA.svg";
+// import YourSvg from "../Components/img/TICKETS_CINEMA.svg";
 
 import {
   faCreditCard,
