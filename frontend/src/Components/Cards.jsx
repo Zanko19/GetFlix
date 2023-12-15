@@ -35,7 +35,7 @@ function Cards() {
             className='h-[70%] rounded-3xl object-cover m-2'
           />
           <p className='text-xs mx-3 mb-1 w-screen'>{movie.title}</p>
-          <p className='text-xs mx-3 text-white/[0.6]'>{getGenres(movie.genreIds)}</p>
+          <p className='text-xs mx-3 w-screen text-white/[0.6]'>{getGenres(movie.genreIds)}</p>
           <AverageVote voteAverage={movie.voteAverage} largeStyle={false} />
         </div>
       ))}

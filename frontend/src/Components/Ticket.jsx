@@ -48,11 +48,11 @@ function Ticket() {
       <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
       <NavTop />
       <section
-        className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:h-[85vh]  text-white text-3xl flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-around ${
-          isOpen ? "bg-white/0.5" : ""
+        className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:h-[85vh]  text-white text-3xl flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start ${
+          isOpen ? "bg-slate-700/0.5" : ""
         }`}
       >
-        <div className="lg:w-[25%] w-[85%] h-auto lg:h-[74%] lg:mt-20 lg:ml-10">
+        <div className="lg:w-[25%] w-[85%] h-auto lg:h-[74%] lg:mt-0 lg:mr-20">
           <div className="h-[45vh] w-full ">
             <img
               src={`${baseUrl}${movie.posterPath}`}
@@ -61,30 +61,30 @@ function Ticket() {
             />
           </div>
           <div className="h-[1vh] flex flex-row w-full justify-evenly">
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
-            <div className="ticketcolor w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
+            <div className="bg-slate-700 w-[3%]"></div>
           </div>
-          <div className="ticketcolor rounded-3xl h-[30vh] lg:h-[35%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0"> 
-            <h2 className="text-2xl pt-5 flex flex-col text-center text-white">
+          <div className=" bg-slate-700 rounded-3xl h-[30vh] lg:h-[35%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0"> 
+            <div className="lg:text-xl text-2xl pt-2 flex flex-col text-center mx-2 text-white">
               {movie.title}
-              <h3 className="text-lg text-center">20th Dec, 20:30</h3>
-              <div className="w-full text-lg flex justify-between px-[15%] flex-row mt-5">
+              <h3 className="lg:text-sm text-xl text-center mt-3 lg:mt-0">20th Dec, 20:30</h3>
+              <div className="w-full lg:text-sm text-lg flex justify-between px-[15%] flex-row mt-5 lg:mt-2">
                 <h2>Hall: Lux</h2>
-                <h2>Seats in here: {selectedSeats.join(', ')}</h2>
+                <h2 className="w-[50%]">Seats: {selectedSeats.join(', ')}</h2>
               </div>
-              <h2 className="mt-2">UserName</h2>
-            </h2>
+              <h2 className="mt-1 lg:text-lg text-xl">UserName</h2>
+            </div>
           </div>
         </div>
-        <Siege movieId={movieId} setSelectedSeats={setSelectedSeats} />
+        <Siege movieId={movieId} mainSectionStyle="lg:mt-[0%]" setSelectedSeats={setSelectedSeats} />
       </section>
     </div>
   );

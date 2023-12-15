@@ -100,7 +100,7 @@ function OneMovie() {
             <p>{convertMinutesToHours(movie.runtime)}</p>
           </div>
           <p className="lg:text-xl text-lg mb-4">PLOT ·</p>
-          <p className="lg:text-lg text-sm opacity-60 w-[80%]">{movie.overview}</p>
+          <p className="lg:text-lg text-lg opacity-80 w-[85%] lg:w-[120%]">{movie.overview}</p>
 
           <div className="flex flex-row items-center justify-between w-[75%] lg:mt-5">
             <div
@@ -122,7 +122,7 @@ function OneMovie() {
               </div>
             </div>
             <div
-              className="bg-black w-[200px] py-2 rounded-3xl flex items-center justify-center text-greeny text-xl mt-5 cursor-pointer"
+              className=" bg-slate-900 w-[200px] py-2 rounded-3xl flex items-center lg:ml-10 justify-center text-greeny text-xl mt-5 cursor-pointer"
               onClick={() => navigate(`/ticket/${movieId}`)}
             >
               <p className="flex flex-row text-lg lg:text-[17px] justify-center items-center lg:justify-center">

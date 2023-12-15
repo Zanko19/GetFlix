@@ -82,10 +82,10 @@ function Category() {
               <img
                 src={`${baseUrl}${movie.posterPath}`}
                 alt={movie.title}
-                className="h-[70%] rounded-3xl object-cover  m-2"
+                className="h-[60%] rounded-3xl object-cover  m-2"
               />
               <p className="text-xs mx-3 mb-1 w-screen">{movie.title}</p>
-              <p className="text-xs mx-3 text-white/[0.6]">
+              <p className="text-xs mx-3 text-white/[0.6] w-screen overflow-hidden">
                 {getGenres(movie.genreIds)}
               </p>
               <AverageVote voteAverage={movie.voteAverage} largeStyle={false} />
@@ -105,13 +105,13 @@ function Category() {
               }`}
               onClick={() => handleCardClick(movie.id)}
             >
-              <img
+                <img
                 src={`${baseUrl}${movie.posterPath}`}
                 alt={movie.title}
-                className="h-[70%] rounded-3xl object-cover m-2"
+                className="h-[60%] rounded-3xl object-cover  m-2"
               />
               <p className="text-xs mx-3 mb-1 w-screen">{movie.title}</p>
-              <p className="text-xs mx-3 text-white/[0.6]">
+              <p className="text-xs mx-3 text-white/[0.6] w-screen overflow-hidden">
                 {getGenres(movie.genreIds)}
               </p>
               <AverageVote voteAverage={movie.voteAverage} largeStyle={false} />
@@ -131,13 +131,14 @@ function Category() {
               }`}
               onClick={() => handleCardClick(movie.id)}
             >
-              <img
+               <img
                 src={`${baseUrl}${movie.posterPath}`}
                 alt={movie.title}
-                className="h-[70%] rounded-3xl object-cover m-2"
+                className="h-[60%] rounded-3xl object-cover  m-2"
               />
+          
               <p className="text-xs mx-3 mb-1 w-screen">{movie.title}</p>
-              <p className="text-xs mx-3 text-white/[0.6]">
+              <p className="text-xs mx-3 text-white/[0.6] w-screen overflow-hidden">
                 {getGenres(movie.genreIds)}
               </p>
               <AverageVote voteAverage={movie.voteAverage} largeStyle={false} />
