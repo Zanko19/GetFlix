@@ -25,7 +25,7 @@ connectToDatabase();
 
 // Routes
 app.use("/movies", MovieRoutes);
-app.use("/users", UserRoutes);
+//app.use("/users", UserRoutes);
 
 const movieController = new MovieController(TokenKey);
 const userController = new UserController();
