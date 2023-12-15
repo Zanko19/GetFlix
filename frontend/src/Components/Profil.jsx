@@ -13,7 +13,7 @@ function Profile() {
   };
 
   const [profileInfo, setProfileInfo] = useState({
-    fullName: "Blablablablu",
+    fullName: "Blablablaablu",
     emailAddress: "blablabla@example.com",
     phoneNumber: "+32474025647",
     address: "123 rue Saint Antoine",
