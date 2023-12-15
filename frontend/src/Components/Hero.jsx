@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsFillPlayFill } from 'react-icons/bs';
 import TrailerPlayer from './TrailerPlayer';
 import movieData from '../boss.json';
-
+import { modifyBackdropPath } from './MovieBackdrop';
 function Hero() {
   const firstMovie = movieData.movies[0];
   const [showTrailer, setShowTrailer] = useState(false);
@@ -10,22 +10,23 @@ function Hero() {
   const toggleTrailer = () => {
     setShowTrailer(!showTrailer);
   };
-
+  const baseUrl = 'https://image.tmdb.org/t/p/original'
   return (
     <>
       <div
         className='h-[40vh] bg-cover lg:h-[45%] lg:w-[90%] rounded-3xl flex items-end mt-0'
         style={{
-          backgroundImage: `url(${firstMovie.backdropPath})`,
-          backgroundSize: 'fit',
+          backgroundImage: `url(${baseUrl}${modifyBackdropPath(firstMovie.backdropPath)})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom',
         }}
       >
         <div
-          className='flex flex-row items-center justify-start text-black bg-greeny rounded-3xl text-sm pl-5 lg:h-[12%] lg:w-[30%] w-[40%] h-[12%] mb-[15%] lg:mb-[6%] ml-5 lg:ml-10 cursor-pointer'
+          className='flex flex-row items-center justify-center text-black bg-greeny rounded-3xl text-sm  lg:h-[12%] lg:w-[30%] w-[40%] h-[12%] mb-[15%] lg:mb-[6%] ml-5 lg:ml-10 cursor-pointer'
           onClick={toggleTrailer}
         >
-          <p className='flex flex-row text-[10px] lg:text-sm justify-between items-center lg:justify-center px-2'>
-            Watch The Trailer <BsFillPlayFill className='ml-2 lg:mt-[1px] text-sm' />
+          <p className='flex flex-row text-xs lg:text-sm justify-center items-center lg:justify-center'>
+            Watch The Trailer <BsFillPlayFill className='lg:ml-2 ml-1 lg:mt-[1px] text-sm ' />
           </p>
         </div>
       </div>

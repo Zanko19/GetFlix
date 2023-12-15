@@ -1,17 +1,83 @@
 {
   "movies": [
     {
-      "id": 898120,
+      "id": 459003,
       "title": "Mavka: The Forest Song",
       "releaseDate": "2023-03-02",
-      "overview": "Forest soul Mavka faces an impossible choice between her heart and her…",
-      "voteAverage": 7.3,
-      "posterPath": "https://image.tmdb.org/t/p/w500/eeJjd9JU2Mdj9d7nWRFLWlrcExi.jpg",
-      "genreIds": [16, 35, 10751],
-      "backdropPath": "https://www.themoviedb.org/t/p/original/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
+      "overview": "Forest soul Mavka faces an impossible choice between her heart and her duty as guardian to the Heart of the Forest, when she falls in love with the talented young human musician Lukas.",
+      "voteAverage": 7.316,
+      "posterPath": "/eeJjd9JU2Mdj9d7nWRFLWlrcExi.jpg",
+      "genreIds": [16, 12, 10751, 14],
+      "backdropPath": "/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
       "videoData": {
-        "videoKey": "https://www.youtube.com/embed/WZ1je_JJTv8"
-      }
+        "videoKey": "GXaMT5pX12w"
+      },
+      "runtime": 99,
+      "productionCountries": ["UA", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/lxEXqPBVaruHI6VtuVzwMLZnfHb.png",
+          "name": "Animagrad Animation Studio"
+        },
+        {
+          "logoPath": null,
+          "name": "3Beep"
+        },
+        {
+          "logoPath": "/o5qeK1nhECoVkuIxMO4T6yBYqwX.png",
+          "name": "FILM.UA Group"
+        }
+      ]
+    },
+    {
+      "id": 901362,
+      "title": "Trolls Band Together",
+      "releaseDate": "2023-10-12",
+      "overview": "When Branch's brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
+      "voteAverage": 7.1,
+      "posterPath": "/sEaLO9s7CIN3fjz8R3Qksum44en.jpg",
+      "genreIds": [16, 10751, 10402, 14, 35],
+      "backdropPath": "/k1KrbaCMACQiq7EA0Yhw3bdzMv7.jpg",
+      "videoData": { "videoKey": "wm0t8yvDTjE" },
+      "runtime": 92,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/kP7t6RwGz2AvvTkvnI1uteEwHet.png",
+          "name": "DreamWorks Animation"
+        }
+      ]
+    },
+    {
+      "id": 787699,
+      "title": "Wonka",
+      "releaseDate": "2023-12-06",
+      "overview": "Willy Wonka – chock-full of ideas and determined to change the world one delectable bite at a time – is proof that the best things in life begin with a dream, and if you’re lucky enough to meet Willy Wonka, anything is possible.",
+      "voteAverage": 7,
+      "posterPath": "/qhb1qOilapbapxWQn9jtRCMwXJF.jpg",
+      "genreIds": [35, 10751, 14],
+      "backdropPath": "/bmlkLCjrIWnnZzdAQ4uNPG9JFdj.jpg",
+      "videoData": { "videoKey": "vCcGYxy6PNA" },
+      "runtime": 117,
+      "productionCountries": ["GB", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+          "name": "Warner Bros. Pictures"
+        },
+        {
+          "logoPath": "/at4uYdwAAgNRKhZuuFX8ShKSybw.png",
+          "name": "Village Roadshow Pictures"
+        },
+        {
+          "logoPath": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
+          "name": "Heyday Films"
+        },
+        {
+          "logoPath": "/9S6xSAsUiE1zuKzxayco7fD0p26.png",
+          "name": "The Roald Dahl Story Company"
+        }
+      ]
     },
     {
       "id": 1075794,
@@ -19,25 +85,22 @@
       "releaseDate": "2023-11-17",
       "overview": "Jaded 74-year-old lizard Leo has been stuck in the same Florida classroom for decades with his terrarium-mate turtle. When he learns he only has one year left to live, he plans to escape to experience life on the outside but instead gets caught up in the problems of his anxious students — including an impossibly mean substitute teacher.",
       "voteAverage": 7.6,
-      "posterPath": "https://image.tmdb.org/t/p/w500/pD6sL4vntUOXHmuvJPPZAgvyfd9.jpg",
+      "posterPath": "/pD6sL4vntUOXHmuvJPPZAgvyfd9.jpg",
       "genreIds": [16, 35, 10751],
-      "backdropPath": "https://www.themoviedb.org/t/p/original/dHX04iFUxkBAfovy7nCoVAAEOWT.jpg",
-      "videoData": {
-        "videoKey": "https://www.youtube.com/embed/FAno-D3PAq8"
-      }
-    },
-    {
-      "id": 901362,
-      "title": "Trolls Band Together",
-      "releaseDate": "2023-10-12",
-      "overview": "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
-      "voteAverage": 7.2,
-      "posterPath": "https://image.tmdb.org/t/p/w500/qV4fdXXUm5xNlEJ2jw7af3XxuQB.jpg",
-      "genreIds": [16, 10751, 10402, 14, 35],
-      "backdropPath": "https://image.tmdb.org/t/p/w500/xgGGinKRL8xeRkaAR9RMbtyk60y.jpg",
-      "videoData": {
-        "videoKey": "https://www.youtube.com/embed/wm0t8yvDTjE"
-      }
+      "backdropPath": "/9PqD3wSIjntyJDBzMNuxuKHwpUD.jpg",
+      "videoData": { "videoKey": "FAno-D3PAq8" },
+      "runtime": 102,
+      "productionCountries": ["AU", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/e2AZdsQdkhN0qJhoN4TMYiVPLyb.png",
+          "name": "Happy Madison Productions"
+        },
+        {
+          "logoPath": "/kEUAzsG2hZcCV7rmSCozgLhGWaa.png",
+          "name": "Animal Logic"
+        }
+      ]
     },
     {
       "id": 872585,
@@ -45,12 +108,121 @@
       "releaseDate": "2023-07-19",
       "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
       "voteAverage": 8.1,
-      "posterPath": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "posterPath": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
       "genreIds": [18, 36],
-      "backdropPath": "https://image.tmdb.org/t/p/w500/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
-      "videoData": {
-        "videoKey": "https://www.youtube.com/embed/UdFeVo0cODs"
-      }
+      "backdropPath": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+      "videoData": { "videoKey": "UdFeVo0cODs" },
+      "runtime": 181,
+      "productionCountries": ["GB", "US"],
+      "productionCompanies": [
+        { "logoPath": "/3tvBqYsBhxWeHlu62SIJ1el93O7.png", "name": "Syncopy" },
+        {
+          "logoPath": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+          "name": "Universal Pictures"
+        },
+        {
+          "logoPath": "/aRmHe6GWxYMRCQljF75rn2B9Gv8.png",
+          "name": "Atlas Entertainment"
+        }
+      ]
+    },
+    {
+      "id": 1001835,
+      "title": "Wifelike",
+      "releaseDate": "2022-08-12",
+      "overview": "A grieving detective in the near-future hunts down criminals who trade artificial humans on the black market. In the fight to end AI exploitation, an underground resistance attempts to infiltrate him by sabotaging the programming of the artificial human assigned as his companion to behave like his late wife. She begins to question her reality as memories of a past life begin to surface in a world where nothing is as it seems.",
+      "voteAverage": 7,
+      "posterPath": "/tea2gDZPxw0wfKC2S2VRWHagtt4.jpg",
+      "genreIds": [878, 9648, 53],
+      "backdropPath": "/3xvdNyZ9WsVJpyeGhm85fukeZz4.jpg",
+      "videoData": { "videoKey": "-5rdRvkG-gQ" },
+      "runtime": 106,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        { "logoPath": null, "name": "Steven Paul Production" },
+        {
+          "logoPath": "/snGfhwT46aqKWhP8izedkL48aZY.png",
+          "name": "Wonder Street"
+        },
+        {
+          "logoPath": "/xkdYNmOW6e4gjgp4NSLRt0W5UIj.png",
+          "name": "Front Street Pictures"
+        }
+      ]
+    },
+    {
+      "id": 385687,
+      "title": "Fast X",
+      "releaseDate": "2023-05-17",
+      "overview": "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever.",
+      "voteAverage": 7.2,
+      "posterPath": "/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+      "genreIds": [28, 80, 53],
+      "backdropPath": "/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg",
+      "videoData": { "videoKey": "cg5z7wgOUig" },
+      "runtime": 142,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+          "name": "Universal Pictures"
+        },
+        {
+          "logoPath": "/5xUJfzPZ8jWJUDzYtIeuPO4qPIa.png",
+          "name": "Original Film"
+        },
+        { "logoPath": "/rIxhJMR7oK8b2fMakmTfRLY2TZv.png", "name": "One Race" },
+        { "logoPath": null, "name": "Perfect Storm Entertainment" }
+      ]
+    },
+    {
+      "id": 507089,
+      "title": "Five Nights at Freddy's",
+      "releaseDate": "2023-10-25",
+      "overview": "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.",
+      "voteAverage": 7.8,
+      "posterPath": "/7BpNtNfxuocYEVREzVMO75hso1l.jpg",
+      "genreIds": [27, 9648],
+      "backdropPath": "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg",
+      "videoData": { "videoKey": "MLpP8BMlqiE" },
+      "runtime": 110,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/rzKluDcRkIwHZK2pHsiT667A2Kw.png",
+          "name": "Blumhouse Productions"
+        },
+        { "logoPath": null, "name": "Scott Cawthon Productions" }
+      ]
+    },
+    {
+      "id": 695721,
+      "title": "The Hunger Games: The Ballad of Songbirds & Snakes",
+      "releaseDate": "2023-11-15",
+      "overview": "64 years before he becomes the tyrannical president of Panem, Coriolanus Snow sees a chance for a change in fortunes when he mentors Lucy Gray Baird, the female tribute from District 12.",
+      "voteAverage": 7.3,
+      "posterPath": "/mBaXZ95R2OxueZhvQbcEWy2DqyO.jpg",
+      "genreIds": [28, 10749, 18],
+      "backdropPath": "/8GnWDLn2AhnmkQ7hlQ9NJUYobSS.jpg",
+      "videoData": { "videoKey": "y2nBqLXcg1s" },
+      "runtime": 157,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        { "logoPath": "/cisLn1YAUuptXVBa0xjq7ST9cH0.png", "name": "Lionsgate" },
+        {
+          "logoPath": "/dlW4Kh5dNieKNURnymsu57y6fMf.png",
+          "name": "Color Force"
+        },
+        {
+          "logoPath": "/kQlxsHQKQsDOXmKPZVqEyL827NJ.png",
+          "name": "about:blank"
+        },
+        { "logoPath": "/i59ItaKFdxJ7Yi6w2s7CML0LBvI.png", "name": "PISF" },
+        {
+          "logoPath": null,
+          "name": "Ministerstwo Kultury i Dziedzictwa Narodowego"
+        }
+      ]
     },
     {
       "id": 670292,
@@ -58,62 +230,260 @@
       "releaseDate": "2023-09-27",
       "overview": "Amid a future war between the human race and the forces of artificial intelligence, a hardened ex-special forces agent grieving the disappearance of his wife, is recruited to hunt down and kill the Creator, the elusive architect of advanced AI who has developed a mysterious weapon with the power to end the war—and mankind itself.",
       "voteAverage": 7.1,
-      "posterPath": "https://image.tmdb.org/t/p/w500/vBZ0qvaRxqEhZwl6LWmruJqWE8Z.jpg",
-      "genreIds": [878, 28, 53],
-      "backdropPath": "https://image.tmdb.org/t/p/w500/kjQBrc00fB2RjHZB3PGR4w9ibpz.jpg",
-      "videoData": {
-        "videoKey": "https://www.youtube.com/embed/nFybJlICaR8"
-      }
+      "posterPath": "/vBZ0qvaRxqEhZwl6LWmruJqWE8Z.jpg",
+      "genreIds": [28, 12, 18],
+      "backdropPath": "/kjQBrc00fB2RjHZB3PGR4w9ibpz.jpg",
+      "videoData": { "videoKey": "nFybJlICaR8" },
+      "runtime": 134,
+      "productionCountries": ["CA", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/wRn5HnYMGeJHmItRypgOZOC6gwY.png",
+          "name": "New Regency Pictures"
+        },
+        {
+          "logoPath": "/q6HOAdSNgCbeOqwoMVRc6REgbXF.png",
+          "name": "Entertainment One"
+        },
+        {
+          "logoPath": "/7cxRWzi4LsVm4Utfpr1hfARNurT.png",
+          "name": "Regency Enterprises"
+        },
+        { "logoPath": null, "name": "Bad Dreams" }
+      ]
+    },
+    {
+      "id": 575264,
+      "title": "Mission: Impossible - Dead Reckoning Part One",
+      "releaseDate": "2023-07-08",
+      "overview": "Ethan Hunt and his IMF team embark on their most dangerous mission yet: To track down a terrifying new weapon that threatens all of humanity before it falls into the wrong hands. With control of the future and the world's fate at stake and dark forces from Ethan's past closing in, a deadly race around the globe begins. Confronted by a mysterious, all-powerful enemy, Ethan must consider that nothing can matter more than his mission—not even the lives of those he cares about most.",
+      "voteAverage": 7.6,
+      "posterPath": "/NNxYkU70HPurnNCSiCjYAmacwm.jpg",
+      "genreIds": [28, 53],
+      "backdropPath": "/h56edmERPTkey89SqyKu4hINVNy.jpg",
+      "videoData": { "videoKey": "uY4efoSe-Kc" },
+      "runtime": 164,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        { "logoPath": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png", "name": "Paramount" },
+        { "logoPath": "/gXfFl9pRPaoaq14jybEn1pHeldr.png", "name": "Skydance" },
+        { "logoPath": null, "name": "TC Productions" }
+      ]
+    },
+    {
+      "id": 940721,
+      "title": "Godzilla Minus One",
+      "releaseDate": "2023-11-03",
+      "overview": "In postwar Japan, a new terror rises. Will the devastated people be able to survive... let alone fight back?",
+      "voteAverage": 8.3,
+      "posterPath": "/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg",
+      "genreIds": [878, 27, 28],
+      "backdropPath": "/bWIIWhnaoWx3FTVXv6GkYDv3djL.jpg",
+      "videoData": { "videoKey": "VvSrHIX5a-0" },
+      "runtime": 125,
+      "productionCountries": ["JP"],
+      "productionCompanies": [
+        { "logoPath": "/iDw9Xxok1d9WAM2zFicI8p3khTH.png", "name": "TOHO" },
+        {
+          "logoPath": "/wvG4lK0m76M6jK8WbWkXNecA7SP.png",
+          "name": "TOHO Studios"
+        },
+        {
+          "logoPath": "/oxvw2Mrq3GcTxFc2mlT7E5tpek7.png",
+          "name": "Robot Communications"
+        }
+      ]
+    },
+    {
+      "id": 926393,
+      "title": "The Equalizer 3",
+      "releaseDate": "2023-08-30",
+      "overview": "Robert McCall finds himself at home in Southern Italy but he discovers his friends are under the control of local crime bosses. As events turn deadly, McCall knows what he has to do: become his friends' protector by taking on the mafia.",
+      "voteAverage": 7.4,
+      "posterPath": "/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg",
+      "genreIds": [28, 53, 80],
+      "backdropPath": "/tC78Pck2YCsUAtEdZwuHYUFYtOj.jpg",
+      "videoData": { "videoKey": "zxvJyxnLS7A" },
+      "runtime": 109,
+      "productionCountries": ["IT", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/1rbAwGQzrNvXDICD6HWEn1YqfAV.png",
+          "name": "Escape Artists"
+        },
+        {
+          "logoPath": "/71BqEFAF4V3qjjMPCpLuyJFB9A.png",
+          "name": "Columbia Pictures"
+        },
+        {
+          "logoPath": "/9LlB2YAwXTkUAhx0pItSo6pDlkB.png",
+          "name": "Eagle Pictures"
+        },
+        { "logoPath": null, "name": "ZHIV Productions" }
+      ]
+    },
+    {
+      "id": 976573,
+      "title": "Elemental",
+      "releaseDate": "2023-06-14",
+      "overview": "In a city where fire, water, land and air residents live together, a fiery young woman and a go-with-the-flow guy will discover something elemental: how much they have in common.",
+      "voteAverage": 7.7,
+      "posterPath": "/4Y1WNkd88JXmGfhtWR7dmDAo1T2.jpg",
+      "genreIds": [16, 35, 10751, 14, 10749],
+      "backdropPath": "/4fLZUr1e65hKPPVw0R3PmKFKxj1.jpg",
+      "videoData": { "videoKey": "_JUxMulBL38" },
+      "runtime": 102,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+          "name": "Walt Disney Pictures"
+        },
+        { "logoPath": "/bqGuVkQKYSGixzO9YA6q8PCIWjT.png", "name": "Pixar" }
+      ]
+    },
+    {
+      "id": 667538,
+      "title": "Transformers: Rise of the Beasts",
+      "releaseDate": "2023-06-06",
+      "overview": "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.",
+      "voteAverage": 7.4,
+      "posterPath": "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
+      "genreIds": [28, 12, 878],
+      "backdropPath": "/2vFuG6bWGyQUzYS9d69E5l85nIz.jpg",
+      "videoData": { "videoKey": "2-u1H4DEoNI" },
+      "runtime": 127,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        { "logoPath": "/gXfFl9pRPaoaq14jybEn1pHeldr.png", "name": "Skydance" },
+        { "logoPath": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png", "name": "Paramount" },
+        {
+          "logoPath": "/AjzK0s2w1GtLfR4hqCjVSYi0Sr8.png",
+          "name": "di Bonaventura Pictures"
+        },
+        { "logoPath": null, "name": "Bay Films" },
+        {
+          "logoPath": "/tNCbisMxO5mX2X2bOQxHHQZVYnT.png",
+          "name": "New Republic Pictures"
+        },
+        { "logoPath": null, "name": "Tom DeSanto/Don Murphy Production" },
+        { "logoPath": "/i42C5gRq7XqlG4S9vkchuJZfrBn.png", "name": "Hasbro" }
+      ]
+    },
+    {
+      "id": 960481,
+      "title": "Princess Khutulun",
+      "releaseDate": "2021-12-03",
+      "overview": "Princess Khotulun is the daughter of Haidu Khan of the Ugudei dynasty. The film tells the story of Princess Khotulun, the son of Kublai Khan, known in Western and Eastern history as a wrestling princess, and her struggle to reclaim her Golden Sutra.",
+      "voteAverage": 7.1,
+      "posterPath": "/dhD4QNmZwfh88y4Dm5XsX7dWFVf.jpg",
+      "genreIds": [36, 28, 18],
+      "backdropPath": "/awWppR6CmJ6gqM6UjMz5DJ4zZaP.jpg",
+      "videoData": { "videoKey": "JkEzB6RzGyU" },
+      "runtime": 108,
+      "productionCountries": ["MN"],
+      "productionCompanies": []
+    },
+    {
+      "id": 346698,
+      "title": "Barbie",
+      "releaseDate": "2023-07-19",
+      "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+      "voteAverage": 7.2,
+      "posterPath": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+      "genreIds": [35, 12, 14],
+      "backdropPath": "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+      "videoData": { "videoKey": "_s0EOTN1XfU" },
+      "runtime": 114,
+      "productionCountries": ["GB", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/gRROMOG5bpF6TIDMbfaa5gnFFzl.png",
+          "name": "LuckyChap Entertainment"
+        },
+        {
+          "logoPath": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
+          "name": "Heyday Films"
+        },
+        { "logoPath": null, "name": "NB/GG Pictures" },
+        { "logoPath": "/cAj69EL1zSXmZH6STbMGZrunyMD.png", "name": "Mattel" },
+        {
+          "logoPath": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+          "name": "Warner Bros. Pictures"
+        }
+      ]
+    },
+    {
+      "id": 76600,
+      "title": "Avatar: The Way of Water",
+      "releaseDate": "2022-12-14",
+      "overview": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "voteAverage": 7.7,
+      "posterPath": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "genreIds": [878, 12, 28],
+      "backdropPath": "/8rpDcsfLJypbO6vREc0547VKqEv.jpg",
+      "videoData": { "videoKey": "pwA0k1oNrhI" },
+      "runtime": 192,
+      "productionCountries": ["US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/h0rjX5vjW5r8yEnUBStFarjcLT4.png",
+          "name": "20th Century Studios"
+        },
+        {
+          "logoPath": "/nLNW1TeFUYU0M5U0qmYUzOIwlB6.png",
+          "name": "Lightstorm Entertainment"
+        }
+      ]
+    },
+    {
+      "id": 603692,
+      "title": "John Wick: Chapter 4",
+      "releaseDate": "2023-03-22",
+      "overview": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+      "voteAverage": 7.8,
+      "posterPath": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+      "genreIds": [28, 53, 80],
+      "backdropPath": "/7I6VUdPj6tQECNHdviJkUHD2u89.jpg",
+      "videoData": { "videoKey": "eKl7NyhV6VA" },
+      "runtime": 170,
+      "productionCountries": ["DE", "US"],
+      "productionCompanies": [
+        {
+          "logoPath": "/cCzCClIzIh81Fa79hpW5nXoUsHK.png",
+          "name": "Thunder Road"
+        },
+        { "logoPath": "/5SarYupipdiejsEqUkwu1SpYfru.png", "name": "87Eleven" },
+        {
+          "logoPath": "/5LvDUt3KmvRnXQ4NrdWJYHeuA8J.png",
+          "name": "Summit Entertainment"
+        },
+        {
+          "logoPath": "/fA90qwUKgPhMONqtwY60GaHRyrW.png",
+          "name": "Studio Babelsberg"
+        }
+      ]
     }
   ],
   "genres": [
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    }
+    { "id": 28, "name": "Action" },
+    { "id": 12, "name": "Adventure" },
+    { "id": 16, "name": "Animation" },
+    { "id": 35, "name": "Comedy" },
+    { "id": 80, "name": "Crime" },
+    { "id": 99, "name": "Documentary" },
+    { "id": 18, "name": "Drama" },
+    { "id": 10751, "name": "Family" },
+    { "id": 14, "name": "Fantasy" },
+    { "id": 36, "name": "History" },
+    { "id": 27, "name": "Horror" },
+    { "id": 10402, "name": "Music" },
+    { "id": 9648, "name": "Mystery" },
+    { "id": 10749, "name": "Romance" },
+    { "id": 878, "name": "Science Fiction" },
+    { "id": 10770, "name": "TV Movie" },
+    { "id": 53, "name": "Thriller" },
+    { "id": 10752, "name": "War" },
+    { "id": 37, "name": "Western" }
   ]
 }
