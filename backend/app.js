@@ -1,5 +1,5 @@
 const express = require("express");
-app.use(express.static('public'));
+//app.use(express.static('public'));
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ path: "./.env" });
