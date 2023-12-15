@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/getflixProject/",
   plugins: [react()],
-  build: {
-    outDir: "dist",
-  },
+  // build: {
+  //   outDir: "dist",
+  // },
 });
