@@ -4,39 +4,7 @@
     ],
     "builds": [
       {
-        "src": "backend/Config/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/Controller/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/Middleware/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/Model/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/node_modules/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/Routes/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/test/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/views/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/app.js",
+        "src": "backend/**/**",
         "use": "@vercel/node"
       }
     ]
