@@ -5,47 +5,47 @@
     "builds": [
       {
         "src": "backend/Config/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/Controller/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/Middleware/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/Model/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/node_modules/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/Routes/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/test/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/views/**",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/.env",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/.gitignore",
-        "use": "@now/node"
+        "use": "@vercel/node"
       },
       {
         "src": "backend/app.js",
-        "use": "@now/node"
+        "use": "@vercel/node"
       }
     ]
   }
