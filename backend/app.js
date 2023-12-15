@@ -14,7 +14,7 @@ const { connectToDatabase } = require("./Config/database");
 const bodyParser = require("body-parser");
 
 // Middleware
-app.use("./Middleware/Auth", require("./Routes/userRoutes"));
+app.use("/Middleware/Auth", require("/Routes/userRoutes"));
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "views")));
