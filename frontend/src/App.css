@@ -8,8 +8,8 @@ body{
 width: 100vw;
 height: 100vh;
 overflow:hidden;
-
 }
+
 .glass{
   background: rgba( 255, 255, 255, 0.09 );
   backdrop-filter: blur( 60px );
@@ -27,7 +27,10 @@ overflow:hidden;
   top: -100vh;
   animation: slide 2s forwards;
 }
-
+.ticketcolor{
+    background-color: #0d0c0c;
+  
+}
 
 @keyframes slide {
   100% { top: 0; }
@@ -42,7 +45,14 @@ overflow:hidden;
  );
     height: auto;
     overflow-x: hidden;
+ 
     overflow-y: scroll;
+}
+.mglass{
+  background: rgba( 255, 255, 255, 0.09 );
+  backdrop-filter: blur( 60px );
+  -webkit-backdrop-filter: blur( 6.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.05 );
 }
 }
 .box{
