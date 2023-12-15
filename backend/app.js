@@ -60,8 +60,8 @@ process.on("unhandledRejection", (err) => {
 });
 
 // 404 Not Found Error Handler
-/*app.use((req, res) => {
+app.use((req, res) => {
   res.status(404).json({ error: "Not Found wesh caca" });
-});*/
+});
 
 module.export = app;
