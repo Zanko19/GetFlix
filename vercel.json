@@ -1,20 +1,52 @@
 {
     "rewrites": [
+      { "source": "/backend/(.*)", "destination": "/api/$1" }
+    ],
+    "builds": [
       {
-        "source": "/api/:path",
-        "destination": "/backend/:path"
+        "src": "backend/Config/**",
+        "use": "@now/node"
       },
       {
-        "source": "/api",
-        "destination": "/backend"
+        "src": "backend/Controller/**",
+        "use": "@now/node"
       },
       {
-        "source": "/:path",
-        "destination": "/backend/:path"
+        "src": "backend/Middleware/**",
+        "use": "@now/node"
       },
       {
-        "source": "/",
-        "destination": "/backend"
+        "src": "backend/Model/**",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/node_modules/**",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/Routes/**",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/test/**",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/views/**",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/.env",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/.gitignore",
+        "use": "@now/node"
+      },
+      {
+        "src": "backend/app.js",
+        "use": "@now/node"
       }
     ]
   }
+  
