@@ -14,7 +14,7 @@ const { connectToDatabase } = require("./Config/database");
 const bodyParser = require("body-parser");
 
 // Middleware
-app.use("./Middleware/Auth", require("./Routes/userRoutes"));
+//app.use("./Middleware/Auth", require("./Routes/userRoutes"));
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "views")));
@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/movies", MovieRoutes);
-app.use("/users", UserRoutes);
+//app.use("/users", UserRoutes);
 
 const movieController = new MovieController(TokenKey);
 const userController = new UserController();
