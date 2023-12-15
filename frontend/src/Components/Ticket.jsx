@@ -84,7 +84,7 @@ function Ticket() {
             </div>
           </div>
         </div>
-        <Siege movieId={movieId} mainSectionStyle="lg:mt-[0%]" setSelectedSeats={setSelectedSeats} />
+        <Siege movieId={movieId} mainSectionStyle="lg:mt-[0vh]" setSelectedSeats={setSelectedSeats} />
       </section>
     </div>
   );

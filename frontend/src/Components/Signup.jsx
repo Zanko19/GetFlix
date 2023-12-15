@@ -5,8 +5,15 @@ import screen from "./img/Sign1.jpg";
 
 function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const [showPassword, setShowPassword] = useState(false);
+  const [fullNameErrorClass, setFullNameErrorClass] = useState("");
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const togglePasswordVisibility = (field) => {
     if (field === "password") {
@@ -16,6 +23,55 @@ function Login() {
     }
   };
 
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+  
+    // Met à jour le state avec les nouvelles données du formulaire
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  
+    if (id === "fullName") {
+      const fullNameErrorClass = isValidFullName(value) ? "" : "border-red-500";
+      setFullNameErrorClass(fullNameErrorClass);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Vérification du format des champs avant l'envoi
+    if (!isValidFullName(formData.fullName) || !isValidPassword(formData.password) ||!isValidEmail(formData.email) ) {
+      alert("Veuillez remplir tous les champs correctement.");
+      return;
+    }
+
+
+    console.log("Formulaire envoyé avec succès!", formData);
+  };
+
+  const isValidEmail = (email) => {
+    // Vérification du format de l'e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    // Vérification du format du mot de passe (au moins 7 caractères)
+    return password.length >= 7;
+  };
+  const isValidconfirmPassword = (confirmPassword) => {
+    // Vérification du format du mot de passe (au moins 7 caractères)
+    return confirmPassword.length >= 7;
+  };
+
+ 
+const isValidFullName = (fullName) => {
+  const words = fullName.split(" ");
+  const isValid = words.length === 2;
+  return isValid ? "" : "border-red-500";
+};
   return (
     <div className="w-[100%] h-[100vh]  flex items-center justify-center overflow-hidden">
       <div className="w-[80%] h-[80%] flex flex-row items-center justify-center rounded-3xl">
@@ -28,6 +84,7 @@ function Login() {
           <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
             Sign In
           </div>
+          <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
               htmlFor="fullName"
@@ -35,10 +92,11 @@ function Login() {
             >
               Full Name
             </label>
+            
             <input
               type="text"
               id="fullName"
-              className="lglass focus:ring ring-green-100 border border-gray-300 text-white text-xs rounded-lg block w-full p-1.5 md:p-2.5"
+              className={`lglass peer-invalid:visible text-white text-xs rounded-lg block w-full p-1.5 md:p-2.5 ${fullNameErrorClass}`}
               placeholder="Sarah Willis"
               required
             />
@@ -123,15 +181,17 @@ function Login() {
               <a href="../login">Login here</a>
             </div>
           </div>
-          <a href="#">
-            {" "}
-            <div className="fancy w-1/2  mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine focus:ring">
-              Become a member
-            </div>
-          </a>
+      <button
+        type="submit"
+        className="fancy w-1/2 mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine"
+      >
+        Become a member
+      </button>
+    </form>
         </div>
       </div>
     </div>
+    
   );
 }
 
