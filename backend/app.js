@@ -30,7 +30,7 @@ app.use("/users", UserRoutes);
 
 const movieController = new MovieController(TokenKey);
 const userController = new UserController();
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
 // Top Movies Endpoint
 /*app.get("/movies/top", async (req, res) => {
