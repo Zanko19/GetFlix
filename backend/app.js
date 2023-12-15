@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-connectToDatabase();
+//connectToDatabase();
 
 // Routes
 app.use("/movies", MovieRoutes);
