@@ -20,10 +20,6 @@
         "use": "@vercel/node"
       },
       {
-        "src": "backend/node_modules/**",
-        "use": "@vercel/node"
-      },
-      {
         "src": "backend/Routes/**",
         "use": "@vercel/node"
       },
@@ -33,14 +29,6 @@
       },
       {
         "src": "backend/views/**",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/.env",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "backend/.gitignore",
         "use": "@vercel/node"
       },
       {
