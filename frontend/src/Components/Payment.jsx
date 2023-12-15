@@ -17,12 +17,12 @@ function Payments() {
       <div className="flex">
         <h1 className="text-5xl text-white mb-10 mx-6 mt-5">Checkout</h1>
       </div>
-      <div className="flex w-full ">
+      <div className="flex w-full lg:flex-row flex-col">
         <div className="w-3/4 pr-8">
           <form
             //-----------------------------------------------------------------------------------------------------Route !
             action="/route du back"
-            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-3xl items-center justify-center"
+            className="w-[90vw] lg:w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-3xl items-center justify-center"
           >
             <div className="flex flex-wrap -mx-4">
               <div className="w-full md:w-1/2 px-4 mb-4">
@@ -141,7 +141,7 @@ function Payments() {
         </div>
 
         <div className="w-1/4">
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-3xl items-center justify-center">
+          <div className="w-[90vw] lg:w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-3xl items-center justify-center">
             <h4 className="text-lg font-semibold mb-4">
               Select a paiement method{" "}
               <span className="price" style={{ color: "black" }}>
