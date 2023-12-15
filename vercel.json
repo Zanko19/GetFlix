@@ -1,8 +1,20 @@
 {
-        "rewrites": [
-          {
-            "source": "backend/(.*)",
-            "destination": "/api/$1"
-          }
-        ]
-}
+    "rewrites": [
+      {
+        "source": "/api/:path",
+        "destination": "/backend/:path"
+      },
+      {
+        "source": "/api",
+        "destination": "/backend"
+      },
+      {
+        "source": "/:path",
+        "destination": "/backend/:path"
+      },
+      {
+        "source": "/",
+        "destination": "/backend"
+      }
+    ]
+  }
