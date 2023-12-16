@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import screen from "../img/screen.jpeg";
 
@@ -17,8 +17,8 @@ function Login() {
           alt="screen"
           className="w-2/3 hidden lg:flex h-full object-cover rounded-l-3xl xs:rounded-l-3xl"
         />
-        <div className="w-1/3 h-full flex-auto px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] md:h-full">
-          <div className="w-full flex justify-center text-[#b4d429] text-3xl font-bold ">
+        <div className="lg:w-1/3 w-full h-full flex flex-col justify-center px-6 lglass text-white py-4 rounded-r-3xl rounded-l-3xl lg:rounded-l-none md:w-[50%] md:h-full">
+          <div className="w-full flex justify-center text-white text-3xl font-bold mb-10 ">
             Log in
           </div>
           <div className="mb-6 ">
@@ -63,24 +63,18 @@ function Login() {
                 )}
               </button>
             </div>
-            <div className="flex flex-row justify-between">
-              <div className="text-[#b4d429] text-sm hover:scale-105 hover:text-white mb-10">
-                <a href="../forgot">Forgot Password?</a>
+            <div className="flex  flex-row justify-between">
+              <div className="mt-2 text-[#b4d429] text-sm hover:scale-105 hover:text-white mb-10">
+              <Link to="/forgot">Forgot Password</Link>
               </div>
-              <div className="text-white text-sm md:text-md mt-10">
-                Don't have an account ?{" "}
-                <a
-                  className="text-[#b4d429] underline hover:scale-105 hover:text-white"
-                  href="../signup"
-                >
-                  Signup here
-                </a>
+              <div className="mt-2 text-[#b4d429] text-sm md:text-md hover:scale-105 hover:text-white">
+              <Link to="/signup">Signup here</Link>
               </div>
             </div>
 
             <a href="#">
               {" "}
-              <div className="fancy w-1/2 mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-[#60701a] py-2 rounded-md text-[#b4d429] border border-[#b4d429] hover:scale-105 group-hover:animate-shine">
+              <div className="fancy w-1/2 flex mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-greeny/30 py-2 rounded-md text-white border border-[#b4d429] hover:scale-105 group-hover:animate-shine">
                 Login
               </div>
             </a>

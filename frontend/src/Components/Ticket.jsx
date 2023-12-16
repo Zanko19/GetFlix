@@ -80,7 +80,7 @@ function Ticket() {
                 <h2>Hall: Lux</h2>
                 <h2 className="w-[50%]">Seats: {selectedSeats.join(', ')}</h2>
               </div>
-              <h2 className="mt-1 lg:text-lg text-xl">UserName</h2>
+              <h2 className="mt-1 lg:text-lg text-xl">UserName Test</h2>
             </div>
           </div>
         </div>
