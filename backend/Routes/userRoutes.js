@@ -9,7 +9,7 @@ const { adminAuth, userAuth } = require("../Middleware/authMiddleware");
 //-----------------------------------------------------------------------------Users Routes
 router.get("/", (req, res) => UserController.getUser(req, res));
 router.post("/", (req, res) => UserController.createUser(req, res));
-router.post("/register", register);
+//router.post("/register", register);
 router.route("/login").post(login);
 router.route("/update").put(adminAuth, update);
 
@@ -40,8 +40,11 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//----------------------------------------------------------------------------- foodRoutes
-// router.use("/food", foodRoutes);
+//-----------------------------------------------------------------------------Login page
+router.get("/login-page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/login.html"));
+});
+
 
 //-----------------------------------------------------------------------------FORGOT PASSWORD
 router.get("/reset-password", (req, res) => {
