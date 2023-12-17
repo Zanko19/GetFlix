@@ -22,4 +22,10 @@ router.get("/getDatas", async (req, res) => {
   res.json(result);
 });
 
+router.get('/genres', async (req, res) => {
+  const movieController = new MovieController(TokenKey);
+  const result = await movieController.getGenres();
+  res.json(result);
+});
+
 module.exports = router;

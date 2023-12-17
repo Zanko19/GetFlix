@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { Movie, MovieToDB } = require("../Model/MovieDbData");
+const { Movie, MovieToDB, GenreToDB } = require("../Model/MovieDbData");
 
 class MovieController {
   constructor(TokenKey) {
@@ -168,6 +168,7 @@ class MovieController {
       return false;
     }
   }
+
   async getMovies() {
     try {
       const movies = await MovieToDB.find();
@@ -185,6 +186,27 @@ class MovieController {
         return { error: 'MongoDB connection error' };
       }
   
+      return { error: 'Server error' };
+    }
+  }
+
+  async getGenres() {
+    try {
+      const genres = await GenreToDB.find();
+
+      if (!genres || genres.length === 0) {
+        return { error: 'No genres found' };
+      }
+
+      return { genres };
+    } catch (error) {
+      console.error('Error fetching genres:', error);
+
+      // Gestion des erreurs spécifiques
+      if (error.name === 'MongoError' && error.code === 18) {
+        return { error: 'MongoDB connection error' };
+      }
+
       return { error: 'Server error' };
     }
   }

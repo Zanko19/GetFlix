@@ -45,6 +45,11 @@ class Genre {
   }
 }
 
+const GenreSchema = new mongoose.Schema({
+  id: Number,
+  name: String,
+});
+
 const MovieSchema = new mongoose.Schema({
   id: Number,
   title: String,
@@ -70,9 +75,11 @@ const MovieSchema = new mongoose.Schema({
 });
 
 const MovieToDB = mongoose.model('Movie', MovieSchema);
+const GenreToDB = mongoose.model('Genre', GenreSchema);
 
 module.exports = {
   Movie,
   Genre,
   MovieToDB,
+  GenreToDB,
 };
