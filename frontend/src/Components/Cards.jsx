@@ -19,7 +19,14 @@ function Cards() {
           throw new Error("Failed to fetch movies data");
         }
         const moviesData = await moviesResponse.json();
-        setMovies(moviesData.movies);
+
+        // Shuffle the movies array
+        const shuffledMovies = [...moviesData.movies].sort(() => Math.random() - 0.5);
+
+        // Select the first four movies from the shuffled array
+        const randomMovies = shuffledMovies.slice(0, numberOfRandomMovies);
+
+        setMovies(randomMovies);
 
         // Fetch genres data
         const genresResponse = await fetch(
@@ -47,12 +54,6 @@ function Cards() {
       .join(", ");
   };
 
-  // Shuffle the movies array to get a random order
-  const shuffledMovies = [...movies].sort(() => Math.random() - 0.5);
-
-  // Select the first four movies from the shuffled array
-  const randomMovies = shuffledMovies.slice(0, numberOfRandomMovies);
-
   const handleCardClick = (movieId) => {
     navigate(`/movie/${movieId}`);
   };
@@ -61,7 +62,7 @@ function Cards() {
 
   return (
     <div className="mt-5 lg:mt-0 h-[60%] w-full lg:h-[55%] lg:w-[90%] flex flex-row items-center justify-between">
-      {randomMovies.map((movie, index) => (
+      {movies.map((movie, index) => (
         <div
           key={movie.id}
           className={`overflow-hidden bg-black h-[90%] w-[47%] lg:mr-0 lg:h-[80%] lg:w-[22%] rounded-3xl flex flex-col lg:flex lg:origin-bottom-right lg:hover:rotate-[10deg] lg:hover:-translate-y-[25px] z-${

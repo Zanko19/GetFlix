@@ -9,7 +9,13 @@ width: 100vw;
 height: 100vh;
 overflow:hidden;
 }
-
+.loading{
+  background-image: radial-gradient(circle at bottom left, 
+  rgb(19, 2, 19) 0%,       
+   rgb(13, 20, 33) 50%,      
+   rgb(18, 26, 22) 100%    
+ );
+}
 .glass{
   background: rgba( 255, 255, 255, 0.09 );
   backdrop-filter: blur( 60px );
