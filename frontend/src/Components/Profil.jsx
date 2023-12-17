@@ -3,15 +3,21 @@ import { FaBars } from "react-icons/fa6";
 import Navleft from "./Navleft";
 import NavTop from "./Navtop";
 import { FaRegEdit } from "react-icons/fa";
+import PictureSelection from "./PictureSelection";
+import catImage from "../img/cat.jpg";
+import horrorImage from "../img/horror.jpg";
+import sfImage from "../img/sf.jpg";
 
 function Profile() {
   const [isOpen, setClose] = useState(false);
   const [isEditing, setEditing] = useState(false);
+  const [selectedPicture, setSelectedPicture] = useState(1);
 
   const toggleNavLeft = () => {
     setClose(!isOpen);
   };
 
+  //model editing
   const [profileInfo, setProfileInfo] = useState({
     fullName: "Blablablaablu",
     emailAddress: "blablabla@example.com",
@@ -19,10 +25,11 @@ function Profile() {
     address: "123 rue Saint Antoine",
   });
 
-  const updateProfileInfo = (fieldName, newValue) => {
+  //return info
+  const updateProfileInfo = (field, value) => {
     setProfileInfo((prevProfileInfo) => ({
       ...prevProfileInfo,
-      [fieldName]: newValue,
+      [field]: value,
     }));
   };
 
@@ -32,6 +39,16 @@ function Profile() {
 
   const handleSaveClick = () => {
     setEditing(false);
+  };
+
+  const picturesArray = [
+    { id: 1, image: catImage },
+    { id: 2, image: horrorImage },
+    { id: 3, image: sfImage },
+  ];
+
+  const handlePictureSelect = (pictureId) => {
+    setSelectedPicture(pictureId);
   };
 
   return (
@@ -53,18 +70,26 @@ function Profile() {
       <NavTop />
 
       <section
-        className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-center ${
+        className={`items start md:items-start flex flex-col md:flex-row lg:flex-row lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:bg-white/10 h-[85vh] text-white text-3xl flex items-center justify-center ${
           isOpen ? "bg-white/0.5" : ""
         }`}
       >
-        <div className="px-6 py-6 lglass rounded-3xl items-center justify-center">
-          <h3 className="w-full flex justify-center text-[#b4d429] text-3xl font-bold">
-            Your Profile
-          </h3>
-          <div className="items-center justify-center text-center mt-2">
+        <div className="w-[95%] lg:w-auto lg:absolute top-5 left-10 px-6 py-6 lglass rounded-3xl items-center justify-center">
+          <div className="flex flex-row items-center">
+            <img
+              src={picturesArray.find((p) => p.id === selectedPicture).image}
+              alt={`Selected Profile Picture`}
+              className="rounded-full"
+              style={{ width: "100px", height: "100px" }}
+            />
+            <h3 className="w-full text-[#b4d429] text-3xl font-bold mx-2 lg:mx-6">
+              Your Profile
+            </h3>
+          </div>
+          <div className="flex items-center justify-center text-left mt-2 lg:mx-2">
             {isEditing ? (
               <form>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Full name
                   </dt>
@@ -75,11 +100,11 @@ function Profile() {
                       onChange={(e) =>
                         updateProfileInfo("fullName", e.target.value)
                       }
-                      className="border rounded p-1 text-gray-300"
+                      className="glass border rounded-xl p-1 text-gray-100"
                     />
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Email address
                   </dt>
@@ -90,11 +115,11 @@ function Profile() {
                       onChange={(e) =>
                         updateProfileInfo("emailAddress", e.target.value)
                       }
-                      className="border rounded p-1 text-gray-300"
+                      className="glass border rounded-xl p-1 text-gray-100"
                     />
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Phone number
                   </dt>
@@ -105,11 +130,11 @@ function Profile() {
                       onChange={(e) =>
                         updateProfileInfo("phoneNumber", e.target.value)
                       }
-                      className="border rounded p-1 text-gray-300"
+                      className="glass border rounded-xl p-1 text-gray-100"
                     />
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">Address</dt>
                   <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
                     <input
@@ -118,14 +143,14 @@ function Profile() {
                       onChange={(e) =>
                         updateProfileInfo("address", e.target.value)
                       }
-                      className="border rounded p-1 text-gray-300"
+                      className="glass border rounded-xl p-1 text-gray-100"
                     />
                   </dd>
                 </div>
               </form>
             ) : (
               <dl className="sm:w-fit lg:w-fit">
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Full name
                   </dt>
@@ -133,7 +158,7 @@ function Profile() {
                     {profileInfo.fullName}
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Email address
                   </dt>
@@ -141,7 +166,7 @@ function Profile() {
                     {profileInfo.emailAddress}
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">
                     Phone number
                   </dt>
@@ -149,7 +174,7 @@ function Profile() {
                     {profileInfo.phoneNumber}
                   </dd>
                 </div>
-                <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">
                   <dt className="text-sm font-medium text-gray-500">Address</dt>
                   <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
                     {profileInfo.address}
@@ -174,6 +199,17 @@ function Profile() {
             </button>
           )}
         </div>
+
+        {isEditing ? (
+          <div className=" lg:ml-5 mt-5 lg:mt-5 md:mt-0 md:ml-2 mt-lg-0 px-6 py-6 lglass rounded-3xl items-center justify-center">
+            <h3 className="w-full flex justify-center text-[#b4d429] text-3xl font-bold mb-5">
+              Select your profil image
+            </h3>
+            <div className="mt-2">
+              <PictureSelection onSelectPicture={handlePictureSelect} />
+            </div>
+          </div>
+        ) : null}
       </section>
     </div>
   );

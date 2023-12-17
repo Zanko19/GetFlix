@@ -11,7 +11,8 @@ function Sign() {
   const [fullNameErrorClass, setFullNameErrorClass] = useState("");
   const [emailErrorClass, setEmailErrorClass] = useState("");
   const [passwordErrorClass, setPasswordErrorClass] = useState("");
-  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] = useState("");
+  const [confirmPasswordErrorClass, setConfirmPasswordErrorClass] =
+    useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -37,19 +38,27 @@ function Sign() {
     }));
 
     if (id === "fullName") {
-      const fullNameErrorClass = isValidFullName(value) ? "border-green-500" : "border-red-500";
+      const fullNameErrorClass = isValidFullName(value)
+        ? "border-green-500"
+        : "border-red-500";
       setFullNameErrorClass(fullNameErrorClass);
     } else if (id === "email") {
-      const emailErrorClass = isValidEmail(value) ? "border-green-500" : "border-red-500";
+      const emailErrorClass = isValidEmail(value)
+        ? "border-green-500"
+        : "border-red-500";
       setEmailErrorClass(emailErrorClass);
     } else if (id === "password") {
       // Update confirmation password error when the first password is changed
       const confirmPasswordErrorClass =
-        formData.confirmPassword === value ? "border-green-500" : "border-red-500";
+        formData.confirmPassword === value
+          ? "border-green-500"
+          : "border-red-500";
       setConfirmPasswordErrorClass(confirmPasswordErrorClass);
 
       // Update password error
-      const passwordErrorClass = isValidPassword(value) ? "border-green-500" : "border-red-500";
+      const passwordErrorClass = isValidPassword(value)
+        ? "border-green-500"
+        : "border-red-500";
       setPasswordErrorClass(passwordErrorClass);
     } else if (id === "confirmPassword") {
       // Update confirmation password error
@@ -59,7 +68,7 @@ function Sign() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -71,9 +80,32 @@ function Sign() {
       return;
     }
 
+    try {
+      // Send the data with the correct keys expected by your backend model
+      const response = await fetch("http://157.230.127.29/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: formData.confirmPassword,
+        }),
+      });
 
-    // Redirect to the homepage
-    navigate("/");
+      // Handle the response, for example, redirect the user to the login page
+      if (response.ok) {
+        navigate("/login");
+      } else {
+        // Handle errors, for example, display an error message to the user
+        console.error("Error during signup:", response.statusText);
+      }
+    } catch (error) {
+      // Handle errors, for example, display an error message to the user
+      console.error("Error during signup:", error.message);
+    }
   };
 
   const isValidEmail = (email) => {
@@ -119,7 +151,8 @@ function Sign() {
                 required
               />
               <div className="mt-2 text-red-500 text-xs">
-                {fullNameErrorClass.includes("red") && "Full name must contain two words"}
+                {fullNameErrorClass.includes("red") &&
+                  "Full name must contain two words"}
               </div>
             </div>
             <div className="mb-6">
@@ -137,7 +170,9 @@ function Sign() {
                 onChange={handleChange}
                 required
               />
-              <div className="mt-2 text-red-500 text-xs">{emailErrorClass.includes("red") && "Invalid email address"}</div>
+              <div className="mt-2 text-red-500 text-xs">
+                {emailErrorClass.includes("red") && "Invalid email address"}
+              </div>
             </div>
             <div className="mb-6">
               <label
@@ -168,7 +203,8 @@ function Sign() {
                 </button>
               </div>
               <div className="mt-2 text-red-500 text-xs">
-                {passwordErrorClass.includes("red") && "Password must have at least 7 characters"}
+                {passwordErrorClass.includes("red") &&
+                  "Password must have at least 7 characters"}
               </div>
             </div>
             <div className="mb-6">
@@ -200,7 +236,8 @@ function Sign() {
                 </button>
               </div>
               <div className="mt-2 text-red-500 text-xs">
-                {confirmPasswordErrorClass.includes("red") && "Passwords don't match"}
+                {confirmPasswordErrorClass.includes("red") &&
+                  "Passwords don't match"}
               </div>
             </div>
 
