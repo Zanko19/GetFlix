@@ -5,9 +5,9 @@ import Navleft from "./Navleft";
 import NavTop from "./Navtop";
 import Siege from "./Siege";
 import bar from "../SVG/Barr.svg";
-import movieData from "../boss.json";
 import cup from "../SVG/cupcinema.svg";
 import pop from "../SVG/POPCORN_3D.svg";
+
 function Ticket() {
   const { movieId } = useParams();
   const [isOpen, setClose] = useState(false);
@@ -21,16 +21,27 @@ function Ticket() {
   };
 
   useEffect(() => {
-    const selectedMovie = movieData.movies.find(
-      (m) => String(m.id) === movieId
-    );
-    setMovie(selectedMovie);
+    const fetchMovieData = async () => {
+      try {
+        const response = await fetch(`http://157.230.127.29/movies/getDatas`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
+        setMovie(selectedMovie);
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+
+    fetchMovieData();
   }, [movieId]);
 
   if (!movie) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="containermain w-screen h-auto lg:h-screen flex flex-col lg:overflow-hidden">
       <div className="flex h-[10vh] w-screen flex-row-reverse w-screen relative items-center md:justify-between justify-around">

@@ -1,39 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import movieData from "../boss.json";
 import NavTop from "./Navtop";
 import { FaBars } from "react-icons/fa6";
-import MovieBackdrop from "./MovieBackdrop";
-import { modifyBackdropPath } from "./MovieBackdrop";
+import MovieBackdrop, { modifyBackdropPath } from "./MovieBackdrop";
 import { BsFillPlayFill } from "react-icons/bs";
-import TrailerPlayer from "./TrailerPlayer"; // Import the TrailerPlayer component
+import TrailerPlayer from "./TrailerPlayer";
 import Navleft from "./Navleft";
 import { BsBookmarkDashFill } from "react-icons/bs";
 
-function OneMovie() {
+const getGenres = (movie, genresData) => {
+  if (!movie || !genresData.genres) {
+    return "";
+  }
+
+  const genres = genresData.genres.filter((genre) =>
+    movie.genreIds.includes(genre.id)
+  );
+  const firstTwoGenres = genres.slice(0, 2);
+  return firstTwoGenres.map((genre) => genre.name).join(", ");
+};
+
+const OneMovie = () => {
   const navigate = useNavigate();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [isOpen, setClose] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
-
-  const convertMinutesToHours = (minutes) => {
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
-
-    return `${hours}h ${remainingMinutes}min`;
-  };
-
-  useEffect(() => {
-    console.log("Movie ID:", movieId); // Add this line
-    const selectedMovie = movieData.movies.find(
-      (m) => String(m.id) === movieId
-    );
-    setMovie(selectedMovie);
-  }, [movieId]);
-  if (!movie) {
-    return <div>Loading...</div>;
-  }
+  const [genresData, setGenresData] = useState({ genres: [] });
 
   const toggleNavLeft = () => {
     setClose(!isOpen);
@@ -43,19 +36,69 @@ function OneMovie() {
     setShowTrailer(!showTrailer);
   };
 
-  function getGenres(genreIds) {
-    const genres = movieData.genres.filter((genre) =>
-      genreIds.includes(genre.id)
-    );
-    const firstTwoGenres = genres.slice(0, 2);
-    return firstTwoGenres.map((genre) => genre.name).join("  ·  ");
+  const convertMinutesToHours = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+
+    return `${hours}h ${remainingMinutes}min`;
+  };
+
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        console.log('Fetching movie data...');
+        const response = await fetch(`http://157.230.127.29/movies/getDatas`);
+        console.log('Response:', response);
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        console.log('Data:', data);
+  
+        const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
+        console.log('Selected Movie:', selectedMovie);
+  
+        if (selectedMovie) {
+          setMovie(selectedMovie);
+        } else {
+          console.error('Movie not found for id:', movieId);
+        }
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+  
+    fetchMovieData();
+  }, [movieId]);
+
+  useEffect(() => {
+    const fetchGenresData = async () => {
+      try {
+        // Fetch genres data
+        const genresResponse = await fetch(
+          "http://157.230.127.29/movies/genres"
+        );
+        if (!genresResponse.ok) {
+          throw new Error("Failed to fetch genres data");
+        }
+        const genresData = await genresResponse.json();
+        setGenresData(genresData);
+      } catch (error) {
+        console.error("Error fetching genres data:", error);
+      }
+    };
+
+    fetchGenresData();
+  }, []);
+
+  if (!movie || !genresData.genres) {
+    return <div>Loading...</div>;
   }
 
-  function getYearFromDate(dateString) {
-    return dateString.split("-")[0];
-  }
-  const baseUrl = "https://image.tmdb.org/t/p/original";
-  const releaseYear = getYearFromDate(movie.releaseDate);
+  const baseUrl = "https://image.tmdb.org/t/p/original"; // Replace with your base URL
+  const releaseYear = new Date(movie.releaseDate).getFullYear();
 
   return (
     <div className="containermain w-screen h-auto lg:h-screen flex flex-col lg:overflow-hidden">
@@ -91,7 +134,9 @@ function OneMovie() {
           className="h-[55vh] object-cover object-top w-full opacity-80 lg:hidden cursor-pointer"
         />
         <div className="flex flex-col lg:justify-between lg:h-[60%] w-[90%] lg:w-[40%] my-10 lg:my-0">
-          <p className="text-sm mt-5 lg:mt-0 lg:text-xl opacity-90">{getGenres(movie.genreIds)}</p>
+          <p className="text-sm mt-5 lg:mt-0 lg:text-xl opacity-90">
+            {getGenres(movie, genresData)}
+          </p>
           <h2 className="text-3xl lg:text-5xl mb-3 mt-2">{movie.title}</h2>
           <div className="flex flex-row text-sm lg:text-lg mb-5">
             <p className="pr-3">{releaseYear}</p>
@@ -100,7 +145,9 @@ function OneMovie() {
             <p>{convertMinutesToHours(movie.runtime)}</p>
           </div>
           <p className="lg:text-xl text-lg mb-4">PLOT ·</p>
-          <p className="lg:text-lg text-lg opacity-80 w-[85%] lg:w-[120%]">{movie.overview}</p>
+          <p className="lg:text-lg text-lg opacity-80 w-[85%] lg:w-[120%]">
+            {movie.overview}
+          </p>
 
           <div className="flex flex-row items-center justify-between w-[75%] lg:mt-5">
             <div

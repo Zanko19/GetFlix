@@ -1,8 +1,5 @@
-// Siege.jsx
-
 import React, { useEffect, useState } from 'react';
 import { GiSofa } from 'react-icons/gi';
-import movieData from '../boss.json';
 import { FaCalendar } from 'react-icons/fa';
 
 function Siege({ movieId, mainSectionStyle, setSelectedSeats, onClick }) {
@@ -10,8 +7,23 @@ function Siege({ movieId, mainSectionStyle, setSelectedSeats, onClick }) {
   const [selectedSeats, setSelectedLocalSeats] = useState([]);
 
   useEffect(() => {
-    const selectedMovie = movieData.movies.find((m) => String(m.id) === movieId);
-    setMovie(selectedMovie);
+    const fetchMovieData = async () => {
+      try {
+        // Fetch movie data
+        const response = await fetch(`http://157.230.127.29/movies/getDatas`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
+        setMovie(selectedMovie);
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+
+    fetchMovieData();
   }, [movieId]);
 
   const handleSeatClick = (seatNumber) => {

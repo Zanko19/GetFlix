@@ -1,16 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import movieData from '../boss.json';
 
 function NavTop() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showList, setShowList] = useState(false);
+  const [movies, setMovies] = useState([]);
   const inputRef = useRef(null);
   const listRef = useRef(null);
-
-  const filteredData = movieData.movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   const handleOutsideClick = (event) => {
     if (
@@ -24,13 +20,36 @@ function NavTop() {
   };
 
   useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch('http://157.230.127.29/movies/getDatas');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setMovies(data.movies);
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
-  const baseUrl = 'https://image.tmdb.org/t/p/original'
+
+  const filteredData = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const baseUrl = 'https://image.tmdb.org/t/p/original';
+
   return (
     <div className='hidden  lg:flex w-[80vw] h-[10vh] text-white flex flex-row justify-between items-center fixed top-0 right-0 z-50 '>
       <input
