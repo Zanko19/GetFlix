@@ -55,7 +55,7 @@ function Siege({ movieId, mainSectionStyle, setSelectedSeats, onClick }) {
 
   return (
     <section
-      className={`w-[85%] h-[70vh] lg:w-[35%] lg:h-[80%] glass rounded-3xl lg:mt-[5%] lg:mr-[8%] flex flex-col rounded-3xl z-0 mb-10 ${mainSectionStyle}`}
+      className={` w-[85%] h-[70vh] lg:w-[35%] lg:h-[94%] glass rounded-3xl lg:mt-[0%] lg:mr-[8%] flex flex-col rounded-3xl z-0 mb-10 ${mainSectionStyle}`}
       onClick={onClick}
     >
       {/* Movie Information Section */}
