@@ -96,7 +96,6 @@ class MovieController {
 
           const movieDetailsData = await movieDetailsResponse.json();
 
-          // Extracting additional details
           const runtime = movieDetailsData.runtime;
           const productionCountries = movieDetailsData.production_countries.map(
             (country) => country.iso_3166_1
@@ -181,7 +180,6 @@ class MovieController {
     } catch (error) {
       console.error('Error fetching movies:', error);
   
-      // Gestion des erreurs spécifiques
       if (error.name === 'MongoError' && error.code === 18) {
         return { error: 'MongoDB connection error' };
       }
@@ -202,7 +200,6 @@ class MovieController {
     } catch (error) {
       console.error('Error fetching genres:', error);
 
-      // Gestion des erreurs spécifiques
       if (error.name === 'MongoError' && error.code === 18) {
         return { error: 'MongoDB connection error' };
       }
