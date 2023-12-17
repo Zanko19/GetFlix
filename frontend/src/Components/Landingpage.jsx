@@ -6,12 +6,16 @@ import Hero from './Hero';
 import Cards from './Cards';
 import Siege from './Siege';
 import movieData from '../boss.json'
-
+import { useNavigate } from 'react-router-dom';
 function Home() {
+  const navigate = useNavigate();
   const firstMovie = movieData.movies[0];
     const [isOpen, setClose] = useState(false);
     const toggleNavLeft = () => {
       setClose(!isOpen);
+    };
+    const handleSiegeClick = () => {
+      navigate(`/ticket/${firstMovie.id}`);
     };
     return (
         <div className='containermain w-screen h-[160vh] lg:h-screen flex flex-col lg:flex-row items-center my-5 lg:mb-5 lg:mt-5'>
@@ -34,7 +38,7 @@ function Home() {
             <Cards />
           </div>
         </section>
-        <Siege movieId={String(firstMovie.id)} />
+        <Siege movieId={String(firstMovie.id)} onClick={handleSiegeClick} />
       </div>
        )
      }

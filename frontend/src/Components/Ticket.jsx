@@ -6,7 +6,8 @@ import NavTop from "./Navtop";
 import Siege from "./Siege";
 import bar from "../SVG/Barr.svg";
 import movieData from "../boss.json";
-
+import cup from "../SVG/cupcinema.svg";
+import pop from "../SVG/POPCORN_3D.svg";
 function Ticket() {
   const { movieId } = useParams();
   const [isOpen, setClose] = useState(false);
@@ -72,19 +73,61 @@ function Ticket() {
             <div className="bg-slate-700 w-[3%]"></div>
             <div className="bg-slate-700 w-[3%]"></div>
           </div>
-          <div className=" bg-slate-700 rounded-3xl h-[30vh] lg:h-[35%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0"> 
+          <div className=" bg-slate-700 rounded-3xl h-[35vh] lg:h-[35%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0">
             <div className="lg:text-xl text-2xl pt-2 flex flex-col text-center mx-2 text-white">
               {movie.title}
-              <h3 className="lg:text-sm text-xl text-center mt-3 lg:mt-0">20th Dec, 20:30</h3>
+              <h3 className="lg:text-sm text-xl text-center mt-3 lg:mt-0">
+                20th Dec, 20:30
+              </h3>
               <div className="w-full lg:text-sm text-lg flex justify-between px-[15%] flex-row mt-5 lg:mt-2">
                 <h2>Hall: Lux</h2>
-                <h2 className="w-[50%]">Seats: {selectedSeats.join(', ')}</h2>
+                <h2 className="w-[50%]">Seats: {selectedSeats.join(", ")}</h2>
               </div>
-              <h2 className="mt-1 lg:text-lg text-xl">UserName Test</h2>
+              <h2 className="mt-10 lg:text-lg text-xl">UserName Test</h2>
             </div>
           </div>
         </div>
-        <Siege movieId={movieId} mainSectionStyle="lg:mt-[0vh]" setSelectedSeats={setSelectedSeats} />
+        <Siege
+          movieId={movieId}
+          mainSectionStyle="lg:mt-[0%]"
+          setSelectedSeats={setSelectedSeats}
+        />
+        <section className="flex flex-col w-[30%] h-[80%] justify-between mr-10 hidden lg:flex">
+          <div className=" bg-black  h-[40%] w-full rounded-3xl flex flex-row items-center">
+            <div className="h-[100%] w-[40%]">
+              <img
+                className="h-full z-50"
+                src={cup}
+                alt=""
+              />
+            </div>
+            <div className="w-[60%] h-[60%] text-sm flex flex-col justify-between ml-5 mt-5">
+              <div>
+                {" "}
+                <h2 className="text-3xl ">Soda</h2>
+                <p>Small/Medium/Large"</p>
+              </div>
+              <h2 className="text-2xl mb-5">Price: 2$/4$/5$</h2>
+            </div>
+          </div>
+          <div className=" bg-black  h-[40%] w-full rounded-3xl flex flex-row items-center">
+            <div className="h-[100%] w-[40%]">
+              <img
+                className="h-full z-50"
+                src={pop}
+                alt=""
+              />
+            </div>
+            <div className="w-[60%] h-[60%] text-sm flex flex-col justify-between ml-5 mt-5">
+              <div>
+                {" "}
+                <h2 className="text-3xl">PopCorn</h2>
+                <p>Small/Medium/Large"</p>
+              </div>
+              <h2 className="text-2xl mb-5">Price: 5$/7$/8$</h2>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );

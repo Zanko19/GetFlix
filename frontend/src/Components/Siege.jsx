@@ -1,9 +1,11 @@
+// Siege.jsx
+
 import React, { useEffect, useState } from 'react';
 import { GiSofa } from 'react-icons/gi';
 import movieData from '../boss.json';
 import { FaCalendar } from 'react-icons/fa';
 
-function Siege({ movieId, mainSectionStyle, setSelectedSeats }) {
+function Siege({ movieId, mainSectionStyle, setSelectedSeats, onClick }) {
   const [movie, setMovie] = useState(null);
   const [selectedSeats, setSelectedLocalSeats] = useState([]);
 
@@ -42,6 +44,7 @@ function Siege({ movieId, mainSectionStyle, setSelectedSeats }) {
   return (
     <section
       className={`w-[85%] h-[70vh] lg:w-[35%] lg:h-[80%] glass rounded-3xl lg:mt-[5%] lg:mr-[8%] flex flex-col rounded-3xl z-0 mb-10 ${mainSectionStyle}`}
+      onClick={onClick}
     >
       {/* Movie Information Section */}
       <div className='w-full h-[30%] lg:px-5 flex flex-row rounded-t-3xl z-0 overflow-hidden justify-around mt-5'>
