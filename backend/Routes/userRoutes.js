@@ -12,6 +12,13 @@ router.post("/", (req, res) => UserController.createUser(req, res));
 //router.post("/register", register);
 router.route("/login").post(login);
 router.route("/update").put(adminAuth, update);
+router.get('/:userId', async (req, res) => {
+  const userId = req.params.userId;
+
+  const result = await UserController.getUserById(userId);
+
+  res.json(result);
+});
 
 //-----------------------------------------------------------------------------Admin Routes
 router.route("/deleteUser").delete(adminAuth, deleteUser);
@@ -40,12 +47,14 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//-----------------------------------------------------------------------------Login page
+//-----------------------------------------------------------------------------Test page
 router.get("/login-page", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
-
+router.get("/userid-page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/getuserid.html"));
+});
 //-----------------------------------------------------------------------------FORGOT PASSWORD
 router.get("/reset-password", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/reset-password.html"));

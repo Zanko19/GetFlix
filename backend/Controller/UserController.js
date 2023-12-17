@@ -52,6 +52,21 @@ class UserController {
       res.status(500).json({ error: "Error fetching the user" });
     }
   }
+
+  async getUserById(userId) {
+    try {
+      const user = await User.findById(userId);
+
+      if (!user) {
+        return { error: 'User not found' };
+      }
+
+      return { user };
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      return { error: 'Server error' };
+    }
+  }
   //--------------------------------------------------------------------------create user
   async createUser(req, res) {
     try {
