@@ -168,16 +168,26 @@ class MovieController {
       return false;
     }
   }
-}
-
-exports.getMovies = async (req, res) => {
-  try {
-    const movies = await MovieToDB.find();
-    res.json(movies);
-  } catch (error) {
-    console.error('Error fetching movies:', error);
-    res.status(500).send('Server error');
+  async getMovies() {
+    try {
+      const movies = await MovieToDB.find();
+  
+      if (!movies || movies.length === 0) {
+        return { error: "No movies found" };
+      }
+  
+      return { movies };
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+  
+      // Gestion des erreurs spécifiques
+      if (error.name === 'MongoError' && error.code === 18) {
+        return { error: 'MongoDB connection error' };
+      }
+  
+      return { error: 'Server error' };
+    }
   }
-};
+}
 
 module.exports = MovieController;
