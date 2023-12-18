@@ -45,6 +45,23 @@ router.get("/login-page", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
+//-----------------------------------------------------------------------------Get user by ID
+
+router.get("/userid-page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/getuserid.html"));
+});
+
+router.get('/:username', async (req, res) => {
+  const username = req.params.username;
+
+  const result = await UserController.getUserById('username', username);
+
+  if (result.error) {
+    return res.status(404).json(result);
+  }
+
+  res.json(result);
+});
 
 //-----------------------------------------------------------------------------FORGOT PASSWORD
 router.get("/reset-password", (req, res) => {

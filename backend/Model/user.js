@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
   },
   icon: [
     {
-      //mettre des url pour les images icon en front
       type: String,
     },
   ],

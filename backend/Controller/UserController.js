@@ -52,6 +52,23 @@ class UserController {
       res.status(500).json({ error: "Error fetching the user" });
     }
   }
+  async getUserById(fieldName, value) {
+    try {
+      const query = {};
+      query[fieldName] = value;
+  
+      const user = await User.findOne(query);
+  
+      if (!user) {
+        return { error: 'User not found' };
+      }
+  
+      return user;
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      return { error: 'Server error' };
+    }
+  }
   //--------------------------------------------------------------------------create user
   async createUser(req, res) {
     try {
