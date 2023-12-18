@@ -34,7 +34,7 @@ exports.login = async (req, res, next) => {
         });
         res.status(200).json({
           message: "User successfully logged in",
-          user: { id: user._id, username: user.username },
+          user: { username: user.username, token: token },
         });
       } else {
         res.status(400).json({ message: "Login not successful" });

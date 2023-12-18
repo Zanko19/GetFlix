@@ -41,9 +41,9 @@ router.post("/signup", async (req, res) => {
 });
 
 //-----------------------------------------------------------------------------Login page
-// router.get("/login-page", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../views/login.html"));
-// });
+router.get("/login-page", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/login.html"));
+});
 
 //-----------------------------------------------------------------------------Get user by ID
 
