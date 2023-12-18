@@ -46,19 +46,18 @@ const OneMovie = () => {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        console.log('Fetching movie data...');
-        const response = await fetch(`http://157.230.127.29/movies/getDatas`);
-        console.log('Response:', response);
-  
+ 
+        const response = await fetch(`https://cinemania.space/movies/getDatas`);
+    
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
   
         const data = await response.json();
-        console.log('Data:', data);
+
   
         const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
-        console.log('Selected Movie:', selectedMovie);
+   
   
         if (selectedMovie) {
           setMovie(selectedMovie);
@@ -78,7 +77,7 @@ const OneMovie = () => {
       try {
         // Fetch genres data
         const genresResponse = await fetch(
-          "http://157.230.127.29/movies/genres"
+          "https://cinemania.space/movies/genres"
         );
         if (!genresResponse.ok) {
           throw new Error("Failed to fetch genres data");

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from 'react';
 import { FaBars } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 import Navleft from "./Navleft";
@@ -8,6 +8,7 @@ import pop from "../SVG/POPCORN_3D.svg";
 import bol from "../SVG/BOULEPORN.svg";
 import LoadingSpinner from "./LoadingSpinner";
 import NavTop from "./Navtop";
+import MobileSearchBar from './MobileSearch';
 
 function Ticket() {
   const { movieId } = useParams();
@@ -15,8 +16,8 @@ function Ticket() {
   const [movie, setMovie] = useState(null);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const baseUrl = "https://image.tmdb.org/t/p/original";
+  const [showFullLoading, setShowFullLoading] = useState(true); // New state variable
+  const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   const toggleNavLeft = () => {
     setClose(!isOpen);
@@ -29,24 +30,25 @@ function Ticket() {
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         // Fetch movie data
-        const response = await fetch(
-          `http://157.230.127.29/movies/getDatas`
-        );
+        const response = await fetch('https://cinemania.space/movies/getDatas');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
 
-        const selectedMovie = data.movies.find(
-          (m) => String(m.id) === movieId
-        );
+        const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
         setMovie(selectedMovie);
       } catch (error) {
-        console.error("Error fetching movie data:", error);
+        console.error('Error fetching movie data:', error);
       } finally {
         // Set isLoading to false after fetching data with a 500ms delay
         setTimeout(() => {
           setIsLoading(false);
+
+          setShowFullLoading(true);
+          setTimeout(() => {
+            setShowFullLoading(false);
+          }, 100);
         }, 500);
       }
     };
@@ -56,19 +58,14 @@ function Ticket() {
       setIsLoading(true);
 
       await fetchMovieData();
-
-      // Hide loading spinner after data has been fetched
-      setIsLoading(false);
     };
 
     fetchData();
-  }, [movieId]);
+  }, [movieId]
+  
+  
+  );
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
-  // Render the content only when movie data is available
   return (
     <div className="containermain w-screen h-auto lg:h-screen flex flex-col lg:overflow-hidden">
       <div className="flex h-[10vh] w-screen flex-row-reverse w-screen relative items-center md:justify-between justify-around">
@@ -78,15 +75,11 @@ function Ticket() {
           }`}
           onClick={toggleNavLeft}
         />
-        <input
-          type="text"
-          className="glass ml-5 sm:w-screen sm:mx-5 h-[40px] rounded-xl pr-10 pl-4 flex items-center lg:hidden"
-          placeholder="Search"
-        />
+        <MobileSearchBar />
       </div>
       <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
       <NavTop />
-
+      <Suspense fallback={<LoadingSpinner />}>
       <section
         className={`lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:h-[85vh]  text-white text-3xl flex flex-col lg:flex lg:flex-row items-center lg:items-start justify-center lg:justify-start ${
           isOpen ? "bg-slate-700/0.5" : ""
@@ -95,8 +88,8 @@ function Ticket() {
         {/* Only render the content when movie data is available */}
         {movie && (
           <>
-            <div className="lg:w-[25%] w-[85%] h-auto lg:h-[94%] lg:mt-0 lg:mr-20">
-              <div className="h-[45vh] w-full lg:h-auto ">
+            <div className="lg:w-[25%] w-[90%] lg:h-[94%] lg:mt-0 lg:mr-20">
+              <div className="lg:h-[50vh] w-full  ">
                 <img
                   src={`${baseUrl}${movie.posterPath}`}
                   className="w-full h-full object-cover object-top rounded-3xl"
@@ -115,8 +108,8 @@ function Ticket() {
                 <div className="bg-slate-700 w-[3%]"></div>
                 <div className="bg-slate-700 w-[3%]"></div>
               </div>
-              <div className=" bg-slate-700 rounded-3xl h-[35vh] lg:h-[29%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0">
-                <div className="lg:text-xl text-2xl pt-2 flex flex-col text-center mx-2 text-white">
+              <div className=" bg-slate-700 rounded-3xl h-[40vh] lg:h-[36%] flex flex-col pt-5 mb-5 lg:pt-0 lg:mb-0">
+                <div className="lg:text-xl text-2xl lg:pt-10 flex flex-col text-center mx-2 text-white">
                   {movie.title}
                   <h3 className="lg:text-sm text-xl text-center mt-3 lg:mt-0">
                     20th Dec, 20:30
@@ -192,6 +185,8 @@ function Ticket() {
           </>
         )}
       </section>
+      </Suspense>
+      {isLoading && showFullLoading && <LoadingSpinner />}
     </div>
   );
 }

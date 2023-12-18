@@ -82,7 +82,7 @@ function Sign() {
 
     try {
       // Send the data with the correct keys expected by your backend model
-      const response = await fetch("http://157.230.127.29/users/signup", {
+      const response = await fetch("https://cinemania.space/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

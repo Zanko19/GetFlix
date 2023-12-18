@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Forgot from "./Forgot"
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import Forgot from "./Forgot";
 import Movie from "./Onemovie";
 import Sign from "./Signup";
 import Login from "./Login";
@@ -13,7 +13,7 @@ import Payments from "./Payment";
 
 function App() {
   return (
-    <Router basename="/getflixProject">
+    <Router>
       <Routes>
         <Route path="/profile" element={<Profil />} />
         <Route path="/category" element={<Category />} />
@@ -29,4 +29,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;

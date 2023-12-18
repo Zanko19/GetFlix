@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 
-function NavTop() {
+function MobileSearchBar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showList, setShowList] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -51,28 +50,23 @@ function NavTop() {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   return (
-    <div className='hidden lg:flex w-[80vw] h-[10vh] text-white flex flex-row justify-between items-center fixed top-0 right-0 z-50 '>
+    <div className='flex h-[10vh] w-screen flex-row-reverse w-screen relative items-center md:justify-between justify-around'>
       <input
         ref={inputRef}
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onFocus={() => setShowList(true)}
-        className='glass w-[49.5%] h-[40px] rounded-3xl pr-10 pl-4 flex items-center z-50 ml-1'
+        className='glass ml-5 w-full mr-5 sm:mx-5 h-[40px] rounded-3xl pr-10 pl-4 z-[60] flex items-center lg:hidden text-white'
         placeholder="Search"
       />
       {searchQuery && showList && (
-        <div ref={listRef} className='sm:hidden h-[90vh] lg:flex flex-col right w-[48%] text-center absolute top-[8vh] ml-5 scroll-smooth overflow-y-auto scrollbar-thin scrollbar-thumb-greeny/70 scrollbar-track-greeny/25 scrollbar-thumb-rounded-3xl'>
+        <div ref={listRef} className='absolute left-5 top-5 mt-10 mx-5 w-[80%] z-50 bg-black/[0.9] text-white'>
           {filteredData.map((movie) => (
-            <Link
-              key={movie.id}
-              to={`/movie/${movie.id}`}
-              className='flex flex-row items-center bg-black/[0.9] '
-              onClick={() => setShowList(false)}
-            >
-             <img src={`${baseUrl}${movie.posterPath}`} className='w-[50px] mr-2' alt="" />
-              <p>{movie.title}</p>
-            </Link>
+            <div key={movie.id} className='flex items-center p-3 hover:bg-gray-800 cursor-pointer'>
+              <img src={`${baseUrl}${movie.posterPath}`} className='w-8 h-8 mr-3' alt="" />
+              <p className='text-white'>{movie.title}</p>
+            </div>
           ))}
         </div>
       )}
@@ -80,4 +74,4 @@ function NavTop() {
   );
 }
 
-export default NavTop;
+export default MobileSearchBar;

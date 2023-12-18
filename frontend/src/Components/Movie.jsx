@@ -4,7 +4,7 @@ import Navleft from './Navleft';
 import LoadingSpinner from './LoadingSpinner';
 import AverageVote from './Star'; // Import the AverageVote component
 import { useNavigate } from 'react-router-dom';
-
+import MobileSearchBar from './MobileSearch';
 function Category() {
   const navigate = useNavigate();
   const baseUrl = 'https://image.tmdb.org/t/p/original';
@@ -17,7 +17,7 @@ function Category() {
     const fetchData = async () => {
       try {
         // Fetch movies data
-        const response = await fetch('http://157.230.127.29/movies/getDatas');
+        const response = await fetch('https://cinemania.space/movies/getDatas');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -25,7 +25,7 @@ function Category() {
         setMovies(data.movies);
 
         // Fetch genres data
-        const genresResponse = await fetch('http://157.230.127.29/movies/genres');
+        const genresResponse = await fetch('https://cinemania.space/movies/genres');
         if (!genresResponse.ok) {
           throw new Error('Failed to fetch genres data');
         }
@@ -71,11 +71,7 @@ function Category() {
           }`}
           onClick={toggleNavLeft}
         />
-        <input
-          type="text"
-          className='glass ml-5 w-full mr-5 sm:mx-5 h-[40px] rounded-3xl pr-10 pl-4 flex items-center lg:hidden'
-          placeholder="Search"
-        />
+      < MobileSearchBar />
       </div>
       <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
 

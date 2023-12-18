@@ -13,7 +13,7 @@ function Cards() {
       try {
         // Fetch movies data
         const moviesResponse = await fetch(
-          "http://157.230.127.29/movies/getDatas"
+          "https://cinemania.space/movies/getDatas"
         );
         if (!moviesResponse.ok) {
           throw new Error("Failed to fetch movies data");
@@ -30,7 +30,7 @@ function Cards() {
 
         // Fetch genres data
         const genresResponse = await fetch(
-          "http://157.230.127.29/movies/genres"
+          "https://cinemania.space/movies/genres"
         );
         if (!genresResponse.ok) {
           throw new Error("Failed to fetch genres data");

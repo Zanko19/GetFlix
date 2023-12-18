@@ -20,10 +20,11 @@ function TrailerPlayer({ videoKey, onClose }) {
   }, [onClose]);
 
   return (
-    <div className='w-screen h-screen bg-black/[0.7] flex items-start justify-center  fixed top-0 left-0 z-50'>
-      <div ref={trailerRef} className='trailer h-[50%] flex items-center justify-center w-screen lg:w-[80%] lg:h-[80%] bg-black lg:mt-10 lg-mt-0'>
+    <div className='w-screen h-screen bg-black/[0.7] flex items-center justify-center  fixed top-0 left-0 z-[70]'>
+      <div ref={trailerRef} className='trailer h-[50%] p-5 flex items-center justify-center w-screen lg:w-[80%] lg:h-[80%] bg-black lg:mt-10 lg-mt-0'>
         <button onClick={onClose} className="absolute text-lg lg:top-0 top-0 right-0 p-4 text-white cursor-pointer"><MdClose/></button>
         <iframe
+        className=''
           title='Trailer'
           width='100%'
           height='85%'

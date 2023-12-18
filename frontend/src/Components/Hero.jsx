@@ -14,7 +14,7 @@ function Hero() {
   useEffect(() => {
     const fetchFirstMovie = async () => {
       try {
-        const response = await fetch('http://157.230.127.29/movies/getDatas');
+        const response = await fetch('https://cinemania.space/movies/getDatas');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
