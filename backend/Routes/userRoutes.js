@@ -17,9 +17,9 @@ router.route("/update").put(adminAuth, update);
 router.route("/deleteUser").delete(adminAuth, deleteUser);
 
 //-----------------------------------------------------------------------------SIGNUP PAGE
-router.get("/signup-page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/singup.html"));
-});
+// router.get("/signup-page", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/singup.html"));
+// });
 
 router.post("/signup", async (req, res) => {
   try {
@@ -41,15 +41,15 @@ router.post("/signup", async (req, res) => {
 });
 
 //-----------------------------------------------------------------------------Login page
-router.get("/login-page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/login.html"));
-});
+// router.get("/login-page", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/login.html"));
+// });
 
 //-----------------------------------------------------------------------------Get user by ID
 
-router.get("/userid-page", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/getuserid.html"));
-});
+// router.get("/userid-page", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../views/getuserid.html"));
+// });
 
 router.get('/:username', async (req, res) => {
   const username = req.params.username;
