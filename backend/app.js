@@ -30,7 +30,7 @@ app.use("/users", UserRoutes);
 
 const movieController = new MovieController(TokenKey);
 const userController = new UserController();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 7000;
 
 const server = app.listen(PORT, () =>
   console.log(`Server Connected to port ${PORT}`)
