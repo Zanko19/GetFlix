@@ -9,7 +9,7 @@ import Siege from "./Siege";
 import LoadingSpinner from "./LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 import MobileSearchBar from "./MobileSearch";
-
+import CookieBanner from "./CookieBanner";
 function Home({ setUsername, username }) {
   const navigate = useNavigate();
   const [isOpen, setClose] = useState(false);
@@ -56,6 +56,7 @@ function Home({ setUsername, username }) {
 
   return (
     <div className="containermain w-screen h-auto lg:h-screen flex flex-col lg:flex-row items-center my-5 lg:mb-5 lg:mt-5">
+      < CookieBanner/>
       <div className="flex h-[10vh] w-screen md:px-5 flex-row-reverse w-screen relative items-center md:justify-between justify-between">
         <FaBars
           className={`mr-5 text-white flex lg:hidden cursor-pointer transition-opacity duration-300 ${

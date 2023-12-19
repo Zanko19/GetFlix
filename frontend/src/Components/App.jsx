@@ -11,13 +11,14 @@ import Ticket from "./Ticket";
 import Category from "./Movie";
 import Payments from "./Payment";
 import UserProfile from "./UserProfile";
-
+import PrivacyPolicy from "./privacy";
 function App() {
   const [username, setUsername] = useState("");
 
   return (
     <Router>
       <Routes>
+      <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route
           path="/category"
           element={<Category setUsername={setUsername} username={username} />}
