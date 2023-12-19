@@ -12,7 +12,7 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
   console.log("Username in Navleft:", username);
   return (
     <section
-      className={`w-[100vw] h-screen overflow-hidden mglass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-50 overflow-hidden lg:mr-5 transition-transform duration-300 ${
+      className={`w-[100vw] h-screen overflow-hidden mglass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-[70] overflow-hidden lg:mr-5 transition-transform duration-300 ${
         isOpen ? "transform translate-x-0" : "transform -translate-x-full"
       } lg:translate-x-0`}
     >
@@ -29,8 +29,12 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
           onClick={toggleNavLeft}
         />
         {/* //TU MODIFIE LA */}
-        <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10">
-          <h3>{username || "Guest"}</h3>
+        <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10 flex flex-col">
+          <div className="flex flex-row items-center ml-2 mt-8">
+          <div className="bg-black rounded-full h-[50px] w-[50px]"></div>
+          <h3 className="ml-5 text-xl text-white">{username || "Guest"}</h3>
+          </div>
+          <h3 className="text-white text-center mt-1 ml-5 text-sm">guest@gmail.com</h3>
         </div>
         <nav className="h-[50%] flex flex-col">
           <ul className="list-none h-[35%] p-0 text-white flex flex-col items-center justify-between text-lg mt-10">
