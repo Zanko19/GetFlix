@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import screen from "../img/screen.jpeg";
 
-function Login() {
+function Login({ setUsername }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -35,15 +35,18 @@ function Login() {
         },
       });
 
-      console.log("Response Status:", response.status);
-
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData.message); // Log success message
-        navigate("/");
+        console.log("Response data:", responseData);
+
+        const { username } = responseData.user;
+        console.log("Username:", username);
+
+        // Utilize the function to update the username in App
+        setUsername(username);
+
+        navigate(`/users/${username}/`);
       } else {
-        const errorResponse = await response.json();
-        console.error("Error during login:", errorResponse.message);
       }
     } catch (error) {
       console.error("Error during login:", error.message);

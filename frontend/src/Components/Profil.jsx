@@ -8,7 +8,7 @@ import catImage from "../img/cat.jpg";
 import horrorImage from "../img/horror.jpg";
 import sfImage from "../img/sf.jpg";
 
-function Profile() {
+function Profile({ setUsername, username }) {
   const [isOpen, setClose] = useState(false);
   const [isEditing, setEditing] = useState(false);
   const [selectedPicture, setSelectedPicture] = useState(1);
@@ -66,7 +66,11 @@ function Profile() {
           placeholder="Search"
         />
       </div>
-      <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
+      <Navleft
+        username={username}
+        isOpen={isOpen}
+        toggleNavLeft={toggleNavLeft}
+      />
       <NavTop />
 
       <section

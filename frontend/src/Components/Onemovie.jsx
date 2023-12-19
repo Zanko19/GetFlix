@@ -20,7 +20,7 @@ const getGenres = (movie, genresData) => {
   return firstTwoGenres.map((genre) => genre.name).join(", ");
 };
 
-const OneMovie = () => {
+const OneMovie = ({ setUsername, username }) => {
   const navigate = useNavigate();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -46,29 +46,26 @@ const OneMovie = () => {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
- 
         const response = await fetch(`https://cinemania.space/movies/getDatas`);
-    
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+
         const data = await response.json();
 
-  
         const selectedMovie = data.movies.find((m) => String(m.id) === movieId);
-   
-  
+
         if (selectedMovie) {
           setMovie(selectedMovie);
         } else {
-          console.error('Movie not found for id:', movieId);
+          console.error("Movie not found for id:", movieId);
         }
       } catch (error) {
-        console.error('Error fetching movie data:', error);
+        console.error("Error fetching movie data:", error);
       }
     };
-  
+
     fetchMovieData();
   }, [movieId]);
 
@@ -124,7 +121,11 @@ const OneMovie = () => {
           onClick={toggleNavLeft}
         />
       </div>
-      <Navleft isOpen={isOpen} toggleNavLeft={toggleNavLeft} />
+      <Navleft
+        username={username}
+        isOpen={isOpen}
+        toggleNavLeft={toggleNavLeft}
+      />
       <NavTop />
       <section className="lg:absolute lg:left-[20vw] lg:bottom-0 lg:w-[80vw] lg:h-[85vh] text-white text-3xl flex flex-col items-center lg:flex-row lg:items-start lg:justify-between lg:ml-5">
         <img
@@ -186,6 +187,6 @@ const OneMovie = () => {
       )}
     </div>
   );
-}
+};
 
 export default OneMovie;
