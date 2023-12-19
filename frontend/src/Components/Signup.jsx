@@ -147,7 +147,7 @@ function Sign() {
           </div>
           <form onSubmit={handleSubmit}>
             {/* Display the default icon */}
-            <div className="mb-6">
+            <div className="mb-6 hidden">
               <label
                 htmlFor="icon"
                 className="block mb-2 text-xs font-medium text-white"

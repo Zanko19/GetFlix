@@ -7,8 +7,64 @@ import { FaUser } from "react-icons/fa";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 import { FaVideo } from "react-icons/fa";
 import cinemania from "../SVG/cinemania.svg";
+import catImage from "../img/cat.jpg";
+import horrorImage from "../img/horror.jpg";
+import sfImage from "../img/sf.jpg";
+import { fetchUserData } from "./api";
+function Navleft({ isOpen, toggleNavLeft, username, onLogout }) {
+  const handleLogout = () => {
+    try {
+      // Check if localStorage is available
+      if (typeof window !== "undefined" && window.localStorage) {
+        // Clear user data from local storage
+        window.localStorage.removeItem("userData");
+      }
 
-function Navleft({ isOpen, toggleNavLeft, username }) {
+ 
+      console.log("Logging out...");
+
+      window.location.reload();
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+  const [userData, setUserData] = useState({
+    email: "",
+    icon: "",
+  });
+
+  useEffect(() => {
+    const fetchUserDataFromAPI = async () => {
+      try {
+        const response = await fetchUserData(username);
+        if (response.ok) {
+          const userData = await response.json();
+          console.log("User data:", userData);
+
+          const { email, icon } = userData;
+          setUserData({
+            email: email || "",
+            icon: icon || "1", // Assuming 1 is the default value if icon is not provided
+          });
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error during user data fetch:", error.message);
+      }
+    };
+
+    fetchUserDataFromAPI();
+  }, [username]);
+
+  
+  const iconImageMap = {
+    "1": catImage,
+    "2": horrorImage,
+    "3": sfImage,
+  };
+
+
   console.log("Username in Navleft:", username);
   return (
     <section
@@ -18,7 +74,7 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
     >
       <aside className="h-screen flex flex-col lg:items-start items-center lg:ml-10 justify-start">
         <div className="lg:h-[10vh] z-100 text-xl text-greeny flex flex-row self-start lg:items-center">
-          <img
+        <img
             className=" w-[160px] lg:absolute lg:left-5 lg:mt-2"
             src={cinemania}
             alt=""
@@ -30,14 +86,18 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
         />
         {/* //TU MODIFIE LA */}
         <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10 flex flex-col">
-          <div className="flex flex-row items-center ml-2 mt-8">
-            <div className="bg-black rounded-full h-[50px] w-[50px]"></div>
-            <h3 className="ml-5 text-xl text-white">{username || "Guest"}</h3>
-          </div>
-          <h3 className="text-white text-center mt-1 ml-5 text-sm">
-            guest@gmail.com
-          </h3>
-        </div>
+      <div className="flex flex-row items-center ml-2 mt-8">
+        <img
+         src={iconImageMap[userData.icon] || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} // Provide a default image URL or handle it as needed
+          alt=""
+          className="rounded-full h-[50px] w-[50px]"
+        />
+        <h3 className="ml-3 text-xl text-white">{username || "Guest"}</h3>
+      </div>
+      <h3 className="text-white/80 text-center mt-1 text-sm">
+        {userData.email}
+      </h3>
+    </div>
         <nav className="h-[50%] flex flex-col">
           <ul className="list-none h-[35%] p-0 text-white flex flex-col items-center justify-between text-lg mt-10">
             <NavLink
@@ -81,7 +141,10 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
         </nav>
       </aside>
       <div className="text-white absolute bottom-5 left-0 lg:ml-10 text-lg">
-        <div className="ml-7 flex flex-row items-center">
+      <div
+          className="ml-7 flex flex-row items-center cursor-pointer"
+          onClick={handleLogout}
+        >
           {" "}
           <BsArrowRightSquareFill className="mr-3 text-greeny rounded-md" />{" "}
           Logout
