@@ -5,7 +5,6 @@ import Movie from "./Onemovie";
 import Sign from "./Signup";
 import Login from "./Login";
 import Home from "./Landingpage";
-import Navleft from "./Navleft";
 import "../App.css";
 import Profil from "./Profil";
 import Ticket from "./Ticket";
@@ -18,7 +17,6 @@ function App() {
 
   return (
     <Router>
-      <Navleft username={username} />
       <Routes>
         <Route
           path="/category"
@@ -32,7 +30,7 @@ function App() {
           path="/signup"
           element={<Sign setUsername={setUsername} username={username} />}
         />
-        <Route path="/login" element={<Login setUsername={setUsername} />} />
+        <Route path="/login/*" element={<Login setUsername={setUsername} />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route
           path="/"

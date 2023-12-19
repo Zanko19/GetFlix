@@ -45,7 +45,7 @@ function Login({ setUsername }) {
         // Utilize the function to update the username in App
         setUsername(username);
 
-        navigate(`/users/${username}/`);
+        navigate(`/`);
       } else {
       }
     } catch (error) {
@@ -123,7 +123,6 @@ function Login({ setUsername }) {
                 <Link to="/signup">Signup here</Link>
               </div>
             </div>
-
             <button
               type="submit"
               className="fancy w-1/2 flex mt-2 md:w-60 md:mb-4 w-40 mx-auto flex items-center justify-center text-xl md:text-xl bg-greeny/30 py-2 rounded-md text-white border border-[#b4d429] hover:scale-105 group-hover:animate-shine"
