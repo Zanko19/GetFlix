@@ -43,7 +43,9 @@ Assurez-vous d'avoir [Node.js](https://nodejs.org/) installé sur votre machine.
 
 ## Problèmes Connus ⚠️
 
-Work in progress
+* Difficulté à commencer un aussi gros projet (répartition des tâches, documentation, ..)
+* Deploy (surtout du back) trop tard
+* Connection entre le front et le back trop tard (perte de temps pour tester le back, perte de temps à la fin pour le front)
 
 # ©
 ##  Onisim Rusu
