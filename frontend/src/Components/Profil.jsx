@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa6";
 import Navleft from "./Navleft";
 import NavTop from "./Navtop";
@@ -24,7 +24,30 @@ function Profile({ setUsername, username }) {
     phoneNumber: "+32474025647",
     address: "123 rue Saint Antoine",
   });
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await fetch(
+          `https://cinemania.space/users/${encodeURIComponent(username)}`
+        );
+        if (response.ok) {
+          const profileData = await response.json();
+          console.log("Profile data:", profileData);
+          setProfileInfo({
+            fullName: profileData.username,
+            emailAddress: profileData.email,
+            // ... other fields you want to include
+          });
+        } else {
+          console.error("Failed to fetch profile data");
+        }
+      } catch (error) {
+        console.error("Error during profile data fetch:", error.message);
+      }
+    };
 
+    fetchProfileData();
+  }, [username]);
   //return info
   const updateProfileInfo = (field, value) => {
     setProfileInfo((prevProfileInfo) => ({
@@ -100,7 +123,7 @@ function Profile({ setUsername, username }) {
                   <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
                     <input
                       type="text"
-                      value={profileInfo.fullName}
+                      value={username}
                       onChange={(e) =>
                         updateProfileInfo("fullName", e.target.value)
                       }
@@ -159,7 +182,7 @@ function Profile({ setUsername, username }) {
                     Full name
                   </dt>
                   <dd className="mt-1 text-sm text-white-900 sm:mt-0 sm:col-span-2">
-                    {profileInfo.fullName}
+                    {username}
                   </dd>
                 </div>
                 <div className="py-3 lg:py-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:px-6">

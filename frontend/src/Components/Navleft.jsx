@@ -30,9 +30,7 @@ function Navleft({ isOpen, toggleNavLeft, username }) {
         />
         {/* //TU MODIFIE LA */}
         <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10">
-          <NavLink to={`/users/${username}`}>
-            <h3>{username || "Guest"}</h3>
-          </NavLink>
+          <h3>{username || "Guest"}</h3>
         </div>
         <nav className="h-[50%] flex flex-col">
           <ul className="list-none h-[35%] p-0 text-white flex flex-col items-center justify-between text-lg mt-10">
