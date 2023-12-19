@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import screen from "../img/Sign1.jpg";
+import defaultIcon from "../img/cat.jpg"; // Import the default icon
 
 function Sign() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ function Sign() {
     email: "",
     password: "",
     confirmPassword: "",
+    icon: ["1"],
   });
 
   const togglePasswordVisibility = (field) => {
@@ -36,6 +38,14 @@ function Sign() {
       ...prevFormData,
       [id]: value,
     }));
+
+    if (id === "icon") {
+      // If the icon field is being updated, set it as an array with the ID
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        icon: [value],
+      }));
+    }
 
     if (id === "fullName") {
       const fullNameErrorClass = isValidFullName(value)
@@ -92,6 +102,7 @@ function Sign() {
           email: formData.email,
           password: formData.password,
           confirmPassword: formData.confirmPassword,
+          icon: formData.icon,
         }),
       });
 
@@ -135,6 +146,21 @@ function Sign() {
             Sign In
           </div>
           <form onSubmit={handleSubmit}>
+            {/* Display the default icon */}
+            <div className="mb-6">
+              <label
+                htmlFor="icon"
+                className="block mb-2 text-xs font-medium text-white"
+              >
+                Your Icon
+              </label>
+              <img
+                src={defaultIcon}
+                alt="Default Icon"
+                className="w-6 h-6 mr-2"
+              />
+            </div>
+
             <div className="mb-6">
               <label
                 htmlFor="fullName"

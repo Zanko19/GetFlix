@@ -36,7 +36,6 @@ function Profile({ setUsername, username }) {
           setProfileInfo({
             fullName: profileData.username,
             emailAddress: profileData.email,
-            // ... other fields you want to include
           });
         } else {
           console.error("Failed to fetch profile data");
@@ -93,6 +92,8 @@ function Profile({ setUsername, username }) {
         username={username}
         isOpen={isOpen}
         toggleNavLeft={toggleNavLeft}
+        email={profileInfo?.emailAddress}
+        profileInfo={profileInfo}
       />
       <NavTop />
 
