@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { FaBars } from "react-icons/fa6";
-import { useParams } from "react-router-dom";
+import { useParams , Link} from "react-router-dom";
+import { NavLink } from "react-router-dom"; // Import NavLink for navigation
 import Navleft from "./Navleft";
 import Siege from "./Siege";
 import cup from "../SVG/cupcinema.svg";
@@ -9,14 +10,15 @@ import bol from "../SVG/BOULEPORN.svg";
 import LoadingSpinner from "./LoadingSpinner";
 import NavTop from "./Navtop";
 import MobileSearchBar from "./MobileSearch";
+import { fetchUserData } from "./api"; 
 
-function Ticket({ setUsername, username }) {
+const Ticket = ({ setUsername, username }) => {
   const { movieId } = useParams();
   const [isOpen, setClose] = useState(false);
   const [movie, setMovie] = useState(null);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showFullLoading, setShowFullLoading] = useState(true); // New state variable
+  const [showFullLoading, setShowFullLoading] = useState(true);
   const baseUrl = "https://image.tmdb.org/t/p/original";
 
   const toggleNavLeft = () => {
@@ -26,10 +28,8 @@ function Ticket({ setUsername, username }) {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        // Simulating async data fetching
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        // Fetch movie data
         const response = await fetch("https://cinemania.space/movies/getDatas");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -41,7 +41,6 @@ function Ticket({ setUsername, username }) {
       } catch (error) {
         console.error("Error fetching movie data:", error);
       } finally {
-        // Set isLoading to false after fetching data with a 500ms delay
         setTimeout(() => {
           setIsLoading(false);
 
@@ -54,10 +53,25 @@ function Ticket({ setUsername, username }) {
     };
 
     const fetchData = async () => {
-      // Show loading spinner while fetching data
       setIsLoading(true);
 
       await fetchMovieData();
+
+      // Fetch user data
+      try {
+        const userResponse = await fetchUserData(); // Adjust parameters if needed
+        if (!userResponse.ok) {
+          throw new Error(`HTTP error! Status: ${userResponse.status}`);
+        }
+        const userData = await userResponse.json();
+
+        // Use userData to set the username or set default to "Guest"
+        const fetchedUsername = userData.username || "Guest";
+        setUsername(fetchedUsername);
+   
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
     };
 
     fetchData();
@@ -86,7 +100,6 @@ function Ticket({ setUsername, username }) {
             isOpen ? "bg-slate-700/0.5" : ""
           }`}
         >
-          {/* Only render the content when movie data is available */}
           {movie && (
             <>
               <div className="lg:w-[25%] w-[90%] lg:h-[94%] lg:mt-0 lg:mr-20">
@@ -121,7 +134,20 @@ function Ticket({ setUsername, username }) {
                         Seats: {selectedSeats.join(", ")}
                       </h2>
                     </div>
-                    <h2 className="mt-10 lg:text-lg text-xl">UserName Test</h2>
+                    <h2 className="mt-10 lg:text-lg text-xl">{username || "Guest"}</h2>
+                    {username ? (
+                        <Link to="/payments">
+                        <button className="bg-greeny px-4 text-lg rounded-3xl mt-5">Checkout</button>
+                      </Link>
+                    ) : (
+                      <div className="mt-4 text-lg">
+                        Please{" "}
+                        <NavLink to="/login" className="text-[#b4d429]">
+                          login
+                        </NavLink>{" "}
+                        to proceed to checkout.
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

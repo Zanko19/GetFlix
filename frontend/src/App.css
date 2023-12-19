@@ -12,6 +12,7 @@ overflow:hidden;
 .siege{
   height: 80%;
 }
+
 .loading{
   background-image: radial-gradient(circle at bottom left, 
   rgb(19, 2, 19) 0%,       

@@ -21,7 +21,7 @@ function Navleft({ isOpen, toggleNavLeft, username, onLogout }) {
       }
 
  
-      console.log("Logging out...");
+   
 
       window.location.reload();
     } catch (error) {
@@ -39,12 +39,12 @@ function Navleft({ isOpen, toggleNavLeft, username, onLogout }) {
         const response = await fetchUserData(username);
         if (response.ok) {
           const userData = await response.json();
-          console.log("User data:", userData);
+        
 
           const { email, icon } = userData;
           setUserData({
             email: email || "",
-            icon: icon || "1", // Assuming 1 is the default value if icon is not provided
+            icon: icon || "1", 
           });
         } else {
           console.error("Failed to fetch user data");
@@ -65,7 +65,6 @@ function Navleft({ isOpen, toggleNavLeft, username, onLogout }) {
   };
 
 
-  console.log("Username in Navleft:", username);
   return (
     <section
       className={`w-[100vw] h-screen overflow-hidden mglass md:w-[100vw] z-0 lg:bg-transparent border-0 h-screen lg:max-w-[20vw] absolute left-0 top-0 z-[70] overflow-hidden lg:mr-5 transition-transform duration-300 ${
@@ -85,19 +84,40 @@ function Navleft({ isOpen, toggleNavLeft, username, onLogout }) {
           onClick={toggleNavLeft}
         />
         {/* //TU MODIFIE LA */}
-        <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10 flex flex-col">
-      <div className="flex flex-row items-center ml-2 mt-8">
-        <img
-         src={iconImageMap[userData.icon] || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} // Provide a default image URL or handle it as needed
-          alt=""
-          className="rounded-full h-[50px] w-[50px]"
-        />
-        <h3 className="ml-3 text-xl text-white">{username || "Guest"}</h3>
-      </div>
-      <h3 className="text-white/80 text-center mt-1 text-sm">
-        {userData.email}
-      </h3>
-    </div>
+        {username ? ( // If user is logged in, display user info and logout
+          <>
+            <div className="mt-[5vh] glass rounded-3xl w-48 h-[18%] mb-10 flex flex-col">
+              <div className="flex flex-row items-center ml-2 mt-8">
+                <img
+                  src={iconImageMap[userData.icon] || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
+                  alt=""
+                  className="rounded-full h-[50px] w-[50px]"
+                />
+                <h3 className="ml-3 text-xl text-white">{username || "Guest"}</h3>
+              </div>
+              <h3 className="text-white/80 text-center mt-1 text-sm">
+                {userData.email}
+              </h3>
+            </div>
+          </>
+        ) : ( 
+          <div className="mt-[5vh] glass rounded-3xl w-48 h-[20%] lg:h-[18%] mb-10 flex flex-col ">
+            <div className="flex flex-row items-center ml-2 mt-8">
+              <img
+                src={iconImageMap[userData.icon] || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
+                alt=""
+                className="rounded-full h-[50px] w-[50px]"
+              />
+              <h3 className="ml-3 text-xl text-white">{username || "Guest"}</h3>
+            </div>
+            <h3 className="text-white/80 text-center mt-1 text-sm">
+              {userData.email}
+            </h3>
+            <NavLink to="/login" className="ml-3 w-[60%] text-center ml-10  mt-10 rounded-3xl bg-greeny text-black cursor-pointer">
+              Login
+            </NavLink>
+          </div>
+        )}
         <nav className="h-[50%] flex flex-col">
           <ul className="list-none h-[35%] p-0 text-white flex flex-col items-center justify-between text-lg mt-10">
             <NavLink

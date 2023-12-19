@@ -37,10 +37,10 @@ function Login({ setUsername }) {
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log("Response data:", responseData);
+     
 
         const { username } = responseData.user;
-        console.log("Username:", username);
+       
 
         // Utilize the function to update the username in App
         setUsername(username);
