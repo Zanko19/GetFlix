@@ -1,7 +1,0 @@
-# Ignore environment-specific configuration files
-
-# Ignore node_modules in the backend directory
-/backend/node_modules/
-
-# Ignore package-lock.json at the root level
-package-lock.json

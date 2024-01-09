@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search</title>
+  </head>
+  <body>
+    <h1>Movie Search</h1>
+
+    <form id="searchForm">
+      <label for="movieName">Enter Movie Name:</label>
+      <input type="text" id="movieName" name="movieName" required />
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="resultContainer"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchForm = document.getElementById("searchForm");
+        const resultContainer = document.getElementById("resultContainer");
+
+        searchForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const movieName = document.getElementById("movieName").value;
+
+          const genreUrl =
+            "https://api.themoviedb.org/3/genre/movie/list?language=en";
+          const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+            movieName
+          )}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc`;
+
+          // Fetch movie data based on the search query
+          Promise.all([
+            fetch(genreUrl, {
+              method: "GET",
+              headers: {
+                accept: "application/json",
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDM0MDVjZTkwYWQ3YWJiY2M2NmVjZGQ4MzQzODAyMCIsInN1YiI6IjY1Njg0NjQzOWFmZmMwMDBlYmNmMzU4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m4dPEXx0u6ZzRO0DzSsS5h-9bl8n5RvrpRdhvtNhCjI",
+              },
+            }),
+            fetch(searchUrl, {
+              method: "GET",
+              headers: {
+                accept: "application/json",
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDM0MDVjZTkwYWQ3YWJiY2M2NmVjZGQ4MzQzODAyMCIsInN1YiI6IjY1Njg0NjQzOWFmZmMwMDBlYmNmMzU4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m4dPEXx0u6ZzRO0DzSsS5h-9bl8n5RvrpRdhvtNhCjI",
+              },
+            }),
+          ])
+            .then((responses) =>
+              Promise.all(responses.map((res) => res.json()))
+            )
+            .then(([genreData, searchData]) => {
+              // Handle genre data and search data here
+              console.log("Genre Data:", genreData);
+              console.log("Search Data:", searchData);
+
+              // You can proceed to display the data in your desired format
+              displayMovies(searchData.results, genreData.genres);
+            });
+        });
+
+        function displayMovies(movies, genres) {
+          console.log(movies, genres);
+
+          // Clear existing content
+          resultContainer.innerHTML = "";
+
+          // Check if movies array exists and has results
+          if (movies && movies.length > 0) {
+            movies.forEach((movie) => {
+              // Create a container for each movie
+              const movieContainer = document.createElement("div");
+              movieContainer.className = "movie-container";
+
+              // Create elements to display movie details
+              const titleElement = document.createElement("h2");
+              titleElement.textContent = movie.title;
+
+              const releaseDateElement = document.createElement("p");
+              releaseDateElement.textContent = `Release Date: ${movie.release_date}`;
+
+              const overviewElement = document.createElement("p");
+              overviewElement.textContent = `Overview: ${movie.overview}`;
+
+              const voteAverageElement = document.createElement("p");
+              voteAverageElement.textContent = `Vote Average: ${movie.vote_average}`;
+
+              const posterElement = document.createElement("img");
+              posterElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+              posterElement.alt = `${movie.title} Poster`;
+
+              const backdropElement = document.createElement("img");
+              backdropElement.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+              backdropElement.alt = `${movie.title} Backdrop`;
+
+              // Extract genre names based on genre IDs
+              const genreNames = movie.genre_ids.map((genreId) => {
+                const genre = genres.find((genre) => genre.id === genreId);
+                return genre ? genre.name : "Unknown";
+              });
+
+              const categoriesElement = document.createElement("p");
+              categoriesElement.textContent = `Categories: ${genreNames.join(
+                ", "
+              )}`;
+
+              // Append elements to the movie container
+              movieContainer.appendChild(titleElement);
+              movieContainer.appendChild(releaseDateElement);
+              movieContainer.appendChild(overviewElement);
+              movieContainer.appendChild(voteAverageElement);
+              movieContainer.appendChild(posterElement);
+              movieContainer.appendChild(categoriesElement);
+              movieContainer.appendChild(backdropElement);
+
+              const videoUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`;
+              fetch(videoUrl, {
+                method: "GET",
+                headers: {
+                  accept: "application/json",
+                  Authorization:
+                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MDM0MDVjZTkwYWQ3YWJiY2M2NmVjZGQ4MzQzODAyMCIsInN1YiI6IjY1Njg0NjQzOWFmZmMwMDBlYmNmMzU4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m4dPEXx0u6ZzRO0DzSsS5h-9bl8n5RvrpRdhvtNhCjI",
+                },
+              })
+                .then((res) => res.json())
+                .then((videoData) => {
+                  // Check if there are videos available
+                  if (videoData.results && videoData.results.length > 0) {
+                    const videoKey = videoData.results[0].key;
+
+                    // Create an iframe element for the video player
+                    const videoPlayerElement = document.createElement("iframe");
+                    videoPlayerElement.width = "560";
+                    videoPlayerElement.height = "315";
+                    videoPlayerElement.src = `https://www.youtube.com/embed/${videoKey}`;
+                    videoPlayerElement.allowfullscreen = true;
+
+                    movieContainer.appendChild(videoPlayerElement);
+                  } else {
+                    const noVideoElement = document.createElement("p");
+                    noVideoElement.textContent = "No video available";
+                    movieContainer.appendChild(noVideoElement);
+                  }
+
+                  // Append the movie container to the result container
+                  resultContainer.appendChild(movieContainer);
+                })
+                .catch((error) => {
+                  console.error("Error fetching video data:", error);
+                });
+            });
+          } else {
+            resultContainer.textContent = "No movies found.";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
