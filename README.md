@@ -34,7 +34,7 @@ Ce projet utilise les technologie suivantes :
 
 Pour lancer le projet localement sur votre machine, suivez ces étapes :
 
-1. Clonez ce dépôt : `git clone https://github.com/A3lequenne/getflixProject.git`
+1. Clonez ce dépôt : `git clone https://github.com/Zanko19/GetFlix.git`
 2. Accédez au répertoire du projet : `cd getflixProject`
 3. Installez les dépendances : `npm install`
 4. Lancez le projet : `npm start`
